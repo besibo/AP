@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: docs
+  resources: "www/"
+
+website:
+  title: "Amitié Pictave"
+  open-graph: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Accueil
+  sidebar:
+    style: docked
+    search: true
+    contents: 
+      - section: "Sorties"
+        contents: 
+          - AVenir.qmd
+          - Historique.qmd
+          - section: "2023"
+            contents:
+            - LaLonde2023.qmd
+            - Lanildut2023.qmd
+            
+
+format:
+  html:
+    theme: MyUnited.scss
+    css: styles.css
+    toc: true
+
+
+

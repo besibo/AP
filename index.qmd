@@ -1,0 +1,13 @@
+---
+title: "website"
+---
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+1 + 1
+```
+
+Au bout de [ce lien](sortie.html), on trouve le bilan de la dernière sortie.
