@@ -4,13 +4,11 @@ subtitle: |
   | Du 28 octobre au 4 novembre 2023
   |
   | *Carole, tu veux que je te crame tes petits poils ?* --- Grom, 31 octobre.
-author: "Amitié Pictave"
 date: now
 date-format: "dddd D MMMM YYYY"
 lang: fr
 title-block-banner: false
 language:
-  title-block-author-single: "Auteur"
   title-block-published: "Dernière Mise à jour"
 ---
 

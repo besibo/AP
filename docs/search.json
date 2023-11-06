@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "website",
+    "title": "Bienvenue sur le site de l’Amitié Pictave",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\nAu bout de ce lien, on trouve le bilan de la dernière sortie."
+    "text": "Le Mustang, baie de Carqueiranne, 2017\n\n\nSur ce site, vous trouverez notamment des informations sur :\n\nles sorties à venir\nla liste des sorties passées\nles comptes des sorties précédentes, y compris la plus récente\n\nEt bien d’autres choses encore !"
   },
   {
     "objectID": "about.html",
@@ -228,7 +228,7 @@
     "href": "AVenir.html",
     "title": "Les sorties à venir",
     "section": "",
-    "text": "Toutes les infos de cette page ont été discutées lors de l’AG qui s’est tenu en présence de la majorité des membres de l’association le vendredi 3 novembre 2023. Les dates et sites proposes ne sont pas gravés dans le marbre à ce stade !"
+    "text": "Toutes les infos de cette page ont été discutées lors de l’AG qui s’est tenue en présence de la majorité des membres de l’association le vendredi 3 novembre 2023. Les dates et sites proposés ne sont pas gravés dans le marbre à ce stade !"
   },
   {
     "objectID": "AVenir.html#pâques-2024",
@@ -242,7 +242,7 @@
     "href": "AVenir.html#été-2024",
     "title": "Les sorties à venir",
     "section": "Été 2024",
-    "text": "Été 2024\n\nLieu : Camaret\nDates : du samedi 13 au samedi 20 juillet"
+    "text": "Été 2024\n\nLieu : Camaret\nDates : du samedi 13 au samedi 20 juillet\n\nSi les dates conviennent au plus grand nombre, il serait bon de commencer à chercher un logement dès maintenant."
   },
   {
     "objectID": "AVenir.html#toussaint-2024",
@@ -250,5 +250,12 @@
     "title": "Les sorties à venir",
     "section": "Toussaint 2024",
     "text": "Toussaint 2024\n\nLieu : Cavalaire\nDates : du samedi 26 octobre au samedi 2 novembre"
+  },
+  {
+    "objectID": "AVenir.html#ref-test",
+    "href": "AVenir.html#ref-test",
+    "title": "Les sorties à venir",
+    "section": "Pâques 2024",
+    "text": "Pâques 2024\n\nLieu : Marseille\nDates : du dimanche 14 au dimanche 21 avril\n\nSous réserve de confirmation auprès de René évidemment !"
   }
 ]

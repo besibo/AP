@@ -4,13 +4,11 @@ subtitle: |
   | Du 22 au 29 juillet 2023
   |
   | *Pedro, tu veux que je ferme ta combi ? Ah bah non...* --- Benoît, 25 juillet.
-author: "Amitié Pictave"
 date: now
 date-format: "dddd D MMMM YYYY"
 lang: fr
 title-block-banner: false
 language:
-  title-block-author-single: "Auteur"
   title-block-published: "Dernière Mise à jour"
 ---
 

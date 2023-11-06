@@ -1,13 +1,23 @@
 ---
-title: "website"
+title: "Bienvenue sur le site de l'Amitié Pictave"
+filters:
+   - lightbox
+lightbox:
+  match: auto
+  effect: fade
+  desc-position: right
+  loop: false
 ---
 
-This is a Quarto website.
+<br>
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+![*Le Mustang, baie de Carqueiranne, 2017*](img/Mustang.jpg)
 
-```{r}
-1 + 1
-```
 
-Au bout de [ce lien](sortie.html), on trouve le bilan de la dernière sortie.
+Sur ce site, vous trouverez notamment des informations sur :
+
+- [les sorties à venir](https://besibo.github.io/AP/AVenir.html)
+- [la liste des sorties passées](https://besibo.github.io/AP/Historique.html)
+- les comptes des sorties précédentes, y compris [la plus récente](https://besibo.github.io/AP/LaLonde2023.html)
+
+Et bien d'autres choses encore !
