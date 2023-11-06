@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Bienvenue sur le site de l’Amitié Pictave",
     "section": "",
-    "text": "Le Mustang, baie de Carqueiranne, 2017\n\n\nSur ce site, vous trouverez notamment des informations sur :\n\nles sorties à venir\nla liste des sorties passées\nles comptes des sorties précédentes, y compris la plus récente\n\nEt bien d’autres choses encore !"
+    "text": "Le Mustang, baie de Carqueiranne. Jérôme Otruquin, avril 2017\n\n\nSur ce site, vous trouverez des informations sur :\n\nles sorties à venir\nla liste des sorties passées\nles comptes des sorties précédentes, y compris la plus récente\nl’entretien du camion, du bateau, des compresseurs…\n\nEt bien d’autres choses encore !"
   },
   {
     "objectID": "about.html",
@@ -257,5 +257,47 @@
     "title": "Les sorties à venir",
     "section": "Pâques 2024",
     "text": "Pâques 2024\n\nLieu : Marseille\nDates : du dimanche 14 au dimanche 21 avril\n\nSous réserve de confirmation auprès de René évidemment !"
+  },
+  {
+    "objectID": "Entretien.html",
+    "href": "Entretien.html",
+    "title": "Entretien",
+    "section": "",
+    "text": "Beaucoup de travaux ont été faits suite à la sortie de l’été 2023 :\n\npompe à eau\ndistribution\ntrain de pneus\nplaquettes de freins\nplaque métallique pour boucher le trou dans le plancher…\n\nIl faut encore remplacer 2 pneus pour régler le problème de vibrations rencontré à la descente vers La Londe à la Toussaint 2023."
+  },
+  {
+    "objectID": "Entretien.html#ducato",
+    "href": "Entretien.html#ducato",
+    "title": "Entretien",
+    "section": "",
+    "text": "Beaucoup de travaux ont été faits suite à la sortie de l’été 2023 :\n\npompe à eau\ndistribution\ntrain de pneus\nplaquettes de freins\nplaque métallique pour boucher le trou dans le plancher…\n\nIl faut encore remplacer 2 pneus pour régler le problème de vibrations rencontré à la descente vers La Londe à la Toussaint 2023."
+  },
+  {
+    "objectID": "Entretien.html#valiant",
+    "href": "Entretien.html#valiant",
+    "title": "Entretien",
+    "section": "Valiant",
+    "text": "Valiant\nLes boudins attendent toujours leur coup de brosse… Le produit est dans la console, le balais brosse dans le Ducato.\nEntretien chez Mistral Plaisance RAS en Novembre 2023."
+  },
+  {
+    "objectID": "Entretien.html#compresseurs",
+    "href": "Entretien.html#compresseurs",
+    "title": "Entretien",
+    "section": "Compresseurs",
+    "text": "Compresseurs\nLes vidanges ont été faites le mardi 31 octobre 2023, pour les 2 compresseurs (moteurs thermiques et compresseur).\nPour mémoire :\n\nla vidange des moteurs thermiques doit être faite tous les 2 ans environ. Prochaine échéance à l’automne/hiver 2025-2026. Consommation d’huile : 1,1 litre par compresseur\nla vidange de la partie “compresseur d’air” pourrait être faite un peu moins souvent (tous les 3 ans ?). Prochaine échéance à l’automne-hiver 2026-2027. Le compresseur noir a besoin de 2,8 litres d’huile de synthèse, et le rouge (qui avale régulièrement de l’oxygène) de 2,8 litres d’huile minérale."
+  },
+  {
+    "objectID": "Entretien.html#les-remorques",
+    "href": "Entretien.html#les-remorques",
+    "title": "Entretien",
+    "section": "Les remorques",
+    "text": "Les remorques\nVérifier les roulements de la remorque bateau avant chaque sortie (ou au moins à la sortie de l’hiver)."
+  },
+  {
+    "objectID": "Entretien.html#remorques",
+    "href": "Entretien.html#remorques",
+    "title": "Entretien",
+    "section": "Remorques",
+    "text": "Remorques\nVérifier les roulements de la remorque bateau avant chaque sortie (ou au moins à la sortie de l’hiver).\nPlancher de la remorque compresseur changé en août 2023."
   }
 ]

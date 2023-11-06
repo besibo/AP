@@ -22,7 +22,9 @@ website:
             contents:
             - LaLonde2023.qmd
             - Lanildut2023.qmd
-            
+      - section: "Entretien"
+        contents: 
+          - Entretien.qmd
 
 format:
   html:
