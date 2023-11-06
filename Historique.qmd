@@ -31,6 +31,9 @@ liste_sorties_raw |>
          Début = format(`Date début`, "%d %B %Y"),
          Fin = format(`Date fin`, "%d %B %Y"),
          Bilan = glue("[Bilan](www/Bilans/{fl})"),
+         Bilan = if_else(Année == 2023 & Période == "Toussaint", 
+                         glue("[Bilan](https://besibo.github.io/AP/LaLonde2023.html)"), 
+                         Bilan),  
          Bilan = map(Bilan, gt::md)) |> 
   select(Année, Site = Lieu, Période, Début, Fin, Bilan) |> 
   gt() |> 
