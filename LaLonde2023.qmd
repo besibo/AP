@@ -68,7 +68,7 @@ autres <- tribble(
   "beu",	  0, 144.85+5.20, 132.24+71, 49.8+4.2+3.9+7.2+5.8+7.2+5.8+4.2+3.9, 0, 0,
   "car",	  0, 0, 147.96 + 117.94, 64.9, 0, 0,
   "grom",	  350, 60.27, 53.96+118.04, 23.7+6.2+49.8, 0, 0,
-  "nat",	  187.5 + 683.46 - 350 + 180, 220.68, 81.06, 0, 0, 0,
+  "nat",	  187.5 + 683.46 - 350 + 180, 220.68, 81.06+130.24+96.2, 28.6, 0, 0,
   "ped",	  0, 22+51.76+9.41+23.16+9.8+26+7.14, 71.04+105+25.15+161.25, 2.5+2.4+4.8+3.8+15+26.6+6.9+57, 0, 0,
   "tho",	  0, 0, 129.34+40+160+173.44, 1.4+1.4+1.4+15+3.8+32.7+4.8+1.4+3.7+1.4+2.5+1.4, 0, 0,
   "bea",    0, 7.9+8.3+37.56+28.3+5.71+104.83, 0, 0, 0, 0,
@@ -233,14 +233,14 @@ La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des 
 
 Pour finir, nous avons parcouru `r dist` miles nautiques. Ça veut dire que nous consommons en moyenne `r round(conso.fuel/dist, 2)` litres par mile, soit `r round(conso.fuel/dist/1.852, 2)` litres au kilomètre, soit la bagatelle de `r 100 * round(conso.fuel/dist/1.852, 2)` litres au 100 kilomètres. La plongée est un sport écologique !
 
-Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir. Thomas en a sorti environ 70 litres, soit `r vol.fuel-conso.fuel - 70` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 70) * 100 / (vol.fuel), 2)`%. Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !
+Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir. Thomas en a sorti environ 45 litres, soit `r vol.fuel-conso.fuel - 45` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 70) * 100 / (vol.fuel), 2)`%. Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !
 
 
 ## Pour mémoire
 
 Comme l'an dernier, location exceptionnellement bien située, au 279 quai Jean Lamoudru à La Londe les Maures. On ouvre le portail, on traverse la route, et on est au bateau ! De la place dans le jardin pour stocker la remorque compresseur, qui est restée sans ridelles ni bâche tous les jours de beau temps. Ducato garé le long du quai, on ne démarre que pour aller gonfler. Un grand préau pour stocker les sacs de plongée, les blocs, et s'équiper à l'abri du vent, avec un petit débarras pour les recycleux, les bidons et les analyseurs. Maison également très agréable : 2 chambres avec lit double (avec possibilité de poser un matelas dans la plus grande), une chambre avec un lit double et 2 lits superposés. Deux salles de bain et 3 WC. Il y a largement de quoi venir à 10 ou 12. Grande pièce de vie avec clic-clac, terrasses... Trop bien !
 
-Côté plongées en revanche, c'est la loose. Beaucoup de vent le lundi après-midi et le mardi. Tempête le jeudi et le vendredi. Au final, pas beaucop de jours plongeable, et mer presque toujours hachée. La tentative de profonde sur le Heinkel 111 pour Pierre et Yannick s'est soldée par un échec relatif : le point n'est pas hyper précis (il a été repris au plus près), l'épave a bien été trouvée (mais pas plongée) et 90 mètres de bouts, 3 bidons et un mousqueton ont été laissés sur place faute d'une fenêtre météo favorable pour aller récupérer le tout. Tout ça sera facile et peu coûteux à remplacer. 
+Côté plongées en revanche, c'est la loose. Beaucoup de vent le lundi après-midi et le mardi. Tempête le jeudi et le vendredi. Au final, pas beaucoup de jours plongeables, et mer presque toujours hachée. La tentative de profonde sur le Heinkel 111 pour Pierre et Yannick s'est soldée par un échec relatif : le point n'est pas hyper précis (il a été repris au plus près), l'épave a bien été trouvée (mais pas plongée) et 90 mètres de bouts, 3 bidons et un mousqueton ont été laissés sur place faute d'une fenêtre météo favorable pour aller récupérer le tout. Tout ça sera facile et peu coûteux à remplacer. 
 
 
 ## Quelques graphiques
