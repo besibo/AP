@@ -1,101 +1,73 @@
 [
   {
+    "objectID": "Entretien.html",
+    "href": "Entretien.html",
+    "title": "Entretien",
+    "section": "",
+    "text": "Beaucoup de travaux ont été faits suite à la sortie de l’été 2023 :\n\npompe à eau\ndistribution\ntrain de pneus\nplaquettes de freins\nplaque métallique pour boucher le trou dans le plancher…\n\nIl faut encore remplacer 2 pneus pour régler le problème de vibrations rencontré à la descente vers La Londe à la Toussaint 2023."
+  },
+  {
+    "objectID": "Entretien.html#ducato",
+    "href": "Entretien.html#ducato",
+    "title": "Entretien",
+    "section": "",
+    "text": "Beaucoup de travaux ont été faits suite à la sortie de l’été 2023 :\n\npompe à eau\ndistribution\ntrain de pneus\nplaquettes de freins\nplaque métallique pour boucher le trou dans le plancher…\n\nIl faut encore remplacer 2 pneus pour régler le problème de vibrations rencontré à la descente vers La Londe à la Toussaint 2023."
+  },
+  {
+    "objectID": "Entretien.html#valiant",
+    "href": "Entretien.html#valiant",
+    "title": "Entretien",
+    "section": "Valiant",
+    "text": "Valiant\nLes boudins attendent toujours leur coup de brosse… Le produit est dans la console, le balais brosse dans le Ducato.\nEntretien chez Mistral Plaisance RAS en Novembre 2023."
+  },
+  {
+    "objectID": "Entretien.html#compresseurs",
+    "href": "Entretien.html#compresseurs",
+    "title": "Entretien",
+    "section": "Compresseurs",
+    "text": "Compresseurs\nLes vidanges ont été faites le mardi 31 octobre 2023, pour les 2 compresseurs (moteurs thermiques et compresseur).\nPour mémoire :\n\nla vidange des moteurs thermiques doit être faite tous les 2 ans environ. Prochaine échéance à l’automne/hiver 2025-2026. Consommation d’huile : 1,1 litre par compresseur\nla vidange de la partie “compresseur d’air” pourrait être faite un peu moins souvent (tous les 3 ans ?). Prochaine échéance à l’automne-hiver 2026-2027. Le compresseur noir a besoin de 2,8 litres d’huile de synthèse, et le rouge (qui avale régulièrement de l’oxygène) de 2,8 litres d’huile minérale."
+  },
+  {
+    "objectID": "Entretien.html#remorques",
+    "href": "Entretien.html#remorques",
+    "title": "Entretien",
+    "section": "Remorques",
+    "text": "Remorques\nVérifier les roulements de la remorque bateau avant chaque sortie (ou au moins à la sortie de l’hiver).\nPlancher de la remorque compresseur changé en août 2023."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Bienvenue sur le site de l’Amitié Pictave",
     "section": "",
-    "text": "Le Mustang, baie de Carqueiranne. Jérôme Otruquin, avril 2017\n\n\nSur ce site, vous trouverez des informations sur :\n\nles sorties à venir\nla liste des sorties passées\nles comptes des sorties précédentes, y compris la plus récente\nl’entretien du camion, du bateau, des compresseurs…\n\nEt bien d’autres choses encore !"
+    "text": "Le Mustang, baie de Carqueiranne. Jérôme Otruquin, avril 2017\n\n\nSur ce site, vous trouverez des informations sur :\n\nles sorties à venir\nla liste des sorties passées\nles comptes des sorties précédentes, y compris la plus récente\nl’entretien du camion, du bateau, des compresseurs…\n\nEt bien d’autres choses encore…"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "AVenir.html",
+    "href": "AVenir.html",
+    "title": "Les sorties à venir",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Toutes les infos de cette page ont été discutées lors de l’AG qui s’est tenue en présence de la majorité des membres de l’association le vendredi 3 novembre 2023. Les dates et sites proposés ne sont pas gravés dans le marbre à ce stade !"
   },
   {
-    "objectID": "Sortie.html",
-    "href": "Sortie.html",
-    "title": "La Londe Les Maures, 2023",
-    "section": "",
-    "text": "Membres : Benoît, Carole, Jérôme, Nathalie, Pierre, Thomas\nInvités : Béatrice, Yannick"
+    "objectID": "AVenir.html#ref-test",
+    "href": "AVenir.html#ref-test",
+    "title": "Les sorties à venir",
+    "section": "Pâques 2024",
+    "text": "Pâques 2024\n\nLieu : Marseille\nDates : du dimanche 14 au dimanche 21 avril\n\nSous réserve de confirmation auprès de René évidemment !"
   },
   {
-    "objectID": "Sortie.html#plongeurs-présents",
-    "href": "Sortie.html#plongeurs-présents",
-    "title": "La Londe Les Maures, 2023",
-    "section": "",
-    "text": "Membres : Benoît, Carole, Jérôme, Nathalie, Pierre, Thomas\nInvités : Béatrice, Yannick"
+    "objectID": "AVenir.html#été-2024",
+    "href": "AVenir.html#été-2024",
+    "title": "Les sorties à venir",
+    "section": "Été 2024",
+    "text": "Été 2024\n\nLieu : Camaret\nDates : du samedi 13 au samedi 20 juillet\n\nSi les dates conviennent au plus grand nombre, il serait bon de commencer à chercher un logement dès maintenant."
   },
   {
-    "objectID": "Sortie.html#les-plongées",
-    "href": "Sortie.html#les-plongées",
-    "title": "La Londe Les Maures, 2023",
-    "section": "Les plongées",
-    "text": "Les plongées\n\n\n\n\nTable 1: Récapitulatif des plongées effectuées\n\n\nDate\nQuand\nSite\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\nTotal\n\n\n\n\n29 10 2023\nam\nLe Grec\n1\n1\n1\n1\n1\n1\n0\n1\n7\n\n\n29 10 2023\npm\nLe Spahis\n1\n1\n0\n0\n1\n1\n0\n1\n5\n\n\n30 10 2023\nam\nLe Donator\n1\n1\n1\n1\n1\n1\n0\n1\n7\n\n\n01 11 2023\nam\nLe Ville de Grasse / Le Heinkel 111\n1\n1\n1\n1\n1\n1\n0\n1\n7\n\n\n01 11 2023\npm\nLa Gabinière\n1\n1\n1\n1\n1\n1\n0\n0\n6\n\n\nTotal\n-\n-\n5\n5\n4\n4\n5\n5\n0\n4\n32\n\n\n\n\n\n\n\n\nAu total, 32 plongées ont été effectuées."
-  },
-  {
-    "objectID": "Sortie.html#les-dépenses-plongée",
-    "href": "Sortie.html#les-dépenses-plongée",
-    "title": "La Londe Les Maures, 2023",
-    "section": "Les dépenses “plongée”",
-    "text": "Les dépenses “plongée”\nLes dépenses entrant dans le calcul du coût des plongées sont détaillés dans le tableau ci-dessous.\n\n\n\n\nTable 2: Dépenses engagées par les membres de l’AP\n\n\nQui\nEssence bateau\nEssence compresseurs\nPort\nGaz\nDivers\nTotal\n\n\n\n\nBenoît\n246.74€\n0.00€\n0€\n0€\n0.00€\n246.74€\n\n\nCarole\n0.00€\n0.00€\n0€\n0€\n0.00€\n0.00€\n\n\nJérôme\n211.36€\n0.00€\n163€\n0€\n0.00€\n374.36€\n\n\nNathalie\n0.00€\n0.00€\n24€\n0€\n0.00€\n24.00€\n\n\nPierre\n44.23€\n44.22€\n0€\n0€\n0.00€\n88.45€\n\n\nThomas\n0.00€\n0.00€\n0€\n0€\n19.90€\n19.90€\n\n\nTotal\n502.33€\n44.22€\n187€\n0€\n19.90€\n753.45€\n\n\n\n\n\n\n\n\nIci, les dépenses de la rubrique “divers” concernent l’achat d’un nouveau cadenas pour la remorque."
-  },
-  {
-    "objectID": "Sortie.html#coût-des-plongées",
-    "href": "Sortie.html#coût-des-plongées",
-    "title": "La Londe Les Maures, 2023",
-    "section": "Coût des plongées",
-    "text": "Coût des plongées\nLe coût d’une plongée est calculé en divisant la somme des dépenses effectuées durant le séjour (ici, 753.45€) par le nombre total de plongées effectuées durant le séjour (ici, 32 plongées). Pour cette sortie, le coût d’une plongée pour les membres de l’AP est de 23.55€. Toutefois, afin d’anticiper sur la révision annuelle du moteur, nous avons décidé de majorer chaque plongée de 3€. Ainsi, pour les membres, la plongée coûte 26.55€.\nPour les invités, le prix de la plongée est fixé à 27€ si la plongée des membres coûte moins cher. Sinon, tout le monde paie le même prix. La même majoration de 3€ est appliquée pour les invités, soit un prix de 30€ par plongée.\nAu total, pour les plongées uniquement, chaque plongeur doit les sommes suivantes à l’AP :\n\n\n\n\nTable 3: Montants dûs pour la plongée\n\n\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\n\n\n\n\n132.75€\n132.75€\n106.20€\n106.20€\n132.75€\n132.75€\n0€\n120€"
-  },
-  {
-    "objectID": "Sortie.html#les-dépenses-hors-plongée",
-    "href": "Sortie.html#les-dépenses-hors-plongée",
-    "title": "La Londe Les Maures, 2023",
-    "section": "Les dépenses “hors plongée”",
-    "text": "Les dépenses “hors plongée”\nPour cette sortie, les dépenses n’entrant pas dans le prix des plongées et la liste des payeurs sont présentés dans le tableau Table 4. Pour chaque plongeur (et sa famille), les nombres de nuitées et de repas pris au cours du séjours sont indiqués dans le tableau Table 5 :\n\n\n\n\nTable 4: Dépenses hors plongées engagées par les participants à la sortie\n\n\nQui\nLogement\nNourriture\nCarburant\nPeages\nNavette\nDivers\nTotal\n\n\n\n\nBenoît\n0.00€\n144.85€\n132.24€\n70.90€\n0€\n0€\n347.99€\n\n\nCarole\n0.00€\n0.00€\n147.96€\n0.00€\n0€\n0€\n147.96€\n\n\nJérôme\n350.00€\n60.27€\n53.96€\n29.90€\n0€\n0€\n494.13€\n\n\nNathalie\n700.96€\n220.68€\n81.06€\n0.00€\n0€\n0€\n1,002.70€\n\n\nPierre\n0.00€\n149.27€\n201.19€\n62.00€\n0€\n0€\n412.46€\n\n\nThomas\n0.00€\n0.00€\n169.34€\n70.90€\n0€\n0€\n240.24€\n\n\nBéatrice\n0.00€\n192.60€\n0.00€\n0.00€\n0€\n0€\n192.60€\n\n\nYannick\n0.00€\n1.18€\n0.00€\n0.00€\n0€\n0€\n1.18€\n\n\nTotal\n1,050.96€\n768.85€\n785.75€\n233.70€\n0€\n0€\n2,839.26€\n\n\n\n\n\n\n\n\n\n\n\n\nTable 5: Nombre de nuitées et de repas\n\n\n\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\n\n\n\n\nNuitées\n7\n7\n14\n14\n14\n7\n7\n7\n\n\nRepas\n21\n21\n42\n42\n42\n21\n21\n21\n\n\n\n\n\n\n\n\nPour chaque personne (plongeur ou non), le coût d’une nuitée, d’un repas et du transport s’élèvent à :\n\n\n\n\nTable 6: Coûts unitaires par personne\n\n\nNuitée\nRepas\nCarburant\nPeages\n\n\n\n\n13.65€\n3.33€\n71.43€\n21.25€"
-  },
-  {
-    "objectID": "Sortie.html#bilan-et-remboursement",
-    "href": "Sortie.html#bilan-et-remboursement",
-    "title": "La Londe Les Maures, 2023",
-    "section": "Bilan et remboursement",
-    "text": "Bilan et remboursement\nAu final, chaque plongeur doit donc les sommes suivantes\n\n\n\n\nTable 7: Bilan des coûts par plongeur et par poste\n\n\nPoste\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\n\n\n\n\nPlongée\n132.75€\n132.75€\n106.20€\n106.20€\n132.75€\n132.75€\n0.00€\n120.00€\n\n\nLogement\n95.54€\n95.54€\n191.08€\n191.08€\n191.08€\n95.54€\n95.54€\n95.54€\n\n\nNourriture\n69.90€\n69.90€\n139.79€\n139.79€\n139.79€\n69.90€\n69.90€\n69.90€\n\n\nCarburant\n71.43€\n71.43€\n142.86€\n142.86€\n142.86€\n71.43€\n71.43€\n71.43€\n\n\nPeage\n21.25€\n21.25€\n42.49€\n42.49€\n42.49€\n21.25€\n21.25€\n21.25€\n\n\nTotal\n390.86€\n390.86€\n622.43€\n622.43€\n648.98€\n390.86€\n258.11€\n378.11€\n\n\n\n\n\n\n\n\nCompte tenu des sommes déjà engagées, les remboursements à effectuer sont les suivants :\n\n\n\n\n\nQui\nFait quoi\nMontant\n\n\n\n\nBéatrice\nrembourse à l'AP\n65.51€\n\n\nCarole\nrembourse à l'AP\n242.90€\n\n\nPierre\nrembourse à l'AP\n148.07€\n\n\nThomas\nrembourse à l'AP\n130.72€\n\n\nYannick\nrembourse à l'AP\n376.93€\n\n\nBenoît\nse fait rembourser par l'AP\n203.87€\n\n\nJérôme\nse fait rembourser par l'AP\n246.06€\n\n\nNathalie\nse fait rembourser par l'AP\n404.27€"
-  },
-  {
-    "objectID": "Sortie.html#bénéfices-essence-et-heures",
-    "href": "Sortie.html#bénéfices-essence-et-heures",
-    "title": "La Londe Les Maures, 2023",
-    "section": "Bénéfices, essence et heures",
-    "text": "Bénéfices, essence et heures\nLa majoration de 3€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de 24€) permettent de faire des (petits) bénéfices. Ils s’élèvent ici à 109.95€.\nPour finir, nous avons parcouru 50 miles nautiques. Ça veut dire que nous consommons en moyenne 4.45 litres par mile, soit 2.4 litres au kilomètre, soit la bagatelle de 240 litres au 100 kilomètres. La plongée est un sport écologique !\nLe moteur a tourné 15.5 heures et 280 litres de sans plomb ont été mis dans le réservoir. D’après la console, 222.6 litres ont été consommés soit une consommation moyenne de 14.36 litres à l’heure. Il devrait donc rester environ 57.4 litres dans le réservoir. Thomas en a sorti environ 70 litres, soit -12.6 litres de moins que prévu. Cela représente une erreur d’estimation de consommation de -4.5%. Les boudins n’ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !"
-  },
-  {
-    "objectID": "Sortie.html#pour-mémoire",
-    "href": "Sortie.html#pour-mémoire",
-    "title": "La Londe Les Maures, 2023",
-    "section": "Pour mémoire",
-    "text": "Pour mémoire\nComme l’an dernier, location exceptionnellement bien située, au 279 quai Jean Lamoudru à La Londe les Maures. On ouvre le portail, on traverse la route, et on est au bateau ! De la place dans le jardin pour stocker la remorque compresseur, qui est restée sans ridelles ni bâche tous les jours de beau temps. Ducato garé le long du quai, on ne démarre que pour aller gonfler. Un grand préau pour stocker les sacs de plongée, les blocs, et s’équiper à l’abri du vent, avec un petit débarras pour les recycleux, les bidons et les analyseurs. Maison également très agréable : 2 chambres avec lit double (avec possibilité de poser un matelas dans la plus grande), une chambre avec un lit double et 2 lits superposés. Deux salles de bain et 3 WC. Il y a largement de quoi venir à 10 ou 12. Grande pièce de vie avec clic-clac, terrasses… Trop bien !\nCôté plongées en revanche, c’est la loose. Beaucoup de vent le lundi après-midi et le mardi. Tempête le jeudi et le vendredi. Au final, pas beaucop de jours plongeable, et mer presque toujours hachée. La tentative de profonde sur le Heinkel 111 pour Pierre et Yannick s’est soldée par un échec relatif : le point n’est pas hyper précis (il a été repris au plus près), l’épave a bien été trouvée (mais pas plongée) et 90 mètres de bouts, 3 bidons et un mousqueton ont été laissés sur place faute d’une fenêtre météo favorable pour aller récupérer le tout. Tout ça sera facile et peu coûteux à remplacer."
-  },
-  {
-    "objectID": "Sortie.html#quelques-graphiques",
-    "href": "Sortie.html#quelques-graphiques",
-    "title": "La Londe Les Maures, 2023",
-    "section": "Quelques graphiques",
-    "text": "Quelques graphiques\n\n\n\n\n\nFigure 1: Plongeurs à bord du Valiant lors de chaque plongée\n\n\n\n\n\n\n\n\n\nFigure 2: Proportion des dépenses par poste, pour la plongée et le reste\n\n\n\n\n\n\n\n\n\nFigure 3: Proportion des dépenses de la sortie, tous postes confondus"
-  },
-  {
-    "objectID": "Sorties.html",
-    "href": "Sorties.html",
-    "title": "Historique",
-    "section": "",
-    "text": "Année\nSite\nPériode\nDébut\nFin\nBilan\n\n\n\n\n2007\nOuessant\nÉté\n01 août 2007\n07 août 2007\n[Bilan](www/Bilans/Bilan001.pdf)\n\n\n2009\nLorient\nPâques\n11 avril 2009\n13 avril 2009\n[Bilan](www/Bilans/Bilan002.pdf)\n\n\n2009\nLorient\nPâques\n18 avril 2009\n20 avril 2009\n[Bilan](www/Bilans/Bilan003.pdf)\n\n\n2009\nCamaret - Conquet\nÉté\n04 juillet 2009\n18 juillet 2009\n[Bilan](www/Bilans/Bilan004.pdf)\n\n\n2009\nCavalaire\nToussaint\n24 octobre 2009\n31 octobre 2009\n[Bilan](www/Bilans/Bilan005.pdf)\n\n\n2010\nMarseille\nPâques\n03 avril 2010\n11 avril 2010\n[Bilan](www/Bilans/Bilan006.pdf)\n\n\n2010\nLorient\nAscension\n13 mai 2010\n16 mai 2010\n[Bilan](www/Bilans/Bilan007.pdf)\n\n\n2010\nLorient\nPentecôte\n22 mai 2010\n24 mai 2010\n[Bilan](www/Bilans/Bilan008.pdf)\n\n\n2010\nCamaret\nÉté\n16 août 2010\n24 août 2010\n[Bilan](www/Bilans/Bilan009.pdf)\n\n\n2010\nCavalaire\nToussaint\n23 octobre 2010\n30 octobre 2010\n[Bilan](www/Bilans/Bilan010.pdf)\n\n\n2011\nMarseille\nPâques\n24 avril 2011\n01 mai 2011\n[Bilan](www/Bilans/Bilan011.pdf)\n\n\n2011\nLorient\nAscension\n02 juin 2011\n04 juin 2011\n[Bilan](www/Bilans/Bilan012.pdf)\n\n\n2011\nLot\nÉté\n17 août 2011\n27 août 2011\n[Bilan](www/Bilans/Bilan013.pdf)\n\n\n2011\nGiens\nToussaint\n22 octobre 2011\n29 octobre 2011\n[Bilan](www/Bilans/Bilan014.pdf)\n\n\n2012\nCavalaire\nPâques\n22 avril 2012\n28 avril 2012\n[Bilan](www/Bilans/Bilan015.pdf)\n\n\n2012\nLorient\nAscension\n17 mai 2012\n20 mai 2012\n[Bilan](www/Bilans/Bilan016.pdf)\n\n\n2012\nLanildut\nÉté\n07 juillet 2012\n15 juillet 2012\n[Bilan](www/Bilans/Bilan017.pdf)\n\n\n2013\nCavalaire\nPâques\n20 avril 2013\n27 avril 2013\n[Bilan](www/Bilans/Bilan018.pdf)\n\n\n2013\nBanyuls\nÉté\n17 août 2013\n23 août 2013\n[Bilan](www/Bilans/Bilan019.pdf)\n\n\n2013\nCavalaire\nToussaint\n26 octobre 2013\n02 novembre 2013\n[Bilan](www/Bilans/Bilan020.pdf)\n\n\n2014\nMarseille\nPâques\n26 avril 2014\n02 mai 2014\n[Bilan](www/Bilans/Bilan021.pdf)\n\n\n2014\nOléron\nAscension\n29 mai 2014\n01 juin 2014\n[Bilan](www/Bilans/Bilan022.pdf)\n\n\n2014\nLanildut\nÉté\n14 août 2014\n23 août 2014\n[Bilan](www/Bilans/Bilan023.pdf)\n\n\n2014\nCavalaire\nToussaint\n25 octobre 2014\n01 novembre 2014\n[Bilan](www/Bilans/Bilan024.pdf)\n\n\n2015\nMarseille\nPâques\n02 mai 2015\n08 mai 2015\n[Bilan](www/Bilans/Bilan025.pdf)\n\n\n2015\nOuessant\nÉté\n18 juillet 2015\n27 juillet 2015\n[Bilan](www/Bilans/Bilan026.pdf)\n\n\n2015\nLot\nToussaint\n24 octobre 2015\n31 octobre 2015\n[Bilan](www/Bilans/Bilan027.pdf)\n\n\n2016\nMarseille\nPâques\n16 avril 2016\n22 avril 2016\n[Bilan](www/Bilans/Bilan028.pdf)\n\n\n2016\nLorient\nPentecôte\n14 mai 2016\n16 mai 2016\n[Bilan](www/Bilans/Bilan029.pdf)\n\n\n2016\nOuessant\nÉté\n23 juillet 2016\n30 juillet 2016\n[Bilan](www/Bilans/Bilan030.pdf)\n\n\n2016\nCavalaire\nToussaint\n23 octobre 2016\n23 octobre 2016\n[Bilan](www/Bilans/Bilan031.pdf)\n\n\n2017\nGiens\nPâques\n22 avril 2017\n29 avril 2017\n[Bilan](www/Bilans/Bilan032.pdf)\n\n\n2017\nLorient\nPentecôte\n03 juin 2017\n05 juin 2017\n[Bilan](www/Bilans/Bilan033.pdf)\n\n\n2017\nLanildut\nÉté\n30 juillet 2017\n04 août 2017\n[Bilan](www/Bilans/Bilan034.pdf)\n\n\n2017\nCavalaire\nToussaint\n28 octobre 2017\n04 novembre 2017\n[Bilan](www/Bilans/Bilan035.pdf)\n\n\n2018\nLa Londe\nPâques\n14 avril 2018\n21 avril 2018\n[Bilan](www/Bilans/Bilan036.pdf)\n\n\n2018\nLorient\nAscension\n19 mai 2018\n21 mai 2018\n[Bilan](www/Bilans/Bilan037.pdf)\n\n\n2018\nCamaret\nÉté\n21 juillet 2018\n28 juillet 2018\n[Bilan](www/Bilans/Bilan038.pdf)\n\n\n2018\nCavalaire\nToussaint\n27 octobre 2018\n03 novembre 2018\n[Bilan](www/Bilans/Bilan039.pdf)\n\n\n2019\nMarseille\nPâques\n20 avril 2019\n27 avril 2019\n[Bilan](www/Bilans/Bilan040.pdf)\n\n\n2019\nOuessant\nÉté\n20 juillet 2019\n27 juillet 2019\n[Bilan](www/Bilans/Bilan041.pdf)\n\n\n2019\nLa Londe\nToussaint\n23 octobre 2019\n31 octobre 2019\n[Bilan](www/Bilans/Bilan042.pdf)\n\n\n2020\nLorient\nÉté\n25 juillet 2020\n01 août 2020\n[Bilan](www/Bilans/Bilan043.pdf)\n\n\n2020\nLa Londe\nToussaint\n24 octobre 2020\n31 octobre 2020\n[Bilan](www/Bilans/Bilan044.pdf)\n\n\n2021\nLanildut\nÉté\n31 juillet 2021\n07 août 2021\n[Bilan](www/Bilans/Bilan045.pdf)\n\n\n2021\nMarseille\nToussaint\n30 octobre 2021\n06 novembre 2021\n[Bilan](www/Bilans/Bilan046.pdf)\n\n\n2022\nCavalaire\nPâques\n23 avril 2022\n30 avril 2022\n[Bilan](www/Bilans/Bilan047.pdf)\n\n\n2022\nLorient\nÉté\n23 juillet 2022\n30 juillet 2022\n[Bilan](www/Bilans/Bilan048.pdf)\n\n\n2022\nLa Londe\nToussaint\n29 octobre 2022\n04 novembre 2022\n[Bilan](www/Bilans/Bilan049.pdf)\n\n\n2023\nCavalaire\nPâques\n15 avril 2023\n22 avril 2023\n[Bilan](www/Bilans/Bilan050.pdf)\n\n\n2023\nLanildut\nÉté\n22 juillet 2023\n29 juillet 2023\n[Bilan](www/Bilans/Bilan051.pdf)\n\n\n2023\nLa Londe\nToussaint\n28 octobre 2023\n04 novembre 2023\n[Bilan](www/Bilans/Bilan052.html)"
-  },
-  {
-    "objectID": "LaLonde2023.html",
-    "href": "LaLonde2023.html",
-    "title": "La Londe Les Maures, 2023",
-    "section": "",
-    "text": "Membres : Benoît, Carole, Jérôme, Nathalie, Pierre, Thomas\nInvités : Béatrice, Yannick"
+    "objectID": "AVenir.html#toussaint-2024",
+    "href": "AVenir.html#toussaint-2024",
+    "title": "Les sorties à venir",
+    "section": "Toussaint 2024",
+    "text": "Toussaint 2024\n\nLieu : Cavalaire\nDates : du samedi 26 octobre au samedi 2 novembre"
   },
   {
     "objectID": "LaLonde2023.html#plongeurs-présents",
@@ -224,80 +196,17 @@
     "text": "Quelques graphiques\n\n\n\n\n\nFigure 1: Plongeurs à bord du Valiant lors de chaque plongée\n\n\n\n\n\n\n\n\n\nFigure 2: Proportion des dépenses par poste, pour la plongée et le reste\n\n\n\n\n\n\n\n\n\nFigure 3: Proportion des dépenses de la sortie, tous postes confondus"
   },
   {
-    "objectID": "AVenir.html",
-    "href": "AVenir.html",
-    "title": "Les sorties à venir",
+    "objectID": "index 2.html",
+    "href": "index 2.html",
+    "title": "Bienvenue sur le site de l’Amitié Pictave",
     "section": "",
-    "text": "Toutes les infos de cette page ont été discutées lors de l’AG qui s’est tenue en présence de la majorité des membres de l’association le vendredi 3 novembre 2023. Les dates et sites proposés ne sont pas gravés dans le marbre à ce stade !"
+    "text": "&lt;style&gt;\n  .lightbox-thumbnails &gt; :not(:first-child) {\n    display: none;\n  }\n&lt;/style&gt;\n\n&lt;script&gt;\n  document.addEventListener(\"DOMContentLoaded\", function() {\n    const thumbnails = document.querySelectorAll(\".lightbox-thumbnails &gt; *\");\n    thumbnails.forEach((thumbnail, index) =&gt; {\n      thumbnail.addEventListener(\"click\", function() {\n        document.querySelector(\".lightbox-thumbnails &gt; :first-child\").style.display = \"none\";\n        this.style.display = \"block\";\n      });\n    });\n  });\n&lt;/script&gt;"
   },
   {
-    "objectID": "AVenir.html#pâques-2024",
-    "href": "AVenir.html#pâques-2024",
-    "title": "Les sorties à venir",
-    "section": "Pâques 2024",
-    "text": "Pâques 2024\n\nLieu : Marseille\nDates : du dimanche 14 au dimanche 21 avril\n\nSous réserve de confirmation auprès de René évidemment !"
-  },
-  {
-    "objectID": "AVenir.html#été-2024",
-    "href": "AVenir.html#été-2024",
-    "title": "Les sorties à venir",
-    "section": "Été 2024",
-    "text": "Été 2024\n\nLieu : Camaret\nDates : du samedi 13 au samedi 20 juillet\n\nSi les dates conviennent au plus grand nombre, il serait bon de commencer à chercher un logement dès maintenant."
-  },
-  {
-    "objectID": "AVenir.html#toussaint-2024",
-    "href": "AVenir.html#toussaint-2024",
-    "title": "Les sorties à venir",
-    "section": "Toussaint 2024",
-    "text": "Toussaint 2024\n\nLieu : Cavalaire\nDates : du samedi 26 octobre au samedi 2 novembre"
-  },
-  {
-    "objectID": "AVenir.html#ref-test",
-    "href": "AVenir.html#ref-test",
-    "title": "Les sorties à venir",
-    "section": "Pâques 2024",
-    "text": "Pâques 2024\n\nLieu : Marseille\nDates : du dimanche 14 au dimanche 21 avril\n\nSous réserve de confirmation auprès de René évidemment !"
-  },
-  {
-    "objectID": "Entretien.html",
-    "href": "Entretien.html",
-    "title": "Entretien",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Beaucoup de travaux ont été faits suite à la sortie de l’été 2023 :\n\npompe à eau\ndistribution\ntrain de pneus\nplaquettes de freins\nplaque métallique pour boucher le trou dans le plancher…\n\nIl faut encore remplacer 2 pneus pour régler le problème de vibrations rencontré à la descente vers La Londe à la Toussaint 2023."
-  },
-  {
-    "objectID": "Entretien.html#ducato",
-    "href": "Entretien.html#ducato",
-    "title": "Entretien",
-    "section": "",
-    "text": "Beaucoup de travaux ont été faits suite à la sortie de l’été 2023 :\n\npompe à eau\ndistribution\ntrain de pneus\nplaquettes de freins\nplaque métallique pour boucher le trou dans le plancher…\n\nIl faut encore remplacer 2 pneus pour régler le problème de vibrations rencontré à la descente vers La Londe à la Toussaint 2023."
-  },
-  {
-    "objectID": "Entretien.html#valiant",
-    "href": "Entretien.html#valiant",
-    "title": "Entretien",
-    "section": "Valiant",
-    "text": "Valiant\nLes boudins attendent toujours leur coup de brosse… Le produit est dans la console, le balais brosse dans le Ducato.\nEntretien chez Mistral Plaisance RAS en Novembre 2023."
-  },
-  {
-    "objectID": "Entretien.html#compresseurs",
-    "href": "Entretien.html#compresseurs",
-    "title": "Entretien",
-    "section": "Compresseurs",
-    "text": "Compresseurs\nLes vidanges ont été faites le mardi 31 octobre 2023, pour les 2 compresseurs (moteurs thermiques et compresseur).\nPour mémoire :\n\nla vidange des moteurs thermiques doit être faite tous les 2 ans environ. Prochaine échéance à l’automne/hiver 2025-2026. Consommation d’huile : 1,1 litre par compresseur\nla vidange de la partie “compresseur d’air” pourrait être faite un peu moins souvent (tous les 3 ans ?). Prochaine échéance à l’automne-hiver 2026-2027. Le compresseur noir a besoin de 2,8 litres d’huile de synthèse, et le rouge (qui avale régulièrement de l’oxygène) de 2,8 litres d’huile minérale."
-  },
-  {
-    "objectID": "Entretien.html#les-remorques",
-    "href": "Entretien.html#les-remorques",
-    "title": "Entretien",
-    "section": "Les remorques",
-    "text": "Les remorques\nVérifier les roulements de la remorque bateau avant chaque sortie (ou au moins à la sortie de l’hiver)."
-  },
-  {
-    "objectID": "Entretien.html#remorques",
-    "href": "Entretien.html#remorques",
-    "title": "Entretien",
-    "section": "Remorques",
-    "text": "Remorques\nVérifier les roulements de la remorque bateau avant chaque sortie (ou au moins à la sortie de l’hiver).\nPlancher de la remorque compresseur changé en août 2023."
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   }
 ]

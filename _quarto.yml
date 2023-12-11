@@ -4,6 +4,7 @@ project:
   resources: "www/"
 
 website:
+  favicon: img/logo.png
   title: "Amitié Pictave"
   open-graph: true
   navbar:
@@ -29,6 +30,3 @@ format:
     theme: MyUnited.scss
     css: styles.css
     toc: true
-
-
-
