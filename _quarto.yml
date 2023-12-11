@@ -30,3 +30,7 @@ format:
     theme: MyUnited.scss
     css: styles.css
     toc: true
+
+include-in-header:
+  - text: |
+     <link rel = "shortcut icon" href = "img/logo.png" />
