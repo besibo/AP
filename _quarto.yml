@@ -30,6 +30,7 @@ website:
             - Lorient2022.qmd
             - LaLonde2022.qmd
       - Entretien.qmd
+      - Pratique.qmd
 
 format:
   html:
