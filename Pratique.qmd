@@ -11,3 +11,4 @@ Nous disposons d'un compte pour les réservations en ligne :
 
 Lorsqu'on valide une réservation avec signature électronique, un SMS de confirmation est envoyé à Thomas.
 
+
