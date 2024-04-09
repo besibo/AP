@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -46,7 +46,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -55,33 +61,33 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/core-js-2.5.3/shim.min.js"></script>
-<script src="site_libs/react-17.0.0/react.min.js"></script>
-<script src="site_libs/react-17.0.0/react-dom.min.js"></script>
+<script src="site_libs/react-18.2.0/react.min.js"></script>
+<script src="site_libs/react-18.2.0/react-dom.min.js"></script>
 <script src="site_libs/reactwidget-1.0.0/react-tools.js"></script>
-<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
 <script src="site_libs/reactable-binding-0.4.4/reactable.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Amitié Pictave - Historique">
-<meta property="og:site-name" content="Amitié Pictave">
+<meta property="og:site_name" content="Amitié Pictave">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Amitié Pictave</span>
     </a>
@@ -93,23 +99,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Accueil</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Accueil</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./AVenir.html">Sorties</a></li><li class="breadcrumb-item"><a href="./Historique.html">Historique</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./AVenir.html">Sorties</a></li><li class="breadcrumb-item"><a href="./Historique.html">Historique</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -119,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -220,10 +226,27 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Pratique</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Gonflage et déco</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Gonflage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Préparation des mélanges</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
@@ -231,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./AVenir.html">Sorties</a></li><li class="breadcrumb-item"><a href="./Historique.html">Historique</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Historique</h1>
 </div>
@@ -246,28 +269,29 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <div class="cell">
 <div class="cell-output-display">
-
-<div id="xstozawddd" class=".gt_table" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xstozawddd table {
+<div id="myjenosqbh" class=".gt_table" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#myjenosqbh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xstozawddd thead, #xstozawddd tbody, #xstozawddd tfoot, #xstozawddd tr, #xstozawddd td, #xstozawddd th {
+#myjenosqbh thead, #myjenosqbh tbody, #myjenosqbh tfoot, #myjenosqbh tr, #myjenosqbh td, #myjenosqbh th {
   border-style: none;
 }
 
-#xstozawddd p {
+#myjenosqbh p {
   margin: 0;
   padding: 0;
 }
 
-#xstozawddd .gt_table {
+#myjenosqbh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -293,12 +317,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#xstozawddd .gt_caption {
+#myjenosqbh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xstozawddd .gt_title {
+#myjenosqbh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -310,7 +334,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#xstozawddd .gt_subtitle {
+#myjenosqbh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -322,7 +346,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#xstozawddd .gt_heading {
+#myjenosqbh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -334,13 +358,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#xstozawddd .gt_bottom_border {
+#myjenosqbh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xstozawddd .gt_col_headings {
+#myjenosqbh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -355,7 +379,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#xstozawddd .gt_col_heading {
+#myjenosqbh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -375,7 +399,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#xstozawddd .gt_column_spanner_outer {
+#myjenosqbh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -387,15 +411,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#xstozawddd .gt_column_spanner_outer:first-child {
+#myjenosqbh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xstozawddd .gt_column_spanner_outer:last-child {
+#myjenosqbh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xstozawddd .gt_column_spanner {
+#myjenosqbh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -407,11 +431,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#xstozawddd .gt_spanner_row {
+#myjenosqbh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xstozawddd .gt_group_heading {
+#myjenosqbh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -437,7 +461,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#xstozawddd .gt_empty_group_heading {
+#myjenosqbh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -452,15 +476,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#xstozawddd .gt_from_md > :first-child {
+#myjenosqbh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xstozawddd .gt_from_md > :last-child {
+#myjenosqbh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xstozawddd .gt_row {
+#myjenosqbh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -479,7 +503,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#xstozawddd .gt_stub {
+#myjenosqbh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -492,7 +516,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#xstozawddd .gt_stub_row_group {
+#myjenosqbh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -506,15 +530,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#xstozawddd .gt_row_group_first td {
+#myjenosqbh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xstozawddd .gt_row_group_first th {
+#myjenosqbh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xstozawddd .gt_summary_row {
+#myjenosqbh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -524,16 +548,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#xstozawddd .gt_first_summary_row {
+#myjenosqbh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xstozawddd .gt_first_summary_row.thick {
+#myjenosqbh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xstozawddd .gt_last_summary_row {
+#myjenosqbh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -543,7 +567,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#xstozawddd .gt_grand_summary_row {
+#myjenosqbh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -553,7 +577,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#xstozawddd .gt_first_grand_summary_row {
+#myjenosqbh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -563,7 +587,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#xstozawddd .gt_last_grand_summary_row_top {
+#myjenosqbh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -573,11 +597,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#xstozawddd .gt_striped {
+#myjenosqbh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xstozawddd .gt_table_body {
+#myjenosqbh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -586,7 +610,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#xstozawddd .gt_footnotes {
+#myjenosqbh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -600,7 +624,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#xstozawddd .gt_footnote {
+#myjenosqbh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -609,7 +633,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#xstozawddd .gt_sourcenotes {
+#myjenosqbh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -623,7 +647,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#xstozawddd .gt_sourcenote {
+#myjenosqbh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -631,68 +655,68 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#xstozawddd .gt_left {
+#myjenosqbh .gt_left {
   text-align: left;
 }
 
-#xstozawddd .gt_center {
+#myjenosqbh .gt_center {
   text-align: center;
 }
 
-#xstozawddd .gt_right {
+#myjenosqbh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xstozawddd .gt_font_normal {
+#myjenosqbh .gt_font_normal {
   font-weight: normal;
 }
 
-#xstozawddd .gt_font_bold {
+#myjenosqbh .gt_font_bold {
   font-weight: bold;
 }
 
-#xstozawddd .gt_font_italic {
+#myjenosqbh .gt_font_italic {
   font-style: italic;
 }
 
-#xstozawddd .gt_super {
+#myjenosqbh .gt_super {
   font-size: 65%;
 }
 
-#xstozawddd .gt_footnote_marks {
+#myjenosqbh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xstozawddd .gt_asterisk {
+#myjenosqbh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xstozawddd .gt_indent_1 {
+#myjenosqbh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xstozawddd .gt_indent_2 {
+#myjenosqbh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xstozawddd .gt_indent_3 {
+#myjenosqbh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xstozawddd .gt_indent_4 {
+#myjenosqbh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xstozawddd .gt_indent_5 {
+#myjenosqbh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<div id="xstozawddd" class="reactable html-widget " style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="xstozawddd">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Année":[2023,2023,2023,2022,2022,2022,2021,2021,2020,2020,2019,2019,2019,2018,2018,2018,2018,2017,2017,2017,2017,2016,2016,2016,2016,2015,2015,2015,2014,2014,2014,2014,2013,2013,2013,2012,2012,2012,2011,2011,2011,2011,2010,2010,2010,2010,2010,2009,2009,2009,2009,2007],"Site":["La Londe","Lanildut","Cavalaire","La Londe","Lorient","Cavalaire","Marseille","Lanildut","La Londe","Lorient","La Londe","Ouessant","Marseille","Cavalaire","Camaret","Lorient","La Londe","Cavalaire","Lanildut","Lorient","Giens","Cavalaire","Ouessant","Lorient","Marseille","Lot","Ouessant","Marseille","Cavalaire","Lanildut","Oléron","Marseille","Cavalaire","Banyuls","Cavalaire","Lanildut","Lorient","Cavalaire","Giens","Lot","Lorient","Marseille","Cavalaire","Camaret","Lorient","Lorient","Marseille","Cavalaire","Camaret - Conquet","Lorient","Lorient","Ouessant"],"Période":["Toussaint","Été","Pâques","Toussaint","Été","Pâques","Toussaint","Été","Toussaint","Été","Toussaint","Été","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pentecôte","Pâques","Toussaint","Été","Pentecôte","Pâques","Toussaint","Été","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pâques","Été","Ascension","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pentecôte","Ascension","Pâques","Toussaint","Été","Pâques","Pâques","Été"],"Début":["28 octobre 2023","22 juillet 2023","15 avril 2023","29 octobre 2022","23 juillet 2022","23 avril 2022","30 octobre 2021","31 juillet 2021","24 octobre 2020","25 juillet 2020","23 octobre 2019","20 juillet 2019","20 avril 2019","27 octobre 2018","21 juillet 2018","19 mai 2018","14 avril 2018","28 octobre 2017","30 juillet 2017","03 juin 2017","22 avril 2017","23 octobre 2016","23 juillet 2016","14 mai 2016","16 avril 2016","24 octobre 2015","18 juillet 2015","02 mai 2015","25 octobre 2014","14 août 2014","29 mai 2014","26 avril 2014","26 octobre 2013","17 août 2013","20 avril 2013","07 juillet 2012","17 mai 2012","22 avril 2012","22 octobre 2011","17 août 2011","02 juin 2011","24 avril 2011","23 octobre 2010","16 août 2010","22 mai 2010","13 mai 2010","03 avril 2010","24 octobre 2009","04 juillet 2009","18 avril 2009","11 avril 2009","01 août 2007"],"Fin":["04 novembre 2023","29 juillet 2023","22 avril 2023","04 novembre 2022","30 juillet 2022","30 avril 2022","06 novembre 2021","07 août 2021","31 octobre 2020","01 août 2020","31 octobre 2019","27 juillet 2019","27 avril 2019","03 novembre 2018","28 juillet 2018","21 mai 2018","21 avril 2018","04 novembre 2017","04 août 2017","05 juin 2017","29 avril 2017","23 octobre 2016","30 juillet 2016","16 mai 2016","22 avril 2016","31 octobre 2015","27 juillet 2015","08 mai 2015","01 novembre 2014","23 août 2014","01 juin 2014","02 mai 2014","02 novembre 2013","23 août 2013","27 avril 2013","15 juillet 2012","20 mai 2012","28 avril 2012","29 octobre 2011","27 août 2011","04 juin 2011","01 mai 2011","30 octobre 2010","24 août 2010","24 mai 2010","16 mai 2010","11 avril 2010","31 octobre 2009","18 juillet 2009","20 avril 2009","13 avril 2009","07 août 2007"],"Bilan":["[Bilan](https://besibo.github.io/AP/LaLonde2023.html)","[Bilan](https://besibo.github.io/AP/Lanildut2023.html)","[Bilan](https://besibo.github.io/AP/Cavalaire2023.html)","[Bilan](https://besibo.github.io/AP/LaLonde2022.html)","[Bilan](https://besibo.github.io/AP/Lorient2022.html)","[Bilan](https://besibo.github.io/AP/Cavalaire2022.html)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan046.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan045.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan044.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan043.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan042.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan041.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan040.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan039.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan038.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan037.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan036.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan035.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan034.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan033.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan032.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan031.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan030.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan290.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan028.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan027.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan026.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan025.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan024.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan023.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan022.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan021.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan020.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan019.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan018.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan017.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan016.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan015.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan014.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan013.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan012.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan011.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan010.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan009.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan081.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan007.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan006.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan005.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan004.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan003.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan002.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan001.pdf)"]},"columns":[{"id":"Année","name":"Année","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["2023","2023","2023","2022","2022","2022","2021","2021","2020","2020","2019","2019","2019","2018","2018","2018","2018","2017","2017","2017","2017","2016","2016","2016","2016","2015","2015","2015","2014","2014","2014","2014","2013","2013","2013","2012","2012","2012","2011","2011","2011","2011","2010","2010","2010","2010","2010","2009","2009","2009","2009","2007"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Site","name":"Site","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["La Londe","Lanildut","Cavalaire","La Londe","Lorient","Cavalaire","Marseille","Lanildut","La Londe","Lorient","La Londe","Ouessant","Marseille","Cavalaire","Camaret","Lorient","La Londe","Cavalaire","Lanildut","Lorient","Giens","Cavalaire","Ouessant","Lorient","Marseille","Lot","Ouessant","Marseille","Cavalaire","Lanildut","Oléron","Marseille","Cavalaire","Banyuls","Cavalaire","Lanildut","Lorient","Cavalaire","Giens","Lot","Lorient","Marseille","Cavalaire","Camaret","Lorient","Lorient","Marseille","Cavalaire","Camaret - Conquet","Lorient","Lorient","Ouessant"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Période","name":"Période","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Toussaint","Été","Pâques","Toussaint","Été","Pâques","Toussaint","Été","Toussaint","Été","Toussaint","Été","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pentecôte","Pâques","Toussaint","Été","Pentecôte","Pâques","Toussaint","Été","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pâques","Été","Ascension","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pentecôte","Ascension","Pâques","Toussaint","Été","Pâques","Pâques","Été"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Début","name":"Début","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["28 octobre 2023","22 juillet 2023","15 avril 2023","29 octobre 2022","23 juillet 2022","23 avril 2022","30 octobre 2021","31 juillet 2021","24 octobre 2020","25 juillet 2020","23 octobre 2019","20 juillet 2019","20 avril 2019","27 octobre 2018","21 juillet 2018","19 mai 2018","14 avril 2018","28 octobre 2017","30 juillet 2017","03 juin 2017","22 avril 2017","23 octobre 2016","23 juillet 2016","14 mai 2016","16 avril 2016","24 octobre 2015","18 juillet 2015","02 mai 2015","25 octobre 2014","14 août 2014","29 mai 2014","26 avril 2014","26 octobre 2013","17 août 2013","20 avril 2013","07 juillet 2012","17 mai 2012","22 avril 2012","22 octobre 2011","17 août 2011","02 juin 2011","24 avril 2011","23 octobre 2010","16 août 2010","22 mai 2010","13 mai 2010","03 avril 2010","24 octobre 2009","04 juillet 2009","18 avril 2009","11 avril 2009","01 août 2007"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Fin","name":"Fin","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["04 novembre 2023","29 juillet 2023","22 avril 2023","04 novembre 2022","30 juillet 2022","30 avril 2022","06 novembre 2021","07 août 2021","31 octobre 2020","01 août 2020","31 octobre 2019","27 juillet 2019","27 avril 2019","03 novembre 2018","28 juillet 2018","21 mai 2018","21 avril 2018","04 novembre 2017","04 août 2017","05 juin 2017","29 avril 2017","23 octobre 2016","30 juillet 2016","16 mai 2016","22 avril 2016","31 octobre 2015","27 juillet 2015","08 mai 2015","01 novembre 2014","23 août 2014","01 juin 2014","02 mai 2014","02 novembre 2013","23 août 2013","27 avril 2013","15 juillet 2012","20 mai 2012","28 avril 2012","29 octobre 2011","27 août 2011","04 juin 2011","01 mai 2011","30 octobre 2010","24 août 2010","24 mai 2010","16 mai 2010","11 avril 2010","31 octobre 2009","18 juillet 2009","20 avril 2009","13 avril 2009","07 août 2007"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Bilan","name":"Bilan","type":"list","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["<a href=\"https://besibo.github.io/AP/LaLonde2023.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/Lanildut2023.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/Cavalaire2023.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/LaLonde2022.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/Lorient2022.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/Cavalaire2022.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan046.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan045.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan044.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan043.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan042.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan041.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan040.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan039.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan038.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan037.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan036.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan035.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan034.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan033.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan032.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan031.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan030.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan290.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan028.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan027.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan026.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan025.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan024.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan023.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan022.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan021.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan020.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan019.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan018.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan017.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan016.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan015.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan014.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan013.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan012.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan011.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan010.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan009.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan081.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan007.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan006.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan005.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan004.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan003.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan002.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan001.pdf\">Bilan<\/a>"],"html":true,"align":"center","headerStyle":{"font-weight":"normal"}}],"filterable":true,"searchable":true,"pagination":false,"defaultPageSize":10,"showPageSizeOptions":false,"pageSizeOptions":[10,25,50,100],"paginationType":"numbers","showPagination":true,"showPageInfo":true,"minRows":1,"highlight":true,"compact":true,"nowrap":true,"showSortable":true,"height":"auto","theme":{"color":"#333333","backgroundColor":"#FFFFFF","stripedColor":"rgba(128,128,128,0.05)","style":{"fontFamily":"system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"},"headerStyle":{"borderTopStyle":"solid","borderTopWidth":"2px","borderTopColor":"#D3D3D3","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"}},"elementId":"xstozawddd","dataKey":"75815108449b46b2da4bb62946e43c08"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.style","tag.attribs.columns.1.style","tag.attribs.columns.2.style","tag.attribs.columns.3.style","tag.attribs.columns.4.style","tag.attribs.columns.5.style"],"jsHooks":[]}</script>
+<div id="myjenosqbh" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="myjenosqbh">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Année":[2023,2023,2023,2022,2022,2022,2021,2021,2020,2020,2019,2019,2019,2018,2018,2018,2018,2017,2017,2017,2017,2016,2016,2016,2016,2015,2015,2015,2014,2014,2014,2014,2013,2013,2013,2012,2012,2012,2011,2011,2011,2011,2010,2010,2010,2010,2010,2009,2009,2009,2009,2007],"Site":["La Londe","Lanildut","Cavalaire","La Londe","Lorient","Cavalaire","Marseille","Lanildut","La Londe","Lorient","La Londe","Ouessant","Marseille","Cavalaire","Camaret","Lorient","La Londe","Cavalaire","Lanildut","Lorient","Giens","Cavalaire","Ouessant","Lorient","Marseille","Lot","Ouessant","Marseille","Cavalaire","Lanildut","Oléron","Marseille","Cavalaire","Banyuls","Cavalaire","Lanildut","Lorient","Cavalaire","Giens","Lot","Lorient","Marseille","Cavalaire","Camaret","Lorient","Lorient","Marseille","Cavalaire","Camaret - Conquet","Lorient","Lorient","Ouessant"],"Période":["Toussaint","Été","Pâques","Toussaint","Été","Pâques","Toussaint","Été","Toussaint","Été","Toussaint","Été","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pentecôte","Pâques","Toussaint","Été","Pentecôte","Pâques","Toussaint","Été","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pâques","Été","Ascension","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pentecôte","Ascension","Pâques","Toussaint","Été","Pâques","Pâques","Été"],"Début":["28 octobre 2023","22 juillet 2023","15 avril 2023","29 octobre 2022","23 juillet 2022","23 avril 2022","30 octobre 2021","31 juillet 2021","24 octobre 2020","25 juillet 2020","23 octobre 2019","20 juillet 2019","20 avril 2019","27 octobre 2018","21 juillet 2018","19 mai 2018","14 avril 2018","28 octobre 2017","30 juillet 2017","03 juin 2017","22 avril 2017","23 octobre 2016","23 juillet 2016","14 mai 2016","16 avril 2016","24 octobre 2015","18 juillet 2015","02 mai 2015","25 octobre 2014","14 août 2014","29 mai 2014","26 avril 2014","26 octobre 2013","17 août 2013","20 avril 2013","07 juillet 2012","17 mai 2012","22 avril 2012","22 octobre 2011","17 août 2011","02 juin 2011","24 avril 2011","23 octobre 2010","16 août 2010","22 mai 2010","13 mai 2010","03 avril 2010","24 octobre 2009","04 juillet 2009","18 avril 2009","11 avril 2009","01 août 2007"],"Fin":["04 novembre 2023","29 juillet 2023","22 avril 2023","04 novembre 2022","30 juillet 2022","30 avril 2022","06 novembre 2021","07 août 2021","31 octobre 2020","01 août 2020","31 octobre 2019","27 juillet 2019","27 avril 2019","03 novembre 2018","28 juillet 2018","21 mai 2018","21 avril 2018","04 novembre 2017","04 août 2017","05 juin 2017","29 avril 2017","23 octobre 2016","30 juillet 2016","16 mai 2016","22 avril 2016","31 octobre 2015","27 juillet 2015","08 mai 2015","01 novembre 2014","23 août 2014","01 juin 2014","02 mai 2014","02 novembre 2013","23 août 2013","27 avril 2013","15 juillet 2012","20 mai 2012","28 avril 2012","29 octobre 2011","27 août 2011","04 juin 2011","01 mai 2011","30 octobre 2010","24 août 2010","24 mai 2010","16 mai 2010","11 avril 2010","31 octobre 2009","18 juillet 2009","20 avril 2009","13 avril 2009","07 août 2007"],"Bilan":["[Bilan](https://besibo.github.io/AP/LaLonde2023.html)","[Bilan](https://besibo.github.io/AP/Lanildut2023.html)","[Bilan](https://besibo.github.io/AP/Cavalaire2023.html)","[Bilan](https://besibo.github.io/AP/LaLonde2022.html)","[Bilan](https://besibo.github.io/AP/Lorient2022.html)","[Bilan](https://besibo.github.io/AP/Cavalaire2022.html)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan046.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan045.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan044.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan043.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan042.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan041.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan040.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan039.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan038.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan037.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan036.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan035.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan034.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan033.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan032.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan031.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan030.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan290.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan028.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan027.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan026.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan025.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan024.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan023.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan022.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan021.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan020.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan019.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan018.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan017.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan016.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan015.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan014.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan013.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan012.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan011.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan010.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan009.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan081.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan007.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan006.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan005.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan004.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan003.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan002.pdf)","[Bilan](https://besibo.github.io/AP/www/Bilans/Bilan001.pdf)"]},"columns":[{"id":"Année","name":"Année","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["2023","2023","2023","2022","2022","2022","2021","2021","2020","2020","2019","2019","2019","2018","2018","2018","2018","2017","2017","2017","2017","2016","2016","2016","2016","2015","2015","2015","2014","2014","2014","2014","2013","2013","2013","2012","2012","2012","2011","2011","2011","2011","2010","2010","2010","2010","2010","2009","2009","2009","2009","2007"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Site","name":"Site","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["La Londe","Lanildut","Cavalaire","La Londe","Lorient","Cavalaire","Marseille","Lanildut","La Londe","Lorient","La Londe","Ouessant","Marseille","Cavalaire","Camaret","Lorient","La Londe","Cavalaire","Lanildut","Lorient","Giens","Cavalaire","Ouessant","Lorient","Marseille","Lot","Ouessant","Marseille","Cavalaire","Lanildut","Oléron","Marseille","Cavalaire","Banyuls","Cavalaire","Lanildut","Lorient","Cavalaire","Giens","Lot","Lorient","Marseille","Cavalaire","Camaret","Lorient","Lorient","Marseille","Cavalaire","Camaret - Conquet","Lorient","Lorient","Ouessant"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Période","name":"Période","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Toussaint","Été","Pâques","Toussaint","Été","Pâques","Toussaint","Été","Toussaint","Été","Toussaint","Été","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pentecôte","Pâques","Toussaint","Été","Pentecôte","Pâques","Toussaint","Été","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pâques","Été","Ascension","Pâques","Toussaint","Été","Ascension","Pâques","Toussaint","Été","Pentecôte","Ascension","Pâques","Toussaint","Été","Pâques","Pâques","Été"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Début","name":"Début","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["28 octobre 2023","22 juillet 2023","15 avril 2023","29 octobre 2022","23 juillet 2022","23 avril 2022","30 octobre 2021","31 juillet 2021","24 octobre 2020","25 juillet 2020","23 octobre 2019","20 juillet 2019","20 avril 2019","27 octobre 2018","21 juillet 2018","19 mai 2018","14 avril 2018","28 octobre 2017","30 juillet 2017","03 juin 2017","22 avril 2017","23 octobre 2016","23 juillet 2016","14 mai 2016","16 avril 2016","24 octobre 2015","18 juillet 2015","02 mai 2015","25 octobre 2014","14 août 2014","29 mai 2014","26 avril 2014","26 octobre 2013","17 août 2013","20 avril 2013","07 juillet 2012","17 mai 2012","22 avril 2012","22 octobre 2011","17 août 2011","02 juin 2011","24 avril 2011","23 octobre 2010","16 août 2010","22 mai 2010","13 mai 2010","03 avril 2010","24 octobre 2009","04 juillet 2009","18 avril 2009","11 avril 2009","01 août 2007"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Fin","name":"Fin","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["04 novembre 2023","29 juillet 2023","22 avril 2023","04 novembre 2022","30 juillet 2022","30 avril 2022","06 novembre 2021","07 août 2021","31 octobre 2020","01 août 2020","31 octobre 2019","27 juillet 2019","27 avril 2019","03 novembre 2018","28 juillet 2018","21 mai 2018","21 avril 2018","04 novembre 2017","04 août 2017","05 juin 2017","29 avril 2017","23 octobre 2016","30 juillet 2016","16 mai 2016","22 avril 2016","31 octobre 2015","27 juillet 2015","08 mai 2015","01 novembre 2014","23 août 2014","01 juin 2014","02 mai 2014","02 novembre 2013","23 août 2013","27 avril 2013","15 juillet 2012","20 mai 2012","28 avril 2012","29 octobre 2011","27 août 2011","04 juin 2011","01 mai 2011","30 octobre 2010","24 août 2010","24 mai 2010","16 mai 2010","11 avril 2010","31 octobre 2009","18 juillet 2009","20 avril 2009","13 avril 2009","07 août 2007"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Bilan","name":"Bilan","type":"list","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["<a href=\"https://besibo.github.io/AP/LaLonde2023.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/Lanildut2023.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/Cavalaire2023.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/LaLonde2022.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/Lorient2022.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/Cavalaire2022.html\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan046.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan045.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan044.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan043.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan042.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan041.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan040.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan039.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan038.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan037.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan036.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan035.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan034.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan033.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan032.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan031.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan030.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan290.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan028.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan027.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan026.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan025.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan024.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan023.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan022.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan021.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan020.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan019.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan018.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan017.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan016.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan015.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan014.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan013.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan012.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan011.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan010.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan009.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan081.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan007.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan006.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan005.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan004.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan003.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan002.pdf\">Bilan<\/a>","<a href=\"https://besibo.github.io/AP/www/Bilans/Bilan001.pdf\">Bilan<\/a>"],"html":true,"align":"center","headerStyle":{"font-weight":"normal"}}],"filterable":true,"searchable":true,"pagination":false,"defaultPageSize":10,"showPageSizeOptions":false,"pageSizeOptions":[10,25,50,100],"paginationType":"numbers","showPagination":true,"showPageInfo":true,"minRows":1,"highlight":true,"compact":true,"nowrap":true,"showSortable":true,"height":"auto","theme":{"color":"#333333","backgroundColor":"#FFFFFF","stripedColor":"rgba(128,128,128,0.05)","style":{"fontFamily":"system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"},"headerStyle":{"borderTopStyle":"solid","borderTopWidth":"2px","borderTopColor":"#D3D3D3","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"}},"elementId":"myjenosqbh","dataKey":"75815108449b46b2da4bb62946e43c08"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.style","tag.attribs.columns.1.style","tag.attribs.columns.2.style","tag.attribs.columns.3.style","tag.attribs.columns.4.style","tag.attribs.columns.5.style"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -779,10 +803,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -792,8 +833,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -805,7 +855,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -849,6 +1022,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -874,6 +1048,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -934,6 +1134,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

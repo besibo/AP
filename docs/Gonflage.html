@@ -253,6 +253,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#préparation-de-bails-out" id="toc-préparation-de-bails-out" class="nav-link active" data-scroll-target="#préparation-de-bails-out">Préparation de bails out</a></li>
+  <li><a href="#préparation-de-nitrox-et-trimix-quelconques" id="toc-préparation-de-nitrox-et-trimix-quelconques" class="nav-link" data-scroll-target="#préparation-de-nitrox-et-trimix-quelconques">Préparation de nitrox et trimix quelconques</a></li>
   </ul>
 </nav>
     </div>
@@ -339,6 +340,71 @@ server &lt;- function(input, output, session) {
 # Create and launch the Shiny app
 shinyApp(ui, server)
 </code></pre>
+</section>
+<section id="préparation-de-nitrox-et-trimix-quelconques" class="level2">
+<h2 class="anchored" data-anchor-id="préparation-de-nitrox-et-trimix-quelconques">Préparation de nitrox et trimix quelconques</h2>
+<p>Ici, on dispose d’un bloc non vide, contenant n’importe quel gaz (y compris air, oxy pur, hélium pur, nitrox ou trimix), et on complète avec un autre gaz quelconque. La calculatrice ci-dessous fournit la composition du mélange final.</p>
+<pre class="shinylive-r" data-engine="r"><code>#| standalone: true
+#| viewerHeight: 350
+
+library(shiny)
+library(bslib)
+library(tidyverse)
+library(glue)
+
+ui &lt;- fluidPage(# Your UI components go here
+  ui &lt;- page_sidebar(
+    sidebar = sidebar(
+      open = "open",
+      numericInput("oxy_bloc", "Pourcentage d'O2 actuellement dans le bloc", 21),
+      numericInput("he_bloc", "Pourcentage d'hélium actuellement dans le bloc", 0),
+      numericInput("pression_initiale", "Pression actuelle du bloc", 110),
+      numericInput("oxy_ajout", "Pourcentage d'O2 du gaz qu'on ajoute", 40),
+      numericInput("he_ajout", "Pourcentage d'hélium du gaz qu'on ajoute", 0),
+      numericInput("pression_finale", "Pression finale du bloc", 220),
+    ),
+    textOutput("out")
+  ))
+
+server &lt;- function(input, output, session) {
+  # Fonction qui permet de calculer la composition du mélange obtenu dans un bloc en partant d'un bloc non vide et en ajoutant un nitrox quelconque
+  # gaz.bloc : quel est le gaz contenu dans le bloc à compléter ? vecteur de 2 éléments entiers (O2 et He)
+  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)
+  # gaz.ajout : quelle est la composition du gaz que l'on souhaite ajouter ? vecteur de 2 éléments entiers (O2 et He)
+  # pression.finale : quelle est la pression finale souhaitée après avoir complété.
+  
+  resultat &lt;- reactive({
+
+    # Transformation des gaz pour avoir 3 éléments : O2, He et N2
+    gaz_bloc  &lt;- c(input$oxy_bloc,  input$he_bloc,  100 - input$oxy_bloc  - input$he_bloc)
+    gaz_ajout &lt;- c(input$oxy_ajout, input$he_ajout, 100 - input$oxy_ajout - input$he_ajout)
+    
+    vol_gaz_depart &lt;- gaz_bloc  * input$pression_initiale
+    vol_gaz_ajout  &lt;- gaz_ajout * (input$pression_finale - input$pression_initiale)
+    
+    vol_final &lt;- vol_gaz_depart + vol_gaz_ajout
+    gaz_final &lt;- vol_final / input$pression_finale
+
+    if (gaz_final[2] &gt; 0) {
+      gaz &lt;- glue("Le mélange obtenu est un trimix {round(gaz_final[1], 1)}% O2, {round(gaz_final[2], 1)}% He, {round(gaz_final[3], 1)}% N2")
+    } else if (gaz_final[1] == 100) {
+      gaz &lt;- "Le mélange obtenu est de l'oxygène pur"
+    } else if (gaz_final[1] == 21 &amp;&amp; gaz_final[2] == 0) {
+      gaz &lt;- "Le mélange obtenu est un nitrox du Bon Dieu"
+    } else if (gaz_final[1] &gt; 21 &amp;&amp; gaz_final[2] == 0) {
+      gaz &lt;- glue("Le mélange obtenu est un nitrox {round(gaz_final[1], 1)}")
+    } else {
+    }
+        
+    return(gaz)
+
+  })
+  
+  output$out &lt;- renderPrint(resultat())
+}
+
+# Create and launch the Shiny app
+shinyApp(ui, server)</code></pre>
 
 
 </section>
