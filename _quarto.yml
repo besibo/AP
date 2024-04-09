@@ -31,6 +31,9 @@ website:
             - LaLonde2022.qmd
       - Entretien.qmd
       - Pratique.qmd
+      - section: "Gonflage et déco"
+        contents:
+          - Gonflage.qmd
 
 format:
   html:

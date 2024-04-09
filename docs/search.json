@@ -39,7 +39,7 @@
     "href": "index.html",
     "title": "Bienvenue sur le site de l’Amitié Pictave",
     "section": "",
-    "text": "Le Mustang, baie de Carqueiranne. Jérôme Otruquin, avril 2017\n\n\nSur ce site, vous trouverez des informations sur :\n\nles sorties à venir\nla liste des sorties passées\nles comptes des sorties précédentes, y compris la plus récente\nl’entretien du camion, du bateau, des compresseurs…\n\nEt bien d’autres choses encore !.."
+    "text": "Le Mustang, baie de Carqueiranne. Jérôme Otruquin, avril 2017\n\n\nSur ce site, vous trouverez des informations sur :\n\nles sorties à venir\nla liste des sorties passées\nles comptes des sorties précédentes, y compris la plus récente\nl’entretien du camion, du bateau, des compresseurs…\n\nEt bien d’autres choses encore !..\n\n\n\nLe Mustang, baie de Carqueiranne. Jérôme Otruquin, avril 2017"
   },
   {
     "objectID": "AVenir.html",
@@ -474,5 +474,29 @@
     "title": "Pratique",
     "section": "",
     "text": "Nous disposons d’un compte pour les réservations en ligne :\n\nLogin : thomas.demeocq@gmail.com\nMot de passe : Actibus3\n\nLorsqu’on valide une réservation avec signature électronique, un SMS de confirmation est envoyé à Thomas."
+  },
+  {
+    "objectID": "Gonflage.html",
+    "href": "Gonflage.html",
+    "title": "Préparation des mélanges",
+    "section": "",
+    "text": "Que faire quand on dispose de relais contenant des nitrox et qu’on veut les gonfler à un mélange précis pour faire des bails-out peu riches ?\n#| standalone: true\n#| viewerHeight: 350\n\nlibrary(shiny)\nlibrary(bslib)\nlibrary(tidyverse)\n\nui &lt;- fluidPage(# Your UI components go here\n  ui &lt;- page_sidebar(\n    sidebar = sidebar(\n      open = \"always\",\n      numericInput(\"gaz_bloc\", \"Pourcentage d'O2 actuellement dans le bloc\", 45),\n      numericInput(\"gaz_final\", \"Pourcentage d'O2 souhaité après gonflage\", 30),\n      numericInput(\"pression_finale\", \"Pression finale du bloc\", 220),\n    ),\n    textOutput(\"out\")\n  ))\n\nserver &lt;- function(input, output, session) {\n  # Fonction qui permet de calculer la pression à laquelle redescendre un bloc de nitrox pour l'amener à un mélange précis en complétant à l'air\n  # gaz.bloc : quel est le pourcentage d'oxygène dans le gaz du bloc à compléter ?\n  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)\n  # gaz.final : quelle est le pourcentage d'oxygène souhaité au final ? \n  # pression.finale : quelle est la pression finale souhaitée après avoir complété.\n  \n  resultat &lt;- reactive({\n    \n    vol_final &lt;- input$gaz_final * input$pression_finale\n    \n    tbl &lt;- tibble(added_air_bars = 0 : input$pression_finale,\n                  nitrox_bars = input$pression_finale - added_air_bars) |&gt; \n      mutate(vO2_ajout = 21 * added_air_bars,\n             vO2_nitrox  = input$gaz_bloc * nitrox_bars,\n             vO2_total   = vO2_ajout + vO2_nitrox,\n             volume_diff = abs(vO2_total - vol_final),\n             compo_finale = vO2_total / input$pression_finale) |&gt; \n      filter(volume_diff == min(volume_diff)) |&gt; \n      slice_min(added_air_bars)\n    \n    if (input$gaz_bloc &lt;= input$gaz_final) {\n      out &lt;- \"Le pourcentage d'oxygène final doit être inférieur au pourcentage d'oxygène actuel\"\n    } else if (tbl$added_air_bars &gt; input$pression_finale) {\n      out &lt;- \"Il n'est pas possible de compléter le bloc avec les valeurs fournies\"\n    } else {\n      out &lt;- paste0(\"Descendez le bloc jusqu'à \", tbl$nitrox_bars, \" bars puis compétez à l'air jusqu'à \", input$pression_finale, \" bars pour obtenir un nitrox \", round(tbl$compo_finale,1))\n    }\n    \n    return(out)\n    \n  })\n  \n  output$out &lt;- renderText(resultat())\n}\n\n\n# Create and launch the Shiny app\nshinyApp(ui, server)",
+    "crumbs": [
+      "Accueil",
+      "Gonflage et déco",
+      "Préparation des mélanges"
+    ]
+  },
+  {
+    "objectID": "Gonflage.html#préparation-de-bails-out",
+    "href": "Gonflage.html#préparation-de-bails-out",
+    "title": "Préparation des mélanges",
+    "section": "",
+    "text": "Que faire quand on dispose de relais contenant des nitrox et qu’on veut les gonfler à un mélange précis pour faire des bails-out peu riches ?\n#| standalone: true\n#| viewerHeight: 350\n\nlibrary(shiny)\nlibrary(bslib)\nlibrary(tidyverse)\n\nui &lt;- fluidPage(# Your UI components go here\n  ui &lt;- page_sidebar(\n    sidebar = sidebar(\n      open = \"always\",\n      numericInput(\"gaz_bloc\", \"Pourcentage d'O2 actuellement dans le bloc\", 45),\n      numericInput(\"gaz_final\", \"Pourcentage d'O2 souhaité après gonflage\", 30),\n      numericInput(\"pression_finale\", \"Pression finale du bloc\", 220),\n    ),\n    textOutput(\"out\")\n  ))\n\nserver &lt;- function(input, output, session) {\n  # Fonction qui permet de calculer la pression à laquelle redescendre un bloc de nitrox pour l'amener à un mélange précis en complétant à l'air\n  # gaz.bloc : quel est le pourcentage d'oxygène dans le gaz du bloc à compléter ?\n  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)\n  # gaz.final : quelle est le pourcentage d'oxygène souhaité au final ? \n  # pression.finale : quelle est la pression finale souhaitée après avoir complété.\n  \n  resultat &lt;- reactive({\n    \n    vol_final &lt;- input$gaz_final * input$pression_finale\n    \n    tbl &lt;- tibble(added_air_bars = 0 : input$pression_finale,\n                  nitrox_bars = input$pression_finale - added_air_bars) |&gt; \n      mutate(vO2_ajout = 21 * added_air_bars,\n             vO2_nitrox  = input$gaz_bloc * nitrox_bars,\n             vO2_total   = vO2_ajout + vO2_nitrox,\n             volume_diff = abs(vO2_total - vol_final),\n             compo_finale = vO2_total / input$pression_finale) |&gt; \n      filter(volume_diff == min(volume_diff)) |&gt; \n      slice_min(added_air_bars)\n    \n    if (input$gaz_bloc &lt;= input$gaz_final) {\n      out &lt;- \"Le pourcentage d'oxygène final doit être inférieur au pourcentage d'oxygène actuel\"\n    } else if (tbl$added_air_bars &gt; input$pression_finale) {\n      out &lt;- \"Il n'est pas possible de compléter le bloc avec les valeurs fournies\"\n    } else {\n      out &lt;- paste0(\"Descendez le bloc jusqu'à \", tbl$nitrox_bars, \" bars puis compétez à l'air jusqu'à \", input$pression_finale, \" bars pour obtenir un nitrox \", round(tbl$compo_finale,1))\n    }\n    \n    return(out)\n    \n  })\n  \n  output$out &lt;- renderText(resultat())\n}\n\n\n# Create and launch the Shiny app\nshinyApp(ui, server)",
+    "crumbs": [
+      "Accueil",
+      "Gonflage et déco",
+      "Préparation des mélanges"
+    ]
   }
 ]
