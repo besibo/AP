@@ -344,237 +344,27 @@
     ]
   },
   {
-    "objectID": "Cavalaire2024.html#plongeurs-présents",
-    "href": "Cavalaire2024.html#plongeurs-présents",
-    "title": "Cavalaire",
-    "section": "Plongeurs présents",
-    "text": "Plongeurs présents\nMembres : Baptiste, Benoît, Carole, Jérôme, Nathalie, Pierre, Thomas\nInvités : Anthony, Valérianne",
+    "objectID": "Gonflage.html",
+    "href": "Gonflage.html",
+    "title": "Préparation des mélanges",
+    "section": "",
+    "text": "Que faire quand on dispose de relais contenant des nitrox et qu’on veut les gonfler à un mélange précis pour faire des bails-out peu riches ?\n#| standalone: true\n#| viewerHeight: 350\n\nlibrary(shiny)\nlibrary(bslib)\nlibrary(tidyverse)\n\nui &lt;- fluidPage(# Your UI components go here\n  ui &lt;- page_sidebar(\n    sidebar = sidebar(\n      open = \"always\",\n      numericInput(\"gaz_bloc\", \"Pourcentage d'O2 actuellement dans le bloc\", 45),\n      numericInput(\"gaz_final\", \"Pourcentage d'O2 souhaité après gonflage\", 30),\n      numericInput(\"pression_finale\", \"Pression finale du bloc\", 220),\n    ),\n    textOutput(\"out\")\n  ))\n\nserver &lt;- function(input, output, session) {\n  # Fonction qui permet de calculer la pression à laquelle redescendre un bloc de nitrox pour l'amener à un mélange précis en complétant à l'air\n  # gaz.bloc : quel est le pourcentage d'oxygène dans le gaz du bloc à compléter ?\n  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)\n  # gaz.final : quelle est le pourcentage d'oxygène souhaité au final ? \n  # pression.finale : quelle est la pression finale souhaitée après avoir complété.\n  \n  resultat &lt;- reactive({\n    \n    vol_final &lt;- input$gaz_final * input$pression_finale\n    \n    tbl &lt;- tibble(added_air_bars = 0 : input$pression_finale,\n                  nitrox_bars = input$pression_finale - added_air_bars) |&gt; \n      mutate(vO2_ajout = 21 * added_air_bars,\n             vO2_nitrox  = input$gaz_bloc * nitrox_bars,\n             vO2_total   = vO2_ajout + vO2_nitrox,\n             volume_diff = abs(vO2_total - vol_final),\n             compo_finale = vO2_total / input$pression_finale) |&gt; \n      filter(volume_diff == min(volume_diff)) |&gt; \n      slice_min(added_air_bars)\n    \n    if (input$gaz_bloc &lt;= input$gaz_final) {\n      out &lt;- \"Le pourcentage d'oxygène final doit être inférieur au pourcentage d'oxygène actuel\"\n    } else if (tbl$added_air_bars &gt; input$pression_finale) {\n      out &lt;- \"Il n'est pas possible de compléter le bloc avec les valeurs fournies\"\n    } else {\n      out &lt;- paste0(\"Descendez le bloc jusqu'à \", tbl$nitrox_bars, \" bars puis compétez à l'air jusqu'à \", input$pression_finale, \" bars pour obtenir un nitrox \", round(tbl$compo_finale,1))\n    }\n    \n    return(out)\n    \n  })\n  \n  output$out &lt;- renderText(resultat())\n}\n\n\n# Create and launch the Shiny app\nshinyApp(ui, server)",
     "crumbs": [
       "Accueil",
-      "Sorties",
-      "2024",
-      "Cavalaire"
+      "Gonflage et déco",
+      "Préparation des mélanges"
     ]
   },
   {
-    "objectID": "Cavalaire2024.html#les-plongées",
-    "href": "Cavalaire2024.html#les-plongées",
-    "title": "Cavalaire",
-    "section": "Les plongées",
-    "text": "Les plongées\n\n\n\n\nTable 1: Récapitulatif des plongées effectuées\n\n\n\n\n\n\n\nDate\nQuand\nSite\nBaptiste\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nAnthony\nValérianne\nTotal\n\n\n\n\n14 04 2024\nam\nL'espingole\n1\n1\n1\n1\n1\n1\n1\n0\n0\n7\n\n\n14 04 2024\npm\nLe Prophète\n0\n1\n1\n1\n1\n1\n1\n0\n0\n6\n\n\n15 04 2024\nam\nLe Togo\n1\n1\n1\n1\n1\n1\n1\n1\n0\n8\n\n\n15 04 2024\npm\nLe Togo\n0\n1\n1\n1\n1\n1\n1\n1\n0\n7\n\n\n16 04 2024\nam\nLe Ramon Membru\n1\n1\n1\n1\n1\n1\n1\n1\n0\n8\n\n\nTotal\n-\n-\n3\n5\n5\n5\n5\n5\n5\n3\n0\n36\n\n\n\n\n\n\n\n\n\n\n\nAu total, 36 plongées ont été effectuées.",
+    "objectID": "Gonflage.html#préparation-de-bails-out",
+    "href": "Gonflage.html#préparation-de-bails-out",
+    "title": "Préparation des mélanges",
+    "section": "",
+    "text": "Que faire quand on dispose de relais contenant des nitrox et qu’on veut les gonfler à un mélange précis pour faire des bails-out peu riches ?\n#| standalone: true\n#| viewerHeight: 350\n\nlibrary(shiny)\nlibrary(bslib)\nlibrary(tidyverse)\n\nui &lt;- fluidPage(# Your UI components go here\n  ui &lt;- page_sidebar(\n    sidebar = sidebar(\n      open = \"always\",\n      numericInput(\"gaz_bloc\", \"Pourcentage d'O2 actuellement dans le bloc\", 45),\n      numericInput(\"gaz_final\", \"Pourcentage d'O2 souhaité après gonflage\", 30),\n      numericInput(\"pression_finale\", \"Pression finale du bloc\", 220),\n    ),\n    textOutput(\"out\")\n  ))\n\nserver &lt;- function(input, output, session) {\n  # Fonction qui permet de calculer la pression à laquelle redescendre un bloc de nitrox pour l'amener à un mélange précis en complétant à l'air\n  # gaz.bloc : quel est le pourcentage d'oxygène dans le gaz du bloc à compléter ?\n  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)\n  # gaz.final : quelle est le pourcentage d'oxygène souhaité au final ? \n  # pression.finale : quelle est la pression finale souhaitée après avoir complété.\n  \n  resultat &lt;- reactive({\n    \n    vol_final &lt;- input$gaz_final * input$pression_finale\n    \n    tbl &lt;- tibble(added_air_bars = 0 : input$pression_finale,\n                  nitrox_bars = input$pression_finale - added_air_bars) |&gt; \n      mutate(vO2_ajout = 21 * added_air_bars,\n             vO2_nitrox  = input$gaz_bloc * nitrox_bars,\n             vO2_total   = vO2_ajout + vO2_nitrox,\n             volume_diff = abs(vO2_total - vol_final),\n             compo_finale = vO2_total / input$pression_finale) |&gt; \n      filter(volume_diff == min(volume_diff)) |&gt; \n      slice_min(added_air_bars)\n    \n    if (input$gaz_bloc &lt;= input$gaz_final) {\n      out &lt;- \"Le pourcentage d'oxygène final doit être inférieur au pourcentage d'oxygène actuel\"\n    } else if (tbl$added_air_bars &gt; input$pression_finale) {\n      out &lt;- \"Il n'est pas possible de compléter le bloc avec les valeurs fournies\"\n    } else {\n      out &lt;- paste0(\"Descendez le bloc jusqu'à \", tbl$nitrox_bars, \" bars puis compétez à l'air jusqu'à \", input$pression_finale, \" bars pour obtenir un nitrox \", round(tbl$compo_finale,1))\n    }\n    \n    return(out)\n    \n  })\n  \n  output$out &lt;- renderText(resultat())\n}\n\n\n# Create and launch the Shiny app\nshinyApp(ui, server)",
     "crumbs": [
       "Accueil",
-      "Sorties",
-      "2024",
-      "Cavalaire"
-    ]
-  },
-  {
-    "objectID": "Cavalaire2024.html#les-dépenses-plongée",
-    "href": "Cavalaire2024.html#les-dépenses-plongée",
-    "title": "Cavalaire",
-    "section": "Les dépenses “plongée”",
-    "text": "Les dépenses “plongée”\nLes dépenses entrant dans le calcul du coût des plongées sont détaillés dans le tableau ci-dessous.\n\n\n\n\nTable 2: Dépenses engagées par les membres de l’AP\n\n\n\n\n\n\n\nQui\nEssence bateau\nEssence compresseurs\nPort\nGaz\nDivers\nTotal\n\n\n\n\nBaptiste\n0.00€\n0.00€\n0.00€\n0€\n0.00€\n0.00€\n\n\nBenoît\n77.40€\n0.00€\n0.00€\n0€\n49.49€\n126.89€\n\n\nCarole\n0.00€\n0.00€\n0.00€\n140€\n0.00€\n140.00€\n\n\nJérôme\n77.43€\n0.00€\n0.00€\n0€\n0.00€\n77.43€\n\n\nNathalie\n77.32€\n0.00€\n69.50€\n0€\n0.00€\n146.82€\n\n\nPierre\n250.42€\n0.00€\n0.00€\n0€\n0.00€\n250.42€\n\n\nThomas\n0.00€\n38.60€\n0.00€\n0€\n21.98€\n60.58€\n\n\nTotal\n482.57€\n38.60€\n69.50€\n140€\n71.47€\n802.14€",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2024",
-      "Cavalaire"
-    ]
-  },
-  {
-    "objectID": "Cavalaire2024.html#coût-des-plongées",
-    "href": "Cavalaire2024.html#coût-des-plongées",
-    "title": "Cavalaire",
-    "section": "Coût des plongées",
-    "text": "Coût des plongées\nLe coût d’une plongée est calculé en divisant la somme des dépenses effectuées durant le séjour (ici, 802.14€) par le nombre total de plongées effectuées durant le séjour (ici, 36 plongées). Pour cette sortie, le coût d’une plongée pour les membres de l’AP est de 22.28€. Toutefois, afin d’anticiper sur la révision annuelle du moteur, nous avons décidé de majorer chaque plongée de 3€. Ainsi, pour les membres, la plongée coûte 25.28€.\nPour les invités, le prix de la plongée est fixé à 26€ si la plongée des membres coûte moins cher. Sinon, tout le monde paie le même prix. La même majoration de 3€ est appliquée pour les invités, soit un prix de 29€ par plongée.\nAu total, pour les plongées uniquement, chaque plongeur doit les sommes suivantes à l’AP :\n\n\n\n\nTable 3: Montants dûs pour la plongée\n\n\n\n\n\n\n\nBaptiste\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nAnthony\nValérianne\n\n\n\n\n75.84€\n126.40€\n126.40€\n126.40€\n126.40€\n126.40€\n126.40€\n87€\n0€",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2024",
-      "Cavalaire"
-    ]
-  },
-  {
-    "objectID": "Cavalaire2024.html#les-dépenses-hors-plongée",
-    "href": "Cavalaire2024.html#les-dépenses-hors-plongée",
-    "title": "Cavalaire",
-    "section": "Les dépenses “hors plongée”",
-    "text": "Les dépenses “hors plongée”\nPour cette sortie, les dépenses n’entrant pas dans le prix des plongées et la liste des payeurs sont présentés dans le tableau Table 4. Pour chaque plongeur (et sa famille), les nombres de nuitées et de repas pris au cours du séjours sont indiqués dans le tableau Table 5 :\n\n\n\n\nTable 4: Dépenses hors plongées engagées par les participants à la sortie\n\n\n\n\n\n\n\nQui\nLogement\nNourriture\nCarburant\nPeages\nNavette\nDiver\nTotal\n\n\n\n\nBaptiste\n0€\n0.00€\n0.00€\n0.00€\n0€\n0€\n0.00€\n\n\nBenoît\n0€\n142.00€\n250.75€\n75.90€\n0€\n0€\n468.65€\n\n\nCarole\n0€\n16.20€\n141.38€\n0.00€\n0€\n0€\n157.58€\n\n\nJérôme\n980€\n52.37€\n0.00€\n30.50€\n0€\n0€\n1,062.87€\n\n\nNathalie\n0€\n258.01€\n0.00€\n0.00€\n0€\n0€\n258.01€\n\n\nPierre\n0€\n183.71€\n0.00€\n50.20€\n0€\n0€\n233.91€\n\n\nThomas\n0€\n0.00€\n0.00€\n67.30€\n0€\n0€\n67.30€\n\n\nAnthony\n0€\n0.00€\n0.00€\n0.00€\n0€\n0€\n0.00€\n\n\nValérianne\n0€\n0.00€\n0.00€\n0.00€\n0€\n0€\n0.00€\n\n\nTotal\n980€\n652.29€\n392.13€\n223.90€\n0€\n0€\n2,248.32€\n\n\n\n\n\n\n\n\n\n\n\nIci, les dépenses de la rubrique “divers” concernent l’achat d’une bombe de WD40 et le “remerciement” du mécano de Cavalaire pour son coup de main avec le roulement de la remorque.\n\n\n\n\nTable 5: Nombre de nuitées et de repas\n\n\n\n\n\n\n\n\nBaptiste\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nAnthony\nValérianne\n\n\n\n\nNuitées\n7\n7\n7\n14\n7\n14\n7\n6\n10\n\n\nRepas\n21\n21\n21\n42\n21\n42\n21\n18\n30\n\n\n\n\n\n\n\n\n\n\n\nPour chaque personne (plongeur ou non), le coût d’une nuitée, d’un repas et du transport s’élèvent à :\n\n\n\n\nTable 6: Coûts unitaires par personne\n\n\n\n\n\n\n\nNuitée\nRepas\nCarburant\nPeages\n\n\n\n\n12.41€\n2.75€\n32.68€\n18.66€",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2024",
-      "Cavalaire"
-    ]
-  },
-  {
-    "objectID": "Cavalaire2024.html#bilan-et-remboursement",
-    "href": "Cavalaire2024.html#bilan-et-remboursement",
-    "title": "Cavalaire",
-    "section": "Bilan et remboursement",
-    "text": "Bilan et remboursement\nAu final, chaque plongeur doit donc les sommes suivantes\n\n\n\n\nTable 7: Bilan des coûts par plongeur et par poste\n\n\n\n\n\n\n\nPoste\nBaptiste\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nAnthony\nValérianne\n\n\n\n\nPlongée\n75.84€\n126.40€\n126.40€\n126.40€\n126.40€\n126.40€\n126.40€\n87.00€\n0.00€\n\n\nLogement\n86.84€\n86.84€\n86.84€\n173.67€\n86.84€\n173.67€\n86.84€\n74.43€\n124.05€\n\n\nNourriture\n57.80€\n57.80€\n57.80€\n115.60€\n57.80€\n115.60€\n57.80€\n49.54€\n82.57€\n\n\nCarburant\n32.68€\n32.68€\n32.68€\n65.36€\n32.68€\n65.36€\n32.68€\n32.68€\n65.36€\n\n\nPeage\n18.66€\n18.66€\n18.66€\n37.32€\n18.66€\n37.32€\n18.66€\n18.66€\n37.32€\n\n\nTotal\n271.81€\n322.37€\n322.37€\n518.34€\n322.37€\n518.34€\n322.37€\n262.31€\n309.29€\n\n\n\n\n\n\n\n\n\n\n\nCompte tenu des sommes déjà engagées, les remboursements à effectuer sont les suivants :\n\n\n\n\n\n\nQui\nFait quoi\nMontant\n\n\n\n\nAnthony\nrembourse à l'AP\n262.31€\n\n\nBaptiste\nrembourse à l'AP\n271.81€\n\n\nCarole\nrembourse à l'AP\n24.79€\n\n\nPierre\nrembourse à l'AP\n34.01€\n\n\nThomas\nrembourse à l'AP\n194.49€\n\n\nValérianne\nrembourse à l'AP\n309.29€\n\n\nBenoît\nse fait rembourser par l'AP\n273.17€\n\n\nJérôme\nse fait rembourser par l'AP\n621.96€\n\n\nNathalie\nse fait rembourser par l'AP\n82.46€",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2024",
-      "Cavalaire"
-    ]
-  },
-  {
-    "objectID": "Cavalaire2024.html#bénéfices-essence-et-heures",
-    "href": "Cavalaire2024.html#bénéfices-essence-et-heures",
-    "title": "Cavalaire",
-    "section": "Bénéfices, essence et heures",
-    "text": "Bénéfices, essence et heures\nLa majoration de 3€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de 23€) permettent de faire des (petits) bénéfices. Ils s’élèvent ici à 119.1€.\nPour finir, nous avons parcouru 92.8 milles nautiques. Ça veut dire que nous consommons en moyenne 1.71 litres par mille, soit 0.92 litres au kilomètre, soit la bagatelle de 92 litres au 100 kilomètres. La plongée est un sport écologique !\nLe moteur a tourné 20 heures et 180 litres de sans plomb ont été mis dans le réservoir. D’après la console, 158.5 litres ont été consommés soit une consommation moyenne de 7.92 litres à l’heure. Il devrait donc rester environ 21.5 litres dans le réservoir. Thomas en a sorti environ 70 litres, soit -48.5 litres de moins que prévu. Cela représente une erreur d’estimation de consommation de -26.94%. Les boudins n’ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2024",
-      "Cavalaire"
-    ]
-  },
-  {
-    "objectID": "Cavalaire2024.html#pour-mémoire",
-    "href": "Cavalaire2024.html#pour-mémoire",
-    "title": "Cavalaire",
-    "section": "Pour mémoire",
-    "text": "Pour mémoire\nNous avons logé dans la petite rue de la fontaine, dans une maison sympa, bien que vieillotte. Grand terrain pour les véhicules et le matos, la remorque compresseur a une place idéale au niveau du portail. Trois chambres au niveau principal (une chambre avec lit double, une chambre avec un lit simple, et une chambre avec 2 lits doubles), et encore 2 chambres avec lit double en bas. De la place pour mettre des matelas éventuellement. Pièce de vie agréable, 2 WC et salles de bains. Proprio arrangeant : il nous a autorisé à stocker la remorque compresseurs dans le jardin en attendant les réparations du Ducato (mais maison en vente ?).\nTrès belle sortie au niveau des plongées et des conditions météo (soleil presque tous les jours, peu de vent, mer globalement plate), même si l’eau était bien froide (14ºC toute la semaine). Mais grosses galères mécaniques. Un essieu de la remorque à changer. Le bateau a fait 700km sur 3 pattes à l’aller, à 85 km/h, et tout le trajet du retour dans les mêmes conditions. Il nous a fallu changer les roulements de la roue arrière gauche pour pouvoir rentrer : galère pour se faire livrer les roulements, (merci Germain Transmission à Poitiers !) et galère pour trouver l’arrache moyeu pour sortir les vieux roulements (merci le petit mécano de Cavalaire, pas du tout merci au garage/fournisseur de pièces de Cogolin). La pompe à eau du Ducato nous a aussi lâché, et comme elle est entraînée par la distribution, il faut changer le tout, pour la modique somme de 1600€. Nous sommes remontés dans un camion de déménagement de location (Rent and Drop) de 20 m\\(^3\\). Le bateau a bien tourné, malgré une petite frayeur (et une plongée perdue) le premier jour : lors de la révision de l’hiver dernier, une bobine avait été mal rebranchée. Il nous a donc fallu ressortir le bateau et l’emmener chez Mistral Plaisance le lundi à l’ouverture. Problème réglé en 20 minutes, ouf !\nPour finir sur une note positive : le Ducato va repartir pour un tour (et c’est tant mieux car on a pu mesurer comme c’est galère sans lui !), un essieu de la remorque est déjà commandé, et nous savons maintenant qu’il faut jeter un œil aux roulements de la remorque au moins tous les 2 ans. Et enfin, nous avons retrouvé les barres des compresseurs, restées un an sous un buisson. Wouhou ! Un grand merci aussi à Yannick, pour ses bras et pour sa voiture !",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2024",
-      "Cavalaire"
-    ]
-  },
-  {
-    "objectID": "Cavalaire2024.html#quelques-graphiques",
-    "href": "Cavalaire2024.html#quelques-graphiques",
-    "title": "Cavalaire",
-    "section": "Quelques graphiques",
-    "text": "Quelques graphiques\n\n\n\n\n\n\n\n\nFigure 1: Plongeurs à bord du Valiant lors de chaque plongée\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Proportion des dépenses par poste, pour la plongée et le reste\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: Proportion des dépenses de la sortie, tous postes confondus",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2024",
-      "Cavalaire"
-    ]
-  },
-  {
-    "objectID": "LaLonde2023.html#plongeurs-présents",
-    "href": "LaLonde2023.html#plongeurs-présents",
-    "title": "La Londe Les Maures",
-    "section": "Plongeurs présents",
-    "text": "Plongeurs présents\nMembres : Benoît, Carole, Jérôme, Nathalie, Pierre, Thomas\nInvités : Béatrice, Yannick",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2023",
-      "La Londe Les Maures"
-    ]
-  },
-  {
-    "objectID": "LaLonde2023.html#les-plongées",
-    "href": "LaLonde2023.html#les-plongées",
-    "title": "La Londe Les Maures",
-    "section": "Les plongées",
-    "text": "Les plongées\n\n\n\n\nTable 1: Récapitulatif des plongées effectuées\n\n\n\n\n\n\n\nDate\nQuand\nSite\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\nTotal\n\n\n\n\n29 10 2023\nam\nLe Grec\n1\n1\n1\n1\n1\n1\n0\n1\n7\n\n\n29 10 2023\npm\nLe Spahis\n1\n1\n0\n0\n1\n1\n0\n1\n5\n\n\n30 10 2023\nam\nLe Donator\n1\n1\n1\n1\n1\n1\n0\n1\n7\n\n\n01 11 2023\nam\nLe Ville de Grasse / Le Heinkel 111\n1\n1\n1\n1\n1\n1\n0\n1\n7\n\n\n01 11 2023\npm\nLa Gabinière\n1\n1\n1\n1\n1\n1\n0\n0\n6\n\n\nTotal\n-\n-\n5\n5\n4\n4\n5\n5\n0\n4\n32\n\n\n\n\n\n\n\n\n\n\n\nAu total, 32 plongées ont été effectuées.",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2023",
-      "La Londe Les Maures"
-    ]
-  },
-  {
-    "objectID": "LaLonde2023.html#les-dépenses-plongée",
-    "href": "LaLonde2023.html#les-dépenses-plongée",
-    "title": "La Londe Les Maures",
-    "section": "Les dépenses “plongée”",
-    "text": "Les dépenses “plongée”\nLes dépenses entrant dans le calcul du coût des plongées sont détaillés dans le tableau ci-dessous.\n\n\n\n\nTable 2: Dépenses engagées par les membres de l’AP\n\n\n\n\n\n\n\nQui\nEssence bateau\nEssence compresseurs\nPort\nGaz\nDivers\nTotal\n\n\n\n\nBenoît\n246.74€\n0.00€\n0€\n0€\n0.00€\n246.74€\n\n\nCarole\n0.00€\n0.00€\n0€\n0€\n0.00€\n0.00€\n\n\nJérôme\n211.36€\n0.00€\n163€\n0€\n0.00€\n374.36€\n\n\nNathalie\n0.00€\n0.00€\n24€\n0€\n0.00€\n24.00€\n\n\nPierre\n44.23€\n44.22€\n0€\n0€\n0.00€\n88.45€\n\n\nThomas\n0.00€\n0.00€\n0€\n0€\n19.90€\n19.90€\n\n\nTotal\n502.33€\n44.22€\n187€\n0€\n19.90€\n753.45€\n\n\n\n\n\n\n\n\n\n\n\nIci, les dépenses de la rubrique “divers” concernent l’achat d’un nouveau cadenas pour la remorque.",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2023",
-      "La Londe Les Maures"
-    ]
-  },
-  {
-    "objectID": "LaLonde2023.html#coût-des-plongées",
-    "href": "LaLonde2023.html#coût-des-plongées",
-    "title": "La Londe Les Maures",
-    "section": "Coût des plongées",
-    "text": "Coût des plongées\nLe coût d’une plongée est calculé en divisant la somme des dépenses effectuées durant le séjour (ici, 753.45€) par le nombre total de plongées effectuées durant le séjour (ici, 32 plongées). Pour cette sortie, le coût d’une plongée pour les membres de l’AP est de 23.55€. Toutefois, afin d’anticiper sur la révision annuelle du moteur, nous avons décidé de majorer chaque plongée de 3€. Ainsi, pour les membres, la plongée coûte 26.55€.\nPour les invités, le prix de la plongée est fixé à 27€ si la plongée des membres coûte moins cher. Sinon, tout le monde paie le même prix. La même majoration de 3€ est appliquée pour les invités, soit un prix de 30€ par plongée.\nAu total, pour les plongées uniquement, chaque plongeur doit les sommes suivantes à l’AP :\n\n\n\n\nTable 3: Montants dûs pour la plongée\n\n\n\n\n\n\n\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\n\n\n\n\n132.75€\n132.75€\n106.20€\n106.20€\n132.75€\n132.75€\n0€\n120€",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2023",
-      "La Londe Les Maures"
-    ]
-  },
-  {
-    "objectID": "LaLonde2023.html#les-dépenses-hors-plongée",
-    "href": "LaLonde2023.html#les-dépenses-hors-plongée",
-    "title": "La Londe Les Maures",
-    "section": "Les dépenses “hors plongée”",
-    "text": "Les dépenses “hors plongée”\nPour cette sortie, les dépenses n’entrant pas dans le prix des plongées et la liste des payeurs sont présentés dans le tableau Table 4. Pour chaque plongeur (et sa famille), les nombres de nuitées et de repas pris au cours du séjours sont indiqués dans le tableau Table 5 :\n\n\n\n\nTable 4: Dépenses hors plongées engagées par les participants à la sortie\n\n\n\n\n\n\n\nQui\nLogement\nNourriture\nCarburant\nPeages\nNavette\nDivers\nTotal\n\n\n\n\nBenoît\n0.00€\n150.05€\n203.24€\n92.00€\n0€\n0€\n445.29€\n\n\nCarole\n0.00€\n0.00€\n265.90€\n64.90€\n0€\n0€\n330.80€\n\n\nJérôme\n350.00€\n60.27€\n172.00€\n79.70€\n0€\n0€\n661.97€\n\n\nNathalie\n700.96€\n220.68€\n307.50€\n28.60€\n0€\n0€\n1,257.74€\n\n\nPierre\n0.00€\n149.27€\n362.44€\n119.00€\n0€\n0€\n630.71€\n\n\nThomas\n0.00€\n0.00€\n502.78€\n70.90€\n0€\n0€\n573.68€\n\n\nBéatrice\n0.00€\n192.60€\n0.00€\n0.00€\n0€\n0€\n192.60€\n\n\nYannick\n0.00€\n1.18€\n0.00€\n0.00€\n0€\n0€\n1.18€\n\n\nTotal\n1,050.96€\n774.05€\n1,813.86€\n455.10€\n0€\n0€\n4,093.97€\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 5: Nombre de nuitées et de repas\n\n\n\n\n\n\n\n\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\n\n\n\n\nNuitées\n7\n7\n14\n14\n14\n7\n7\n7\n\n\nRepas\n21\n21\n42\n42\n42\n21\n21\n21\n\n\n\n\n\n\n\n\n\n\n\nPour chaque personne (plongeur ou non), le coût d’une nuitée, d’un repas et du transport s’élèvent à :\n\n\n\n\nTable 6: Coûts unitaires par personne\n\n\n\n\n\n\n\nNuitée\nRepas\nCarburant\nPeages\n\n\n\n\n13.65€\n3.35€\n164.90€\n41.37€",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2023",
-      "La Londe Les Maures"
-    ]
-  },
-  {
-    "objectID": "LaLonde2023.html#bilan-et-remboursement",
-    "href": "LaLonde2023.html#bilan-et-remboursement",
-    "title": "La Londe Les Maures",
-    "section": "Bilan et remboursement",
-    "text": "Bilan et remboursement\nAu final, chaque plongeur doit donc les sommes suivantes\n\n\n\n\nTable 7: Bilan des coûts par plongeur et par poste\n\n\n\n\n\n\n\nPoste\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\n\n\n\n\nPlongée\n132.75€\n132.75€\n106.20€\n106.20€\n132.75€\n132.75€\n0.00€\n120.00€\n\n\nLogement\n95.54€\n95.54€\n191.08€\n191.08€\n191.08€\n95.54€\n95.54€\n95.54€\n\n\nNourriture\n70.37€\n70.37€\n140.74€\n140.74€\n140.74€\n70.37€\n70.37€\n70.37€\n\n\nCarburant\n164.90€\n164.90€\n329.79€\n329.79€\n329.79€\n164.90€\n164.90€\n164.90€\n\n\nPeage\n41.37€\n41.37€\n82.75€\n82.75€\n82.75€\n41.37€\n41.37€\n41.37€\n\n\nTotal\n504.93€\n504.93€\n850.56€\n850.56€\n877.11€\n504.93€\n372.18€\n492.18€\n\n\n\n\n\n\n\n\n\n\n\nCompte tenu des sommes déjà engagées, les remboursements à effectuer sont les suivants :\n\n\n\n\n\n\nQui\nFait quoi\nMontant\n\n\n\n\nBéatrice\nrembourse à l'AP\n179.58€\n\n\nCarole\nrembourse à l'AP\n174.13€\n\n\nPierre\nrembourse à l'AP\n157.95€\n\n\nYannick\nrembourse à l'AP\n491.00€\n\n\nBenoît\nse fait rembourser par l'AP\n187.10€\n\n\nJérôme\nse fait rembourser par l'AP\n185.77€\n\n\nNathalie\nse fait rembourser par l'AP\n431.18€\n\n\nThomas\nse fait rembourser par l'AP\n88.65€",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2023",
-      "La Londe Les Maures"
-    ]
-  },
-  {
-    "objectID": "LaLonde2023.html#bénéfices-essence-et-heures",
-    "href": "LaLonde2023.html#bénéfices-essence-et-heures",
-    "title": "La Londe Les Maures",
-    "section": "Bénéfices, essence et heures",
-    "text": "Bénéfices, essence et heures\nLa majoration de 3€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de 24€) permettent de faire des (petits) bénéfices. Ils s’élèvent ici à 109.95€.\nPour finir, nous avons parcouru 50 milles nautiques. Ça veut dire que nous consommons en moyenne 4.45 litres par mille, soit 2.4 litres au kilomètre, soit la bagatelle de 240 litres au 100 kilomètres. La plongée est un sport écologique !\nLe moteur a tourné 15.5 heures et 280 litres de sans plomb ont été mis dans le réservoir. D’après la console, 222.6 litres ont été consommés soit une consommation moyenne de 14.36 litres à l’heure. Il devrait donc rester environ 57.4 litres dans le réservoir. Thomas en a sorti environ 45 litres, soit 12.4 litres de moins que prévu. Cela représente une erreur d’estimation de consommation de -4.5%. Les boudins n’ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2023",
-      "La Londe Les Maures"
-    ]
-  },
-  {
-    "objectID": "LaLonde2023.html#pour-mémoire",
-    "href": "LaLonde2023.html#pour-mémoire",
-    "title": "La Londe Les Maures",
-    "section": "Pour mémoire",
-    "text": "Pour mémoire\nComme l’an dernier, location exceptionnellement bien située, au 279 quai Jean Lamoudru à La Londe les Maures. On ouvre le portail, on traverse la route, et on est au bateau ! De la place dans le jardin pour stocker la remorque compresseur, qui est restée sans ridelles ni bâche tous les jours de beau temps. Ducato garé le long du quai, on ne démarre que pour aller gonfler. Un grand préau pour stocker les sacs de plongée, les blocs, et s’équiper à l’abri du vent, avec un petit débarras pour les recycleux, les bidons et les analyseurs. Maison également très agréable : 2 chambres avec lit double (avec possibilité de poser un matelas dans la plus grande), une chambre avec un lit double et 2 lits superposés. Deux salles de bain et 3 WC. Il y a largement de quoi venir à 10 ou 12. Grande pièce de vie avec clic-clac, terrasses… Trop bien !\nCôté plongées en revanche, c’est la loose. Beaucoup de vent le lundi après-midi et le mardi. Tempête le jeudi et le vendredi. Au final, pas beaucoup de jours plongeables, et mer presque toujours hachée. La tentative de profonde sur le Heinkel 111 pour Pierre et Yannick s’est soldée par un échec relatif : le point n’est pas hyper précis (il a été repris au plus près), l’épave a bien été trouvée (mais pas plongée) et 90 mètres de bouts, 3 bidons et un mousqueton ont été laissés sur place faute d’une fenêtre météo favorable pour aller récupérer le tout. Tout ça sera facile et peu coûteux à remplacer.",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2023",
-      "La Londe Les Maures"
-    ]
-  },
-  {
-    "objectID": "LaLonde2023.html#quelques-graphiques",
-    "href": "LaLonde2023.html#quelques-graphiques",
-    "title": "La Londe Les Maures",
-    "section": "Quelques graphiques",
-    "text": "Quelques graphiques\n\n\n\n\n\n\n\n\nFigure 1: Plongeurs à bord du Valiant lors de chaque plongée\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Proportion des dépenses par poste, pour la plongée et le reste\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: Proportion des dépenses de la sortie, tous postes confondus\n\n\n\n\n\n\n\n\n\nLe Ville de Grasse, Giens. Jérôme Otruquin, octobre 2023",
-    "crumbs": [
-      "Accueil",
-      "Sorties",
-      "2023",
-      "La Londe Les Maures"
+      "Gonflage et déco",
+      "Préparation des mélanges"
     ]
   },
   {
@@ -695,39 +485,120 @@
     ]
   },
   {
-    "objectID": "Gonflage.html",
-    "href": "Gonflage.html",
-    "title": "Préparation des mélanges",
-    "section": "",
-    "text": "Quel nitrox obtient-on quand on dispose d’un bloc contenant entre 50 et 180 bars d’oxygène pur (en fait 98%) et qu’on le complète à l’air ?\n\nQuel nitrox obtient-on quand on dispose d’un bloc contenant entre 50 et 180 bars d’oxygène pur (en fait 98%) et qu’on le complète avec un nitrox 40 à la nitrouillette ?",
+    "objectID": "LaLonde2023.html#plongeurs-présents",
+    "href": "LaLonde2023.html#plongeurs-présents",
+    "title": "La Londe Les Maures",
+    "section": "Plongeurs présents",
+    "text": "Plongeurs présents\nMembres : Benoît, Carole, Jérôme, Nathalie, Pierre, Thomas\nInvités : Béatrice, Yannick",
     "crumbs": [
       "Accueil",
-      "Gonflage et déco",
-      "Préparation des mélanges"
+      "Sorties",
+      "2023",
+      "La Londe Les Maures"
     ]
   },
   {
-    "objectID": "Gonflage.html#préparation-de-bails-out",
-    "href": "Gonflage.html#préparation-de-bails-out",
-    "title": "Préparation des mélanges",
-    "section": "Préparation de bails out",
-    "text": "Préparation de bails out\nQue faire quand on dispose de relais contenant des nitrox et qu’on veut les gonfler à un mélange précis pour faire des bails-out peu riches ?\n#| standalone: true\n#| viewerHeight: 350\n\nlibrary(shiny)\nlibrary(bslib)\nlibrary(tidyverse)\n\nui &lt;- fluidPage(# Your UI components go here\n  ui &lt;- page_sidebar(\n    sidebar = sidebar(\n      open = \"always\",\n      numericInput(\"gaz_bloc\", \"Pourcentage d'O2 actuellement dans le bloc\", 45),\n      numericInput(\"gaz_final\", \"Pourcentage d'O2 souhaité après gonflage\", 30),\n      numericInput(\"pression_finale\", \"Pression finale du bloc\", 220),\n    ),\n    textOutput(\"out\")\n  ))\n\nserver &lt;- function(input, output, session) {\n  # Fonction qui permet de calculer la pression à laquelle redescendre un bloc de nitrox pour l'amener à un mélange précis en complétant à l'air\n  # gaz.bloc : quel est le pourcentage d'oxygène dans le gaz du bloc à compléter ?\n  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)\n  # gaz.final : quelle est le pourcentage d'oxygène souhaité au final ? \n  # pression.finale : quelle est la pression finale souhaitée après avoir complété.\n  \n  resultat &lt;- reactive({\n    \n    vol_final &lt;- input$gaz_final * input$pression_finale\n    \n    tbl &lt;- tibble(added_air_bars = 0 : input$pression_finale,\n                  nitrox_bars = input$pression_finale - added_air_bars) |&gt; \n      mutate(vO2_ajout = 21 * added_air_bars,\n             vO2_nitrox  = input$gaz_bloc * nitrox_bars,\n             vO2_total   = vO2_ajout + vO2_nitrox,\n             volume_diff = abs(vO2_total - vol_final),\n             compo_finale = vO2_total / input$pression_finale) |&gt; \n      filter(volume_diff == min(volume_diff)) |&gt; \n      slice_min(added_air_bars)\n    \n    if (input$gaz_bloc &lt;= input$gaz_final) {\n      out &lt;- \"Le pourcentage d'oxygène final doit être inférieur au pourcentage d'oxygène actuel\"\n    } else if (tbl$added_air_bars &gt; input$pression_finale) {\n      out &lt;- \"Il n'est pas possible de compléter le bloc avec les valeurs fournies\"\n    } else {\n      out &lt;- paste0(\"Descendez le bloc jusqu'à \", tbl$nitrox_bars, \" bars puis compétez à l'air jusqu'à \", input$pression_finale, \" bars pour obtenir un nitrox \", round(tbl$compo_finale,1))\n    }\n    \n    return(out)\n    \n  })\n  \n  output$out &lt;- renderText(resultat())\n}\n\n\n# Create and launch the Shiny app\nshinyApp(ui, server)",
+    "objectID": "LaLonde2023.html#les-plongées",
+    "href": "LaLonde2023.html#les-plongées",
+    "title": "La Londe Les Maures",
+    "section": "Les plongées",
+    "text": "Les plongées\n\n\n\n\nTable 1: Récapitulatif des plongées effectuées\n\n\n\n\n\n\n\nDate\nQuand\nSite\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\nTotal\n\n\n\n\n29 10 2023\nam\nLe Grec\n1\n1\n1\n1\n1\n1\n0\n1\n7\n\n\n29 10 2023\npm\nLe Spahis\n1\n1\n0\n0\n1\n1\n0\n1\n5\n\n\n30 10 2023\nam\nLe Donator\n1\n1\n1\n1\n1\n1\n0\n1\n7\n\n\n01 11 2023\nam\nLe Ville de Grasse / Le Heinkel 111\n1\n1\n1\n1\n1\n1\n0\n1\n7\n\n\n01 11 2023\npm\nLa Gabinière\n1\n1\n1\n1\n1\n1\n0\n0\n6\n\n\nTotal\n-\n-\n5\n5\n4\n4\n5\n5\n0\n4\n32\n\n\n\n\n\n\n\n\n\n\n\nAu total, 32 plongées ont été effectuées.",
     "crumbs": [
       "Accueil",
-      "Gonflage et déco",
-      "Préparation des mélanges"
+      "Sorties",
+      "2023",
+      "La Londe Les Maures"
     ]
   },
   {
-    "objectID": "Gonflage.html#préparation-de-nitrox-et-trimix-quelconques",
-    "href": "Gonflage.html#préparation-de-nitrox-et-trimix-quelconques",
-    "title": "Préparation des mélanges",
-    "section": "Préparation de nitrox et trimix quelconques",
-    "text": "Préparation de nitrox et trimix quelconques\nIci, on dispose d’un bloc non vide, contenant n’importe quel gaz (y compris air, oxy pur, hélium pur, nitrox ou trimix), et on complète avec un autre gaz quelconque. La calculatrice ci-dessous fournit la composition du mélange final.\n#| standalone: true\n#| viewerHeight: 350\n\nlibrary(shiny)\nlibrary(bslib)\nlibrary(tidyverse)\nlibrary(glue)\n\nui &lt;- fluidPage(# Your UI components go here\n  ui &lt;- page_sidebar(\n    sidebar = sidebar(\n      open = \"open\",\n      numericInput(\"oxy_bloc\", \"Pourcentage d'O2 actuellement dans le bloc\", 21),\n      numericInput(\"he_bloc\", \"Pourcentage d'hélium actuellement dans le bloc\", 0),\n      numericInput(\"pression_initiale\", \"Pression actuelle du bloc\", 110),\n      numericInput(\"oxy_ajout\", \"Pourcentage d'O2 du gaz qu'on ajoute\", 40),\n      numericInput(\"he_ajout\", \"Pourcentage d'hélium du gaz qu'on ajoute\", 0),\n      numericInput(\"pression_finale\", \"Pression finale du bloc\", 220),\n    ),\n    textOutput(\"out\")\n  ))\n\nserver &lt;- function(input, output, session) {\n  # Fonction qui permet de calculer la composition du mélange obtenu dans un bloc en partant d'un bloc non vide et en ajoutant un nitrox quelconque\n  # gaz.bloc : quel est le gaz contenu dans le bloc à compléter ? vecteur de 2 éléments entiers (O2 et He)\n  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)\n  # gaz.ajout : quelle est la composition du gaz que l'on souhaite ajouter ? vecteur de 2 éléments entiers (O2 et He)\n  # pression.finale : quelle est la pression finale souhaitée après avoir complété.\n  \n  resultat &lt;- reactive({\n\n    # Transformation des gaz pour avoir 3 éléments : O2, He et N2\n    gaz_bloc  &lt;- c(input$oxy_bloc,  input$he_bloc,  100 - input$oxy_bloc  - input$he_bloc)\n    gaz_ajout &lt;- c(input$oxy_ajout, input$he_ajout, 100 - input$oxy_ajout - input$he_ajout)\n    \n    vol_gaz_depart &lt;- gaz_bloc  * input$pression_initiale\n    vol_gaz_ajout  &lt;- gaz_ajout * (input$pression_finale - input$pression_initiale)\n    \n    vol_final &lt;- vol_gaz_depart + vol_gaz_ajout\n    gaz_final &lt;- vol_final / input$pression_finale\n\n    if (gaz_final[2] &gt; 0) {\n      gaz &lt;- glue(\"Le mélange obtenu est un trimix {round(gaz_final[1], 1)}% O2, {round(gaz_final[2], 1)}% He, {round(gaz_final[3], 1)}% N2\")\n    } else if (gaz_final[1] == 100) {\n      gaz &lt;- \"Le mélange obtenu est de l'oxygène pur\"\n    } else if (gaz_final[1] == 21 && gaz_final[2] == 0) {\n      gaz &lt;- \"Le mélange obtenu est un nitrox du Bon Dieu\"\n    } else if (gaz_final[1] &gt; 21 && gaz_final[2] == 0) {\n      gaz &lt;- glue(\"Le mélange obtenu est un nitrox {round(gaz_final[1], 1)}\")\n    } else {\n    }\n        \n    return(gaz)\n\n  })\n  \n  output$out &lt;- renderPrint(resultat())\n}\n\n# Create and launch the Shiny app\nshinyApp(ui, server)",
+    "objectID": "LaLonde2023.html#les-dépenses-plongée",
+    "href": "LaLonde2023.html#les-dépenses-plongée",
+    "title": "La Londe Les Maures",
+    "section": "Les dépenses “plongée”",
+    "text": "Les dépenses “plongée”\nLes dépenses entrant dans le calcul du coût des plongées sont détaillés dans le tableau ci-dessous.\n\n\n\n\nTable 2: Dépenses engagées par les membres de l’AP\n\n\n\n\n\n\n\nQui\nEssence bateau\nEssence compresseurs\nPort\nGaz\nDivers\nTotal\n\n\n\n\nBenoît\n246.74€\n0.00€\n0€\n0€\n0.00€\n246.74€\n\n\nCarole\n0.00€\n0.00€\n0€\n0€\n0.00€\n0.00€\n\n\nJérôme\n211.36€\n0.00€\n163€\n0€\n0.00€\n374.36€\n\n\nNathalie\n0.00€\n0.00€\n24€\n0€\n0.00€\n24.00€\n\n\nPierre\n44.23€\n44.22€\n0€\n0€\n0.00€\n88.45€\n\n\nThomas\n0.00€\n0.00€\n0€\n0€\n19.90€\n19.90€\n\n\nTotal\n502.33€\n44.22€\n187€\n0€\n19.90€\n753.45€\n\n\n\n\n\n\n\n\n\n\n\nIci, les dépenses de la rubrique “divers” concernent l’achat d’un nouveau cadenas pour la remorque.",
     "crumbs": [
       "Accueil",
-      "Gonflage et déco",
-      "Préparation des mélanges"
+      "Sorties",
+      "2023",
+      "La Londe Les Maures"
+    ]
+  },
+  {
+    "objectID": "LaLonde2023.html#coût-des-plongées",
+    "href": "LaLonde2023.html#coût-des-plongées",
+    "title": "La Londe Les Maures",
+    "section": "Coût des plongées",
+    "text": "Coût des plongées\nLe coût d’une plongée est calculé en divisant la somme des dépenses effectuées durant le séjour (ici, 753.45€) par le nombre total de plongées effectuées durant le séjour (ici, 32 plongées). Pour cette sortie, le coût d’une plongée pour les membres de l’AP est de 23.55€. Toutefois, afin d’anticiper sur la révision annuelle du moteur, nous avons décidé de majorer chaque plongée de 3€. Ainsi, pour les membres, la plongée coûte 26.55€.\nPour les invités, le prix de la plongée est fixé à 27€ si la plongée des membres coûte moins cher. Sinon, tout le monde paie le même prix. La même majoration de 3€ est appliquée pour les invités, soit un prix de 30€ par plongée.\nAu total, pour les plongées uniquement, chaque plongeur doit les sommes suivantes à l’AP :\n\n\n\n\nTable 3: Montants dûs pour la plongée\n\n\n\n\n\n\n\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\n\n\n\n\n132.75€\n132.75€\n106.20€\n106.20€\n132.75€\n132.75€\n0€\n120€",
+    "crumbs": [
+      "Accueil",
+      "Sorties",
+      "2023",
+      "La Londe Les Maures"
+    ]
+  },
+  {
+    "objectID": "LaLonde2023.html#les-dépenses-hors-plongée",
+    "href": "LaLonde2023.html#les-dépenses-hors-plongée",
+    "title": "La Londe Les Maures",
+    "section": "Les dépenses “hors plongée”",
+    "text": "Les dépenses “hors plongée”\nPour cette sortie, les dépenses n’entrant pas dans le prix des plongées et la liste des payeurs sont présentés dans le tableau Table 4. Pour chaque plongeur (et sa famille), les nombres de nuitées et de repas pris au cours du séjours sont indiqués dans le tableau Table 5 :\n\n\n\n\nTable 4: Dépenses hors plongées engagées par les participants à la sortie\n\n\n\n\n\n\n\nQui\nLogement\nNourriture\nCarburant\nPeages\nNavette\nDivers\nTotal\n\n\n\n\nBenoît\n0.00€\n150.05€\n203.24€\n92.00€\n0€\n0€\n445.29€\n\n\nCarole\n0.00€\n0.00€\n265.90€\n64.90€\n0€\n0€\n330.80€\n\n\nJérôme\n350.00€\n60.27€\n172.00€\n79.70€\n0€\n0€\n661.97€\n\n\nNathalie\n700.96€\n220.68€\n307.50€\n28.60€\n0€\n0€\n1,257.74€\n\n\nPierre\n0.00€\n149.27€\n362.44€\n119.00€\n0€\n0€\n630.71€\n\n\nThomas\n0.00€\n0.00€\n502.78€\n70.90€\n0€\n0€\n573.68€\n\n\nBéatrice\n0.00€\n192.60€\n0.00€\n0.00€\n0€\n0€\n192.60€\n\n\nYannick\n0.00€\n1.18€\n0.00€\n0.00€\n0€\n0€\n1.18€\n\n\nTotal\n1,050.96€\n774.05€\n1,813.86€\n455.10€\n0€\n0€\n4,093.97€\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 5: Nombre de nuitées et de repas\n\n\n\n\n\n\n\n\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\n\n\n\n\nNuitées\n7\n7\n14\n14\n14\n7\n7\n7\n\n\nRepas\n21\n21\n42\n42\n42\n21\n21\n21\n\n\n\n\n\n\n\n\n\n\n\nPour chaque personne (plongeur ou non), le coût d’une nuitée, d’un repas et du transport s’élèvent à :\n\n\n\n\nTable 6: Coûts unitaires par personne\n\n\n\n\n\n\n\nNuitée\nRepas\nCarburant\nPeages\n\n\n\n\n13.65€\n3.35€\n164.90€\n41.37€",
+    "crumbs": [
+      "Accueil",
+      "Sorties",
+      "2023",
+      "La Londe Les Maures"
+    ]
+  },
+  {
+    "objectID": "LaLonde2023.html#bilan-et-remboursement",
+    "href": "LaLonde2023.html#bilan-et-remboursement",
+    "title": "La Londe Les Maures",
+    "section": "Bilan et remboursement",
+    "text": "Bilan et remboursement\nAu final, chaque plongeur doit donc les sommes suivantes\n\n\n\n\nTable 7: Bilan des coûts par plongeur et par poste\n\n\n\n\n\n\n\nPoste\nBenoît\nCarole\nJérôme\nNathalie\nPierre\nThomas\nBéatrice\nYannick\n\n\n\n\nPlongée\n132.75€\n132.75€\n106.20€\n106.20€\n132.75€\n132.75€\n0.00€\n120.00€\n\n\nLogement\n95.54€\n95.54€\n191.08€\n191.08€\n191.08€\n95.54€\n95.54€\n95.54€\n\n\nNourriture\n70.37€\n70.37€\n140.74€\n140.74€\n140.74€\n70.37€\n70.37€\n70.37€\n\n\nCarburant\n164.90€\n164.90€\n329.79€\n329.79€\n329.79€\n164.90€\n164.90€\n164.90€\n\n\nPeage\n41.37€\n41.37€\n82.75€\n82.75€\n82.75€\n41.37€\n41.37€\n41.37€\n\n\nTotal\n504.93€\n504.93€\n850.56€\n850.56€\n877.11€\n504.93€\n372.18€\n492.18€\n\n\n\n\n\n\n\n\n\n\n\nCompte tenu des sommes déjà engagées, les remboursements à effectuer sont les suivants :\n\n\n\n\n\n\nQui\nFait quoi\nMontant\n\n\n\n\nBéatrice\nrembourse à l'AP\n179.58€\n\n\nCarole\nrembourse à l'AP\n174.13€\n\n\nPierre\nrembourse à l'AP\n157.95€\n\n\nYannick\nrembourse à l'AP\n491.00€\n\n\nBenoît\nse fait rembourser par l'AP\n187.10€\n\n\nJérôme\nse fait rembourser par l'AP\n185.77€\n\n\nNathalie\nse fait rembourser par l'AP\n431.18€\n\n\nThomas\nse fait rembourser par l'AP\n88.65€",
+    "crumbs": [
+      "Accueil",
+      "Sorties",
+      "2023",
+      "La Londe Les Maures"
+    ]
+  },
+  {
+    "objectID": "LaLonde2023.html#bénéfices-essence-et-heures",
+    "href": "LaLonde2023.html#bénéfices-essence-et-heures",
+    "title": "La Londe Les Maures",
+    "section": "Bénéfices, essence et heures",
+    "text": "Bénéfices, essence et heures\nLa majoration de 3€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de 24€) permettent de faire des (petits) bénéfices. Ils s’élèvent ici à 109.95€.\nPour finir, nous avons parcouru 50 milles nautiques. Ça veut dire que nous consommons en moyenne 4.45 litres par mille, soit 2.4 litres au kilomètre, soit la bagatelle de 240 litres au 100 kilomètres. La plongée est un sport écologique !\nLe moteur a tourné 15.5 heures et 280 litres de sans plomb ont été mis dans le réservoir. D’après la console, 222.6 litres ont été consommés soit une consommation moyenne de 14.36 litres à l’heure. Il devrait donc rester environ 57.4 litres dans le réservoir. Thomas en a sorti environ 45 litres, soit 12.4 litres de moins que prévu. Cela représente une erreur d’estimation de consommation de -4.5%. Les boudins n’ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !",
+    "crumbs": [
+      "Accueil",
+      "Sorties",
+      "2023",
+      "La Londe Les Maures"
+    ]
+  },
+  {
+    "objectID": "LaLonde2023.html#pour-mémoire",
+    "href": "LaLonde2023.html#pour-mémoire",
+    "title": "La Londe Les Maures",
+    "section": "Pour mémoire",
+    "text": "Pour mémoire\nComme l’an dernier, location exceptionnellement bien située, au 279 quai Jean Lamoudru à La Londe les Maures. On ouvre le portail, on traverse la route, et on est au bateau ! De la place dans le jardin pour stocker la remorque compresseur, qui est restée sans ridelles ni bâche tous les jours de beau temps. Ducato garé le long du quai, on ne démarre que pour aller gonfler. Un grand préau pour stocker les sacs de plongée, les blocs, et s’équiper à l’abri du vent, avec un petit débarras pour les recycleux, les bidons et les analyseurs. Maison également très agréable : 2 chambres avec lit double (avec possibilité de poser un matelas dans la plus grande), une chambre avec un lit double et 2 lits superposés. Deux salles de bain et 3 WC. Il y a largement de quoi venir à 10 ou 12. Grande pièce de vie avec clic-clac, terrasses… Trop bien !\nCôté plongées en revanche, c’est la loose. Beaucoup de vent le lundi après-midi et le mardi. Tempête le jeudi et le vendredi. Au final, pas beaucoup de jours plongeables, et mer presque toujours hachée. La tentative de profonde sur le Heinkel 111 pour Pierre et Yannick s’est soldée par un échec relatif : le point n’est pas hyper précis (il a été repris au plus près), l’épave a bien été trouvée (mais pas plongée) et 90 mètres de bouts, 3 bidons et un mousqueton ont été laissés sur place faute d’une fenêtre météo favorable pour aller récupérer le tout. Tout ça sera facile et peu coûteux à remplacer.",
+    "crumbs": [
+      "Accueil",
+      "Sorties",
+      "2023",
+      "La Londe Les Maures"
+    ]
+  },
+  {
+    "objectID": "LaLonde2023.html#quelques-graphiques",
+    "href": "LaLonde2023.html#quelques-graphiques",
+    "title": "La Londe Les Maures",
+    "section": "Quelques graphiques",
+    "text": "Quelques graphiques\n\n\n\n\n\n\n\n\nFigure 1: Plongeurs à bord du Valiant lors de chaque plongée\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Proportion des dépenses par poste, pour la plongée et le reste\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: Proportion des dépenses de la sortie, tous postes confondus\n\n\n\n\n\n\n\n\n\nLe Ville de Grasse, Giens. Jérôme Otruquin, octobre 2023",
+    "crumbs": [
+      "Accueil",
+      "Sorties",
+      "2023",
+      "La Londe Les Maures"
     ]
   },
   {
@@ -994,11 +865,11 @@
     "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "Gonflage.html#préparation-de-nitrox-riches",
-    "href": "Gonflage.html#préparation-de-nitrox-riches",
+    "objectID": "Gonflage.html#préparation-de-nitrox-et-trimix-quelconques",
+    "href": "Gonflage.html#préparation-de-nitrox-et-trimix-quelconques",
     "title": "Préparation des mélanges",
-    "section": "",
-    "text": "Quel nitrox obtient-on quand on dispose d’un bloc contenant entre 50 et 180 bars d’oxygène pur (en fait 98%) et qu’on le complète à l’air ?\n\nQuel nitrox obtient-on quand on dispose d’un bloc contenant entre 50 et 180 bars d’oxygène pur (en fait 98%) et qu’on le complète avec un nitrox 40 à la nitrouillette ?",
+    "section": "Préparation de nitrox et trimix quelconques",
+    "text": "Préparation de nitrox et trimix quelconques\nIci, on dispose d’un bloc non vide, contenant n’importe quel gaz (y compris air, oxy pur, hélium pur, nitrox ou trimix), et on complète avec un autre gaz quelconque. La calculatrice ci-dessous fournit la composition du mélange final.\n#| standalone: true\n#| viewerHeight: 350\n\nlibrary(shiny)\nlibrary(bslib)\nlibrary(tidyverse)\nlibrary(glue)\n\nui &lt;- fluidPage(# Your UI components go here\n  ui &lt;- page_sidebar(\n    sidebar = sidebar(\n      open = \"open\",\n      numericInput(\"oxy_bloc\", \"Pourcentage d'O2 actuellement dans le bloc\", 21),\n      numericInput(\"he_bloc\", \"Pourcentage d'hélium actuellement dans le bloc\", 0),\n      numericInput(\"pression_initiale\", \"Pression actuelle du bloc\", 110),\n      numericInput(\"oxy_ajout\", \"Pourcentage d'O2 du gaz qu'on ajoute\", 40),\n      numericInput(\"he_ajout\", \"Pourcentage d'hélium du gaz qu'on ajoute\", 0),\n      numericInput(\"pression_finale\", \"Pression finale du bloc\", 220),\n    ),\n    textOutput(\"out\")\n  ))\n\nserver &lt;- function(input, output, session) {\n  # Fonction qui permet de calculer la composition du mélange obtenu dans un bloc en partant d'un bloc non vide et en ajoutant un nitrox quelconque\n  # gaz.bloc : quel est le gaz contenu dans le bloc à compléter ? vecteur de 2 éléments entiers (O2 et He)\n  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)\n  # gaz.ajout : quelle est la composition du gaz que l'on souhaite ajouter ? vecteur de 2 éléments entiers (O2 et He)\n  # pression.finale : quelle est la pression finale souhaitée après avoir complété.\n  \n  resultat &lt;- reactive({\n\n    # Transformation des gaz pour avoir 3 éléments : O2, He et N2\n    gaz_bloc  &lt;- c(input$oxy_bloc,  input$he_bloc,  100 - input$oxy_bloc  - input$he_bloc)\n    gaz_ajout &lt;- c(input$oxy_ajout, input$he_ajout, 100 - input$oxy_ajout - input$he_ajout)\n    \n    vol_gaz_depart &lt;- gaz_bloc  * input$pression_initiale\n    vol_gaz_ajout  &lt;- gaz_ajout * (input$pression_finale - input$pression_initiale)\n    \n    vol_final &lt;- vol_gaz_depart + vol_gaz_ajout\n    gaz_final &lt;- vol_final / input$pression_finale\n\n    if (gaz_final[2] &gt; 0) {\n      gaz &lt;- glue(\"Le mélange obtenu est un trimix {round(gaz_final[1], 1)}% O2, {round(gaz_final[2], 1)}% He, {round(gaz_final[3], 1)}% N2\")\n    } else if (gaz_final[1] == 100) {\n      gaz &lt;- \"Le mélange obtenu est de l'oxygène pur\"\n    } else if (gaz_final[1] == 21 && gaz_final[2] == 0) {\n      gaz &lt;- \"Le mélange obtenu est un nitrox du Bon Dieu\"\n    } else if (gaz_final[1] &gt; 21 && gaz_final[2] == 0) {\n      gaz &lt;- glue(\"Le mélange obtenu est un nitrox {round(gaz_final[1], 1)}\")\n    } else {\n    }\n        \n    return(gaz)\n\n  })\n  \n  output$out &lt;- renderPrint(resultat())\n}\n\n# Create and launch the Shiny app\nshinyApp(ui, server)",
     "crumbs": [
       "Accueil",
       "Gonflage et déco",

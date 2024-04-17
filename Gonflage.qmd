@@ -4,6 +4,17 @@ filters:
   - shinylive
 ---
 
+## Préparation de nitrox riches
+
+Quel nitrox obtient-on quand on dispose d'un bloc contenant entre 50 et 180 bars d'oxygène pur (en fait 98%) et qu'on le complète à l'air ?
+
+![](/img/Nitrox.png)
+
+Quel nitrox obtient-on quand on dispose d'un bloc contenant entre 50 et 180 bars d'oxygène pur (en fait 98%) et qu'on le complète avec un nitrox 40 à la nitrouillette ?
+
+![](/img/Nitrox2.png)
+
+
 ## Préparation de bails out
 
 Que faire quand on dispose de relais contenant des nitrox et qu'on veut les gonfler à un mélange précis pour faire des bails-out peu riches ?
@@ -136,3 +147,5 @@ server <- function(input, output, session) {
 # Create and launch the Shiny app
 shinyApp(ui, server)
 ```
+
+

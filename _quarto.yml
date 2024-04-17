@@ -19,6 +19,9 @@ website:
         contents: 
           - AVenir.qmd
           - Historique.qmd
+          - section: "2024"
+            contents:
+            - Cavalaire2024.qmd
           - section: "2023"
             contents:
             - Cavalaire2023.qmd
