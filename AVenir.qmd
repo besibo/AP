@@ -13,12 +13,12 @@ language:
 Toutes les infos de cette page ont été discutées lors de l'AG qui s'est tenue en présence de la majorité des membres de l'association le vendredi 3 novembre 2023. Les dates et sites proposés ne sont pas gravés dans le marbre à ce stade !
 
 
-## Pâques 2024 {#ref-test}
+<!-- ## Pâques 2024 -->
 
-- **Lieu** : Cavalaire, au [690, avenue de la Castillane](https://www.google.fr/maps/place/690+Av.+de+la+Castillane,+83240+Cavalaire-sur-Mer/@43.1799155,6.5186244,17z/data=!3m1!4b1!4m6!3m5!1s0x12cece591e5930d7:0xb10c8954cab91355!8m2!3d43.1799155!4d6.5212047!16s%2Fg%2F11v03txd_3?entry=ttu)
-- **Dates** : du samedi 13 au samedi 20 avril
+<!-- - **Lieu** : Cavalaire, au [690, avenue de la Castillane](https://www.google.fr/maps/place/690+Av.+de+la+Castillane,+83240+Cavalaire-sur-Mer/@43.1799155,6.5186244,17z/data=!3m1!4b1!4m6!3m5!1s0x12cece591e5930d7:0xb10c8954cab91355!8m2!3d43.1799155!4d6.5212047!16s%2Fg%2F11v03txd_3?entry=ttu) -->
+<!-- - **Dates** : du samedi 13 au samedi 20 avril -->
 
-[Description de la location sur Le Bon Coin](https://www.leboncoin.fr/locations_saisonnieres/1489618857.htm)
+<!-- [Description de la location sur Le Bon Coin](https://www.leboncoin.fr/locations_saisonnieres/1489618857.htm) -->
 
 ## Été 2024
 

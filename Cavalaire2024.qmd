@@ -29,12 +29,12 @@ options(knitr.kable.NA = '')
 # Update this chunk every day
 
 ## Dive sites
-sites <- c(	"L'espingole", "Le Prophète", # Dimanche
+sites <- c(	"L'Espingole", "Le Prophète", # Dimanche
 			      "Le Togo", "Le Togo", # Lundi
 			      "Le Ramon Membru", NA, # Mardi
-			      NA, NA, # Mercredi
-			      NA, NA, # Jeudi
-			      NA, NA) # vendredi
+			      NA, "Calanque de la Cron", # Mercredi
+			      "Le Ramon Membru", "Calanque de la Cron", # Jeudi
+			      "Le Rubis", "L'Espingole") # vendredi
 
 ## Who dived where ?
 plongees <- tibble(
@@ -43,14 +43,14 @@ plongees <- tibble(
 `Plongée 02` = c(  0,   1,   1,   1,   1,   1,   1,   0,   0),
 `Plongée 03` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
 `Plongée 04` = c(  0,   1,   1,   1,   1,   1,   1,   1,   0),
-`Plongée 05` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 05` = c(  1,   1,   1,   1,   1,   0,   1,   1,   0),
 `Plongée 06` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
 `Plongée 07` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 08` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 09` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 10` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 11` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 12` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0)
+`Plongée 08` = c(  0,   1,   0,   1,   1,   1,   1,   0,   0),
+`Plongée 09` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 10` = c(  0,   1,   0,   1,   0,   1,   1,   1,   0),
+`Plongée 11` = c(  0,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 12` = c(  0,   1,   1,   1,   1,   1,   1,   1,   0)
 )
 
 ## Who spent what (only for dives and only for members!)
@@ -69,12 +69,12 @@ autres <- tribble(
  ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Diver,
   "bap" ,  0,  0,  0,  0,  0,  0,
   "beu" ,  0,  142,  69.12+66.96+114.67,  51.8+16.8+7.3,  0,  0,
-  "car" ,  0,  6.75+9.45+10.5,  141.38,  0,  0,  0,
-  "grom",  980,  52.37,  0,  24.1+6.4,  0,  0,
-  "nat" ,  0,  258.01,  0,  0,  0,  0,
-  "Ped" ,  0,  142.59+22+11.9+7.22,  0,  34.1+4.9+11.20,  0,  0,
+  "car" ,  0,  6.75+9.45+10.5+10.8+12,  141.38,  0,  0,  0,
+  "grom",  980,  52.37+3.8+6.67,  0,  24.1+6.4,  0,  0,
+  "nat" ,  0,  258.01+32.31,  78.18+96+68.71,  51.8+4+24.1+4.4+6.4,  0,  0,
+  "Ped" ,  0,  142.59+22+11.9+7.22+100,  100,  34.1+4.9+11.20,  0,  0,
   "tho" ,  0,  0,  0,  3.9+34.1+4.9+15.6+3.7+2.5+2.6,  0,  0,
-  "ant" ,  0,  0,  0,  0,  0,  0,
+  "ant" ,  0,  0,  125,  0,  0,  0,
   "val" ,  0,  0,  0,  0,  0,  0)
 ```
 
@@ -96,7 +96,7 @@ invites.full <- c("Anthony", "Valérianne")
 famille <- c(1, 1, 1, 2, 1, 2, 1, 1, 2)
 
 ## For each diver, how many nights and meals
-nuitees <- c(7, 7, 7, 14, 7, 14, 7, 6, 10)
+nuitees <- c(6, 7, 7, 14, 7, 14, 7, 6, 8)
 repas <- nuitees * 3
 
 ## Total number of people including non divers
@@ -107,13 +107,13 @@ first.day <- "14-04-2024"
 last.day <-  "19-04-2024"
 
 ## Runtime for the Yamaha
-start.hours <- 775
-end.hours <- 795
+start.hours <- 812.1
+end.hours <- 822.0
 
 ## Volume of fuel used
-vol.fuel <- 180
-conso.fuel <- 158.5
-dist <- 92.8 # Nautic miles
+vol.fuel <- 150
+conso.fuel <- 131.9
+dist <- 62.6 # Nautic miles
 
 ## Cost for guest
 dive.guest <- 26
@@ -239,16 +239,18 @@ La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des 
 
 Pour finir, nous avons parcouru `r dist` milles nautiques. Ça veut dire que nous consommons en moyenne `r round(conso.fuel/dist, 2)` litres par mille, soit `r round(conso.fuel/dist/1.852, 2)` litres au kilomètre, soit la bagatelle de `r 100 * round(conso.fuel/dist/1.852, 2)` litres au 100 kilomètres. La plongée est un sport écologique !
 
-Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir. Thomas en a sorti environ 70 litres, soit `r vol.fuel-conso.fuel - 70` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 70) * 100 / (vol.fuel), 2)`%. Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !
+<!-- Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir. Thomas en a sorti environ 70 litres, soit `r vol.fuel-conso.fuel - 70` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 70) * 100 / (vol.fuel), 2)`%. Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs ! -->
 
 
 ## Pour mémoire
 
-Nous avons logé dans la petite rue de la fontaine, dans une maison sympa, bien que vieillotte. Grand terrain pour les véhicules et le matos, la remorque compresseur a une place idéale au niveau du portail. Trois chambres au niveau principal (une chambre avec lit double, une chambre avec un lit simple, et une chambre avec 2 lits doubles), et encore 2 chambres avec lit double en bas. De la place pour mettre des matelas éventuellement. Pièce de vie agréable, 2 WC et salles de bains. Proprio arrangeant : il nous a autorisé à stocker la remorque compresseurs dans le jardin en attendant les réparations du Ducato (mais maison en vente ?).
+Nous avons logé au [690, avenue de la Castillane](https://www.google.fr/maps/place/690+Av.+de+la+Castillane,+83240+Cavalaire-sur-Mer/@43.1799155,6.5186244,17z/data=!3m1!4b1!4m6!3m5!1s0x12cec) ([Description de la location sur Le Bon Coin](https://www.leboncoin.fr/locations_saisonnieres/1489618857.htm)). Maison très sympa avec piscine (pas chaude, mais pratique pour repérer les fuites dans les combis étanches...), terrasse, gazon synthétique, et une grande allée en pente pour garer jusqu'à 4 véhicules. À environ 5 minutes du port de Cavalaire. Il y a 2 chambres doubles avec SDB au RDC. Possibilité de mettre un matelas dans chaque chambre. À l'étage, une chambre double et un "dortoir" avec jusqu'à 4 places (3 personnes idéalement). Pièce de vie agréable et location bon marché : une bonne adresse à conserver.
 
-Très belle sortie au niveau des plongées et des conditions météo (soleil presque tous les jours, peu de vent, mer globalement plate), même si l'eau était bien froide (14ºC toute la semaine). Mais grosses galères mécaniques. Un essieu de la remorque à changer. Le bateau a fait 700km sur 3 pattes à l'aller, à 85 km/h, et tout le trajet du retour dans les mêmes conditions. Il nous a fallu changer les roulements de la roue arrière gauche pour pouvoir rentrer : galère pour se faire livrer les roulements, (merci Germain Transmission à Poitiers !) et galère pour trouver l'arrache moyeu pour sortir les vieux roulements (merci le petit mécano de Cavalaire, pas du tout merci au garage/fournisseur de pièces de Cogolin). La pompe à eau du Ducato nous a aussi lâché, et comme elle est entraînée par la distribution, il faut changer le tout, pour la modique somme de 1600€. Nous sommes remontés dans un camion de déménagement de location (Rent and Drop) de 20 m$^3$. Le bateau a bien tourné, malgré une petite frayeur (et une plongée perdue) le premier jour : lors de la révision de l'hiver dernier, une bobine avait été mal rebranchée. Il nous a donc fallu ressortir le bateau et l'emmener chez Mistral Plaisance le lundi à l'ouverture. Problème réglé en 20 minutes, ouf !
-  
-Pour finir sur une note positive : le Ducato va repartir pour un tour (et c'est tant mieux car on a pu mesurer comme c'est galère sans lui !), un essieu de la remorque est déjà commandé, et nous savons maintenant qu'il faut jeter un œil aux roulements de la remorque au moins tous les 2 ans. Et enfin, nous avons retrouvé les barres des compresseurs, restées un an sous un buisson. Wouhou ! Un grand merci aussi à Yannick, pour ses bras et pour sa voiture !
+Comme d'habitude, les remorques (bateau et compresseurs) sont restées sur le port toute la semaine. Côté plongées, c'est plutôt pas mal en dépit d'une météo (très) pénible. Beaucoup (BEAUCOUP) de vent. Nous avons été tranquilles le dimanche et le vendredi matin. Le reste du temps, vent très violent en rafales (jusqu'à 150 km/h enregistrés dans le Var), d'où les plongées répétées sur le Ramon Membru et dans la Calanque de la Cron (sables et posidonies dans 10 mètres d'eau à peine...). La visi était globalement moyenne (assez laiteuse la plupart du temps), mais nous avons quand même vu de belles choses : banc de sérioles, Saint Pierre, baracuda solitaire, sèche, poulpes, homards, mérous, dorades... et même un espadon a été aperçu en surface.
+
+Cette sortie a aussi été marquée par les débuts en recycleur de Grom, Baptiste et Benoît. Beaucoup de bricolage et d'ajustements de configs, qui se finissaient souvent à la frontale. Mais les problèmes se règlent petits à petit, et les configs se peaufinent plongée après plongée. Et Grom a retrouvé du temps de plongée et 2 plongées par jour 👍 Nous avons aussi bénéficié d'une commande de B50 d'oxy achetée à Gwen. Le bateau a été sorti de l'eau le vendredi soir (nuitée sur le chantier nautic) et tout le matos a été rincé sur le port.
+
+Au final, est-ce que ça nous a plu ? Poser la question, c'est déjà la répondre !
 
 
 ## Quelques graphiques
@@ -274,7 +276,7 @@ pl2
 #| echo: false
 #| label: fig-all
 #| fig-cap: "Proportion des dépenses de la sortie, tous postes confondus"
-#| fig-asp: 0.3
+#| fig-asp: 0.618
 
 pl3
 ```

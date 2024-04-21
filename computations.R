@@ -241,17 +241,15 @@ pl2 <- tab3 |>
   scale_y_continuous(labels = percent_format())
 
 pl3 <- tab3 |> 
-  ggplot(aes(x = 1,
-             y = Montant, fill = Poste)) +
-  geom_col(position = "fill", color = "grey20") +
-  labs(x = "",
+  mutate(pct = Montant / sum(Montant)) |> 
+  ggplot(aes(x = fct_reorder(Poste, pct),
+             y = pct, fill = Poste)) +
+  geom_col(position = "dodge", color = "grey20", show.legend = FALSE) +
+  labs(x = "Type de dépense",
        y = "Proportion") +
   theme_bw() +
   scale_fill_viridis_d(option = "D") +
-  scale_y_continuous(labels = percent_format()) +
-  theme(axis.title.y = element_blank(),
-        axis.text.y = element_blank(),
-        axis.ticks.y = element_blank()) +
+  scale_y_continuous(labels = percent_format(), breaks = breaks_width(0.05)) +
   coord_flip()
   
 

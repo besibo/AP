@@ -22,12 +22,21 @@ Entretien chez Mistral Plaisance RAS en Novembre 2023.
 
 ## Compresseurs
 
+### Vidanges
+
 Les vidanges ont été faites le mardi 31 octobre 2023, pour les 2 compresseurs (moteurs thermiques et compresseur).
 
 Pour mémoire :
 
 - la vidange des moteurs thermiques doit être faite tous les 2 ans environ. Prochaine échéance à l'automne/hiver 2025-2026. Consommation d'huile : 1,1 litre par compresseur
 - la vidange de la partie "compresseur d'air" pourrait être faite un peu moins souvent (tous les 3 ans ?). Prochaine échéance à l'automne-hiver 2026-2027. Le compresseur noir a besoin de 2,8 litres d'huile de synthèse, et le rouge (qui avale régulièrement de l'oxygène) de 2,8 litres d'huile minérale.
+
+### Courroies
+
+Les 2 courroies (A72) du compresseur rouge ont été changées le mercredi 17 avril 2024. Le moteur thermique avait bougé, les poulies n'étaient plus alignées et les courroies étaient donc vrillées. Les courroies ont été achetées à La Garde chez RJ International. Ils vendent aussi tous types de roulements, notamment pour remorques. Très sympas et très pro !
+
+![](img/RJI.png)
+
 
 ## Remorques
 
