@@ -17,8 +17,6 @@ website:
     contents: 
       - section: "Sorties"
         contents: 
-          - AVenir.qmd
-          - Historique.qmd
           - section: "2024"
             contents:
             - Cavalaire2024.qmd
@@ -32,6 +30,8 @@ website:
             - Cavalaire2022.qmd
             - Lorient2022.qmd
             - LaLonde2022.qmd
+          - AVenir.qmd
+          - Historique.qmd
       - Entretien.qmd
       - Pratique.qmd
       - section: "Gonflage et déco"
