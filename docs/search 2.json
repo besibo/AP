@@ -731,6 +731,18 @@
     ]
   },
   {
+    "objectID": "Gonflage.html#plannification-de-plongées-trimix-en-circuit-ouvert",
+    "href": "Gonflage.html#plannification-de-plongées-trimix-en-circuit-ouvert",
+    "title": "Préparation des mélanges",
+    "section": "Plannification de plongées trimix en circuit ouvert",
+    "text": "Plannification de plongées trimix en circuit ouvert",
+    "crumbs": [
+      "Accueil",
+      "Gonflage et déco",
+      "Préparation des mélanges"
+    ]
+  },
+  {
     "objectID": "LaLonde2022.html#plongeurs-présents",
     "href": "LaLonde2022.html#plongeurs-présents",
     "title": "La Londe Les Maures",
@@ -992,5 +1004,29 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "TrimixOC.html",
+    "href": "TrimixOC.html",
+    "title": "Trimix en ouvert",
+    "section": "",
+    "text": "Cet outil permet de plannifier des plongées trimix multigaz en circuit ouvert avec un modèle de décompression Bühlmann ZHL-16C avec gradients de facteurs..",
+    "crumbs": [
+      "Accueil",
+      "Gonflage et déco",
+      "Trimix en ouvert"
+    ]
+  },
+  {
+    "objectID": "TrimixOC.html#plannification-de-plongées-trimix-en-circuit-ouvert",
+    "href": "TrimixOC.html#plannification-de-plongées-trimix-en-circuit-ouvert",
+    "title": "Trimix en ouvert",
+    "section": "",
+    "text": "Cet outil permet de plannifier des plongées trimix multigaz en circuit ouvert avec un modèle de décompression Bühlmann ZHL-16C avec gradients de facteurs..",
+    "crumbs": [
+      "Accueil",
+      "Gonflage et déco",
+      "Trimix en ouvert"
+    ]
   }
 ]

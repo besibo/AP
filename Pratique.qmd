@@ -1,0 +1,14 @@
+---
+title: "Pratique"
+---
+
+## Port de Cavalaire
+
+Nous disposons d'un compte pour les réservations en ligne :
+
+- Login : thomas.demeocq@gmail.com
+- Mot de passe : Actibus3
+
+Lorsqu'on valide une réservation avec signature électronique, un SMS de confirmation est envoyé à Thomas.
+
+

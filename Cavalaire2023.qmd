@@ -1,0 +1,276 @@
+---
+title: "Cavalaire"
+subtitle: |
+  | Du 15 au 22 avril 2023
+  |
+  | *T'aime ça la mécanique ?*
+date: now
+date-format: "dddd D MMMM YYYY"
+lang: fr
+title-block-banner: false
+language:
+  title-block-published: "Dernière Mise à jour"
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(janitor)
+library(kableExtra)
+library(scales)
+
+options(knitr.kable.NA = '')
+```
+
+
+```{r}
+#| include: false
+
+# Update this chunk every day
+
+## Dive sites
+sites <- c(	NA, NA, # Dimanche
+			      "Le Rubis", "L'espingole", # Lundi
+			      "Le trafik", "Le Prophète", # Mardi
+			      "Le Grec/Dornier 24", "Le Ramon", # Mercredi
+			      "Togo", "Le Prophète", # Jeudi
+			      "Togo", NA) # vendredi
+
+## Who dived where ?
+plongees <- tibble(
+#			           Beu, Cal, Car, Gro, Tho, Yan
+`Plongée 01` = c(  0,   0,   0,   0,   0,   0),
+`Plongée 02` = c(  0,   0,   0,   0,   0,   0),
+`Plongée 03` = c(  1,   1,   1,   1,   1,   1),
+`Plongée 04` = c(  1,   1,   1,   0,   1,   1),
+`Plongée 05` = c(  1,   1,   0,   0,   1,   1),
+`Plongée 06` = c(  1,   0,   0,   1,   0,   0),
+`Plongée 07` = c(  1,   1,   1,   1,   1,   1),
+`Plongée 08` = c(  1,   0,   0,   0,   1,   1),
+`Plongée 09` = c(  1,   1,   1,   1,   1,   1),
+`Plongée 10` = c(  1,   0,   0,   0,   1,   1),
+`Plongée 11` = c(  1,   1,   1,   1,   1,   1),
+`Plongée 12` = c(  0,   0,   0,   0,   0,   0)
+)
+
+## Who spent what (only for dives and only for members!)
+depenses <- tribble(
+  ~Qui, ~`Essence bateau`, ~`Essence compresseurs`, ~Port, ~Gaz, ~Divers,
+  "beu", 0,  0,  0,  0, 0,
+  "cal", 149.29+90.76,  0,  67.50,  0, 0,
+  "car", 119.22,  28.54,  0,  0, 0,
+  "grom", 0,  28.56,  0,  0, 0,
+  "tho", 0,  0,  0,  111.64, 0)
+
+## Who spent what (one line per diver, members or not, for everything not dive-related)
+autres <- tribble(
+ ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Diver,
+  "beu",  0,  120+14.10,  58.39,  41.6+23.30+2.8+6.2,  0,  10.70 + 10, # WD40 + pourboire mécano Cavalaire
+  "cal",  0,  0,  36.02,  0,  0,  0,
+  "car",  0,  11.20,  114.64,  4.8+3.8+3.7+2.5+32.7+2+2+65.3,  0,  0, 
+  "grom", 200,  168.55+8.10+37.89,  97.3+111.85+86,  7+7.2+4.2+5.80,  0,  0,
+  "tho",  0,  0,  165.98+76.07+146.78+65.13,  15+2.4+9.1+10.2+18.6+3.9+4.2,  0,  0,
+  "yan",  500,  25.80+191.49+56.42+8.10,  50,  0,  0,  0)
+```
+
+
+```{r}
+#| include: false
+
+# Update once for every diving trip
+
+## List of members
+membres <- c("Beu", "Calude", "Carole","Grom", "Thomas")
+membres.full <- c("Benoît", "Calude", "Carole", "Jérôme", "Thomas")
+
+## List of guests
+invites <- c("Yan")
+invites.full <- c("Yannick")
+
+## For each diver, how many people in charge (divers + non-divers included)
+famille <- c(1, 1, 1, 2, 1, 1)
+
+## For each diver, how many nights and meals
+nuitees <- c(7, 7, 7, 14, 7, 7)
+repas <- nuitees * 3
+
+## Total number of people including non divers
+nb.pers <- sum(famille)
+
+## Diving days
+first.day <- "16-04-2023"
+last.day <-  "21-04-2023"
+
+## Runtime for the Yamaha
+start.hours <- 763.8
+end.hours <- 774.9
+
+## Volume of fuel used
+vol.fuel <- 180
+conso.fuel <- 158.5
+dist <- 92.8 # Nautic miles
+
+## Cost for guest
+dive.guest <- 26
+
+## Overhead of diving Cost
+overhead <- 3 # €
+
+source("computations.R")
+```
+
+
+----
+
+## Plongeurs présents
+
+Membres : `r membres.full`  
+Invités : `r invites.full`
+
+## Les plongées
+
+```{r}
+#| echo: false
+#| label: tbl-plongee
+#| tbl-cap: "Récapitulatif des plongées effectuées"
+
+beautify_table(liste_plongees)
+```
+
+Au total, `r liste_plongees |> pull(Total) |> sum()` plongées ont été effectuées.
+
+## Les dépenses "plongée"
+
+Les dépenses entrant dans le calcul du coût des plongées sont détaillés dans le tableau ci-dessous.
+
+```{r}
+#| echo: false
+#| tbl-cap: "Dépenses engagées par les membres de l'AP"
+#| label: tbl-dep_plong
+
+beautify_cost_table(depenses)
+```
+
+<!-- Ici, les dépenses de la rubrique "divers" concernent l'achat d'un nouveau cadenas pour la remorque. -->
+
+
+## Coût des plongées
+
+
+Le coût d'une plongée est calculé en divisant la somme des dépenses effectuées durant le séjour (ici, `r depenses |> pull(Total) |> sum()`€) par le nombre total de plongées effectuées durant le séjour (ici, `r liste_plongees |> pull(Total) |> sum()` plongées). Pour cette sortie, le coût d'une plongée pour les membres de l'AP est de `r cout_membres - overhead`€. Toutefois, afin d'anticiper sur la révision annuelle du moteur, nous avons décidé de majorer chaque plongée de `r overhead`€. Ainsi, **pour les membres, la plongée coûte `r cout_membres`€**.
+
+Pour les invités, le prix de la plongée est fixé à `r cout_guest - overhead`€ si la plongée des membres coûte moins cher. Sinon, tout le monde paie le même prix. La même majoration de `r overhead`€ est appliquée pour les invités, soit un prix de `r cout_guest`€ par plongée.
+
+Au total, pour les plongées uniquement, chaque plongeur doit les sommes suivantes à  l'AP :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Montants dûs pour la plongée"
+#| label: tbl-cout_plongee
+
+cout_plongee |> 
+  select(Plongeur, Cout) |> 
+  pivot_wider(names_from = Plongeur, values_from = Cout) |> 
+  beautify_cost_table(total = FALSE)
+```
+
+## Les dépenses "hors plongée"
+
+Pour cette sortie, les dépenses n'entrant pas dans le prix des plongées et la liste des payeurs sont présentés dans le tableau @tbl-cout_hors_plongee. Pour chaque plongeur (et sa famille), les nombres de nuitées et de repas pris au cours du séjours sont indiqués dans le tableau @tbl-nights_and_food :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Dépenses hors plongées engagées par les participants à  la sortie"
+#| label: tbl-cout_hors_plongee
+
+beautify_cost_table(autres)
+```
+
+Ici, les dépenses de la rubrique "divers" concernent l'achat d'une bombe de WD40 et le "remerciement" du mécano de Cavalaire pour son coup de main avec le roulement de la remorque.
+
+
+```{r}
+#| echo: false
+#| tbl-cap: "Nombre de nuitées et de repas"
+#| label: tbl-nights_and_food
+
+beautify_table(nr, total = FALSE)
+```
+
+Pour chaque **personne** (plongeur ou non), le coût d'une nuitée, d'un repas et du transport s'élèvent à  :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Coûts unitaires par personne"
+#| label: tbl-other_per_person
+
+beautify_cost_table(autres_unit, total = FALSE)
+```
+
+## Bilan et remboursement
+
+Au final, chaque **plongeur** doit donc les sommes suivantes
+
+```{r}
+#| echo: false
+#| tbl-cap: "Bilan des coûts par plongeur et par poste"
+#| label: tbl-cost_per_diver
+
+beautify_cost_table(cout_all)
+```
+
+Compte tenu des sommes déjà  engagées, les remboursements à effectuer sont les suivants :
+
+```{r}
+#| echo: false
+
+beautify_cost_table(rembourse, total = FALSE)
+```
+
+
+## Bénéfices, essence et heures
+
+La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de `r dive.guest-overhead`€) permettent de faire des (petits) bénéfices. Ils s'élèvent ici à **`r benef`€**.
+
+Pour finir, nous avons parcouru `r dist` milles nautiques. Ça veut dire que nous consommons en moyenne `r round(conso.fuel/dist, 2)` litres par mille, soit `r round(conso.fuel/dist/1.852, 2)` litres au kilomètre, soit la bagatelle de `r 100 * round(conso.fuel/dist/1.852, 2)` litres au 100 kilomètres. La plongée est un sport écologique !
+
+Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir. Thomas en a sorti environ 70 litres, soit `r vol.fuel-conso.fuel - 70` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 70) * 100 / (vol.fuel), 2)`%. Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !
+
+
+## Pour mémoire
+
+Nous avons logé dans la petite rue de la fontaine, dans une maison sympa, bien que vieillotte. Grand terrain pour les véhicules et le matos, la remorque compresseur a une place idéale au niveau du portail. Trois chambres au niveau principal (une chambre avec lit double, une chambre avec un lit simple, et une chambre avec 2 lits doubles), et encore 2 chambres avec lit double en bas. De la place pour mettre des matelas éventuellement. Pièce de vie agréable, 2 WC et salles de bains. Proprio arrangeant : il nous a autorisé à stocker la remorque compresseurs dans le jardin en attendant les réparations du Ducato (mais maison en vente ?).
+
+Très belle sortie au niveau des plongées et des conditions météo (soleil presque tous les jours, peu de vent, mer globalement plate), même si l'eau était bien froide (14ºC toute la semaine). Mais grosses galères mécaniques. Un essieu de la remorque à changer. Le bateau a fait 700km sur 3 pattes à l'aller, à 85 km/h, et tout le trajet du retour dans les mêmes conditions. Il nous a fallu changer les roulements de la roue arrière gauche pour pouvoir rentrer : galère pour se faire livrer les roulements, (merci Germain Transmission à Poitiers !) et galère pour trouver l'arrache moyeu pour sortir les vieux roulements (merci le petit mécano de Cavalaire, pas du tout merci au garage/fournisseur de pièces de Cogolin). La pompe à eau du Ducato nous a aussi lâché, et comme elle est entraînée par la distribution, il faut changer le tout, pour la modique somme de 1600€. Nous sommes remontés dans un camion de déménagement de location (Rent and Drop) de 20 m$^3$. Le bateau a bien tourné, malgré une petite frayeur (et une plongée perdue) le premier jour : lors de la révision de l'hiver dernier, une bobine avait été mal rebranchée. Il nous a donc fallu ressortir le bateau et l'emmener chez Mistral Plaisance le lundi à l'ouverture. Problème réglé en 20 minutes, ouf !
+  
+Pour finir sur une note positive : le Ducato va repartir pour un tour (et c'est tant mieux car on a pu mesurer comme c'est galère sans lui !), un essieu de la remorque est déjà commandé, et nous savons maintenant qu'il faut jeter un œil aux roulements de la remorque au moins tous les 2 ans. Et enfin, nous avons retrouvé les barres des compresseurs, restées un an sous un buisson. Wouhou ! Un grand merci aussi à Yannick, pour ses bras et pour sa voiture !
+
+
+## Quelques graphiques
+
+```{r}
+#| echo: false
+#| label: fig-plong
+#| fig-cap: "Plongeurs à bord du Valiant lors de chaque plongée"
+#| fig-asp: 0.4
+
+pl1
+```
+
+```{r}
+#| echo: false
+#| label: fig-dep
+#| fig-cap: "Proportion des dépenses par poste, pour la plongée et le reste"
+
+pl2
+```
+
+```{r}
+#| echo: false
+#| label: fig-all
+#| fig-cap: "Proportion des dépenses de la sortie, tous postes confondus"
+#| fig-asp: 0.3
+
+pl3
+```
+

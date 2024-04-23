@@ -1,0 +1,40 @@
+---
+title: "Historique"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(gt)
+```
+
+
+```{r}
+#| echo: false
+
+liste_sorties_raw <- read_delim(
+  "www/Liste_Sorties.csv", 
+  delim = ";", 
+  escape_double = FALSE, 
+  col_types = cols(`Date début` = col_date(format = "%Y-%m-%d"), 
+                   `Date fin` = col_date(format = "%Y-%m-%d")), 
+  trim_ws = TRUE) 
+
+liste_sorties_raw |> 
+  mutate(Année = year(`Date début`),
+         Début = format(`Date début`, "%d %B %Y"),
+         Fin = format(`Date fin`, "%d %B %Y"),
+         Bilan = paste0("[Bilan](",Bilan,")"),
+         Bilan = map(Bilan, gt::md)) |> 
+  arrange(desc(`Date début`)) |> 
+  select(Année, Site = Lieu, Période, Début, Fin, Bilan) |> 
+  gt() |> 
+  opt_interactive(use_pagination = FALSE, 
+                  use_search = TRUE, 
+                  use_filters = TRUE,
+                  use_compact_mode = TRUE,
+                  use_text_wrapping = FALSE,
+                  use_highlight = TRUE)
+```
