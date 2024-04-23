@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Amitié Pictave - Cavalaire">
@@ -138,7 +109,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./AVenir.html">Sorties</a></li><li class="breadcrumb-item"><a href="./Cavalaire2024.html">2024</a></li><li class="breadcrumb-item"><a href="./Cavalaire2024.html">Cavalaire</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Sorties</li><li class="breadcrumb-item"><a href="./Cavalaire2024.html">2024</a></li><li class="breadcrumb-item"><a href="./Cavalaire2024.html">Cavalaire</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -167,18 +138,6 @@ window.Quarto = {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./AVenir.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les sorties à venir</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Historique.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Historique</span></a>
-  </div>
-</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -254,6 +213,18 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./AVenir.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les sorties à venir</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Historique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Historique</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -310,7 +281,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./AVenir.html">Sorties</a></li><li class="breadcrumb-item"><a href="./Cavalaire2024.html">2024</a></li><li class="breadcrumb-item"><a href="./Cavalaire2024.html">Cavalaire</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Sorties</li><li class="breadcrumb-item"><a href="./Cavalaire2024.html">2024</a></li><li class="breadcrumb-item"><a href="./Cavalaire2024.html">Cavalaire</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Cavalaire</h1>
 <p class="subtitle lead"></p><div class="line-block">Du 13 au 20 avril 2023<br>
@@ -326,7 +297,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Dernière Mise à jour</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">mercredi 17 avril 2024</p>
+      <p class="date">dimanche 21 avril 2024</p>
     </div>
   </div>
   
@@ -377,7 +348,7 @@ Table&nbsp;1: Récapitulatif des plongées effectuées
 <tr class="odd">
 <td style="text-align: left;">14 04 2024</td>
 <td style="text-align: left;">am</td>
-<td style="text-align: left;">L'espingole</td>
+<td style="text-align: left;">L'Espingole</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -435,10 +406,85 @@ Table&nbsp;1: Récapitulatif des plongées effectuées
 <td style="text-align: right;">7</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; border-bottom: 1px solid;">16 04 2024</td>
-<td style="text-align: left; border-bottom: 1px solid;">am</td>
-<td style="text-align: left; border-bottom: 1px solid;">Le Ramon Membru</td>
-<td style="text-align: right; border-bottom: 1px solid;">1</td>
+<td style="text-align: left;">16 04 2024</td>
+<td style="text-align: left;">am</td>
+<td style="text-align: left;">Le Ramon Membru</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">17 04 2024</td>
+<td style="text-align: left;">pm</td>
+<td style="text-align: left;">Calanque de la Cron</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">18 04 2024</td>
+<td style="text-align: left;">am</td>
+<td style="text-align: left;">Le Ramon Membru</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">18 04 2024</td>
+<td style="text-align: left;">pm</td>
+<td style="text-align: left;">Calanque de la Cron</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">19 04 2024</td>
+<td style="text-align: left;">am</td>
+<td style="text-align: left;">Le Rubis</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; border-bottom: 1px solid;">19 04 2024</td>
+<td style="text-align: left; border-bottom: 1px solid;">pm</td>
+<td style="text-align: left; border-bottom: 1px solid;">L'Espingole</td>
+<td style="text-align: right; border-bottom: 1px solid;">0</td>
 <td style="text-align: right; border-bottom: 1px solid;">1</td>
 <td style="text-align: right; border-bottom: 1px solid;">1</td>
 <td style="text-align: right; border-bottom: 1px solid;">1</td>
@@ -447,22 +493,22 @@ Table&nbsp;1: Récapitulatif des plongées effectuées
 <td style="text-align: right; border-bottom: 1px solid;">1</td>
 <td style="text-align: right; border-bottom: 1px solid;">1</td>
 <td style="text-align: right; border-bottom: 1px solid;">0</td>
-<td style="text-align: right; border-bottom: 1px solid;">8</td>
+<td style="text-align: right; border-bottom: 1px solid;">7</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left; font-weight: bold;">Total</td>
 <td style="text-align: left; font-weight: bold;">-</td>
 <td style="text-align: left; font-weight: bold;">-</td>
-<td style="text-align: right; font-weight: bold;">3</td>
-<td style="text-align: right; font-weight: bold;">5</td>
-<td style="text-align: right; font-weight: bold;">5</td>
-<td style="text-align: right; font-weight: bold;">5</td>
-<td style="text-align: right; font-weight: bold;">5</td>
-<td style="text-align: right; font-weight: bold;">5</td>
-<td style="text-align: right; font-weight: bold;">5</td>
-<td style="text-align: right; font-weight: bold;">3</td>
+<td style="text-align: right; font-weight: bold;">4</td>
+<td style="text-align: right; font-weight: bold;">10</td>
+<td style="text-align: right; font-weight: bold;">8</td>
+<td style="text-align: right; font-weight: bold;">10</td>
+<td style="text-align: right; font-weight: bold;">9</td>
+<td style="text-align: right; font-weight: bold;">9</td>
+<td style="text-align: right; font-weight: bold;">10</td>
+<td style="text-align: right; font-weight: bold;">7</td>
 <td style="text-align: right; font-weight: bold;">0</td>
-<td style="text-align: right; font-weight: bold;">36</td>
+<td style="text-align: right; font-weight: bold;">67</td>
 </tr>
 </tbody>
 </table>
@@ -474,7 +520,7 @@ Table&nbsp;1: Récapitulatif des plongées effectuées
 </figure>
 </div>
 </div>
-<p>Au total, 36 plongées ont été effectuées.</p>
+<p>Au total, 67 plongées ont été effectuées.</p>
 </section>
 <section id="les-dépenses-plongée" class="level2">
 <h2 class="anchored" data-anchor-id="les-dépenses-plongée">Les dépenses “plongée”</h2>
@@ -583,11 +629,11 @@ Table&nbsp;2: Dépenses engagées par les membres de l’AP
 </figure>
 </div>
 </div>
-<!-- Ici, les dépenses de la rubrique "divers" concernent l'achat d'un nouveau cadenas pour la remorque. -->
+<p>Ici, les dépenses de la rubrique “divers” concernent l’achat d’un nouveau tuyau d’arrosage pour le rinçage du matériel ainsi que de 2 courroies neuves pour le compresseur rouge.</p>
 </section>
 <section id="coût-des-plongées" class="level2">
 <h2 class="anchored" data-anchor-id="coût-des-plongées">Coût des plongées</h2>
-<p>Le coût d’une plongée est calculé en divisant la somme des dépenses effectuées durant le séjour (ici, 802.14€) par le nombre total de plongées effectuées durant le séjour (ici, 36 plongées). Pour cette sortie, le coût d’une plongée pour les membres de l’AP est de 22.28€. Toutefois, afin d’anticiper sur la révision annuelle du moteur, nous avons décidé de majorer chaque plongée de 3€. Ainsi, <strong>pour les membres, la plongée coûte 25.28€</strong>.</p>
+<p>Le coût d’une plongée est calculé en divisant la somme des dépenses effectuées durant le séjour (ici, 802.14€) par le nombre total de plongées effectuées durant le séjour (ici, 67 plongées). Pour cette sortie, le coût d’une plongée pour les membres de l’AP est de 11.97€. Toutefois, afin d’anticiper sur la révision annuelle du moteur, nous avons décidé de majorer chaque plongée de 3€. Ainsi, <strong>pour les membres, la plongée coûte 14.97€</strong>.</p>
 <p>Pour les invités, le prix de la plongée est fixé à 26€ si la plongée des membres coûte moins cher. Sinon, tout le monde paie le même prix. La même majoration de 3€ est appliquée pour les invités, soit un prix de 29€ par plongée.</p>
 <p>Au total, pour les plongées uniquement, chaque plongeur doit les sommes suivantes à l’AP :</p>
 <div class="cell">
@@ -615,14 +661,14 @@ Table&nbsp;3: Montants dûs pour la plongée
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">75.84€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">87€</td>
+<td style="text-align: right;">59.88€</td>
+<td style="text-align: right;">149.70€</td>
+<td style="text-align: right;">119.76€</td>
+<td style="text-align: right;">149.70€</td>
+<td style="text-align: right;">134.73€</td>
+<td style="text-align: right;">134.73€</td>
+<td style="text-align: right;">149.70€</td>
+<td style="text-align: right;">203€</td>
 <td style="text-align: right;">0€</td>
 </tr>
 </tbody>
@@ -666,11 +712,11 @@ Table&nbsp;4: Dépenses hors plongées engagées par les participants à la sort
 <td style="text-align: right;">Baptiste</td>
 <td style="text-align: right;">0€</td>
 <td style="text-align: right;">0.00€</td>
-<td style="text-align: right;">0.00€</td>
-<td style="text-align: right;">0.00€</td>
+<td style="text-align: right;">178.00€</td>
+<td style="text-align: right;">95.00€</td>
 <td style="text-align: right;">0€</td>
 <td style="text-align: right;">0€</td>
-<td style="text-align: right;">0.00€</td>
+<td style="text-align: right;">273.00€</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">Benoît</td>
@@ -685,42 +731,42 @@ Table&nbsp;4: Dépenses hors plongées engagées par les participants à la sort
 <tr class="odd">
 <td style="text-align: right;">Carole</td>
 <td style="text-align: right;">0€</td>
-<td style="text-align: right;">26.70€</td>
+<td style="text-align: right;">49.50€</td>
 <td style="text-align: right;">141.38€</td>
 <td style="text-align: right;">0.00€</td>
 <td style="text-align: right;">0€</td>
 <td style="text-align: right;">0€</td>
-<td style="text-align: right;">168.08€</td>
+<td style="text-align: right;">190.88€</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">Jérôme</td>
 <td style="text-align: right;">980€</td>
-<td style="text-align: right;">52.37€</td>
+<td style="text-align: right;">62.84€</td>
 <td style="text-align: right;">0.00€</td>
 <td style="text-align: right;">30.50€</td>
 <td style="text-align: right;">0€</td>
 <td style="text-align: right;">0€</td>
-<td style="text-align: right;">1,062.87€</td>
+<td style="text-align: right;">1,073.34€</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">Nathalie</td>
 <td style="text-align: right;">0€</td>
-<td style="text-align: right;">258.01€</td>
-<td style="text-align: right;">0.00€</td>
-<td style="text-align: right;">0.00€</td>
+<td style="text-align: right;">290.32€</td>
+<td style="text-align: right;">242.89€</td>
+<td style="text-align: right;">100.40€</td>
 <td style="text-align: right;">0€</td>
 <td style="text-align: right;">0€</td>
-<td style="text-align: right;">258.01€</td>
+<td style="text-align: right;">633.61€</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">Pierre</td>
 <td style="text-align: right;">0€</td>
-<td style="text-align: right;">183.71€</td>
-<td style="text-align: right;">0.00€</td>
+<td style="text-align: right;">301.51€</td>
+<td style="text-align: right;">100.00€</td>
 <td style="text-align: right;">50.20€</td>
 <td style="text-align: right;">0€</td>
 <td style="text-align: right;">0€</td>
-<td style="text-align: right;">233.91€</td>
+<td style="text-align: right;">451.71€</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">Thomas</td>
@@ -736,11 +782,11 @@ Table&nbsp;4: Dépenses hors plongées engagées par les participants à la sort
 <td style="text-align: right;">Anthony</td>
 <td style="text-align: right;">0€</td>
 <td style="text-align: right;">0.00€</td>
-<td style="text-align: right;">0.00€</td>
+<td style="text-align: right;">125.00€</td>
 <td style="text-align: right;">0.00€</td>
 <td style="text-align: right;">0€</td>
 <td style="text-align: right;">0€</td>
-<td style="text-align: right;">0.00€</td>
+<td style="text-align: right;">125.00€</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right; border-bottom: 1px solid;">Valérianne</td>
@@ -755,12 +801,12 @@ Table&nbsp;4: Dépenses hors plongées engagées par les participants à la sort
 <tr class="even">
 <td style="text-align: right; font-weight: bold;">Total</td>
 <td style="text-align: right; font-weight: bold;">980€</td>
-<td style="text-align: right; font-weight: bold;">662.79€</td>
-<td style="text-align: right; font-weight: bold;">392.13€</td>
-<td style="text-align: right; font-weight: bold;">223.90€</td>
+<td style="text-align: right; font-weight: bold;">846.17€</td>
+<td style="text-align: right; font-weight: bold;">1,038.02€</td>
+<td style="text-align: right; font-weight: bold;">419.30€</td>
 <td style="text-align: right; font-weight: bold;">0€</td>
 <td style="text-align: right; font-weight: bold;">0€</td>
-<td style="text-align: right; font-weight: bold;">2,258.82€</td>
+<td style="text-align: right; font-weight: bold;">3,283.49€</td>
 </tr>
 </tbody>
 </table>
@@ -800,7 +846,7 @@ Table&nbsp;5: Nombre de nuitées et de repas
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Nuitées</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">14</td>
@@ -808,11 +854,11 @@ Table&nbsp;5: Nombre de nuitées et de repas
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">8</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Repas</td>
-<td style="text-align: right;">21</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: right;">21</td>
 <td style="text-align: right;">21</td>
 <td style="text-align: right;">42</td>
@@ -820,7 +866,7 @@ Table&nbsp;5: Nombre de nuitées et de repas
 <td style="text-align: right;">42</td>
 <td style="text-align: right;">21</td>
 <td style="text-align: right;">18</td>
-<td style="text-align: right;">30</td>
+<td style="text-align: right;">24</td>
 </tr>
 </tbody>
 </table>
@@ -853,10 +899,10 @@ Table&nbsp;6: Coûts unitaires par personne
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">12.41€</td>
-<td style="text-align: right;">2.80€</td>
-<td style="text-align: right;">32.68€</td>
-<td style="text-align: right;">18.66€</td>
+<td style="text-align: right;">12.89€</td>
+<td style="text-align: right;">3.71€</td>
+<td style="text-align: right;">86.50€</td>
+<td style="text-align: right;">34.94€</td>
 </tr>
 </tbody>
 </table>
@@ -899,75 +945,75 @@ Table&nbsp;7: Bilan des coûts par plongeur et par poste
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">Plongée</td>
-<td style="text-align: right;">75.84€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">126.40€</td>
-<td style="text-align: right;">87.00€</td>
+<td style="text-align: right;">59.88€</td>
+<td style="text-align: right;">149.70€</td>
+<td style="text-align: right;">119.76€</td>
+<td style="text-align: right;">149.70€</td>
+<td style="text-align: right;">134.73€</td>
+<td style="text-align: right;">134.73€</td>
+<td style="text-align: right;">149.70€</td>
+<td style="text-align: right;">203.00€</td>
 <td style="text-align: right;">0.00€</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">Logement</td>
-<td style="text-align: right;">86.84€</td>
-<td style="text-align: right;">86.84€</td>
-<td style="text-align: right;">86.84€</td>
-<td style="text-align: right;">173.67€</td>
-<td style="text-align: right;">86.84€</td>
-<td style="text-align: right;">173.67€</td>
-<td style="text-align: right;">86.84€</td>
-<td style="text-align: right;">74.43€</td>
-<td style="text-align: right;">124.05€</td>
+<td style="text-align: right;">77.37€</td>
+<td style="text-align: right;">90.26€</td>
+<td style="text-align: right;">90.26€</td>
+<td style="text-align: right;">180.53€</td>
+<td style="text-align: right;">90.26€</td>
+<td style="text-align: right;">180.53€</td>
+<td style="text-align: right;">90.26€</td>
+<td style="text-align: right;">77.37€</td>
+<td style="text-align: right;">103.16€</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">Nourriture</td>
-<td style="text-align: right;">58.73€</td>
-<td style="text-align: right;">58.73€</td>
-<td style="text-align: right;">58.73€</td>
-<td style="text-align: right;">117.46€</td>
-<td style="text-align: right;">58.73€</td>
-<td style="text-align: right;">117.46€</td>
-<td style="text-align: right;">58.73€</td>
-<td style="text-align: right;">50.34€</td>
-<td style="text-align: right;">83.90€</td>
+<td style="text-align: right;">66.80€</td>
+<td style="text-align: right;">77.94€</td>
+<td style="text-align: right;">77.94€</td>
+<td style="text-align: right;">155.87€</td>
+<td style="text-align: right;">77.94€</td>
+<td style="text-align: right;">155.87€</td>
+<td style="text-align: right;">77.94€</td>
+<td style="text-align: right;">66.80€</td>
+<td style="text-align: right;">89.07€</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">Carburant</td>
-<td style="text-align: right;">32.68€</td>
-<td style="text-align: right;">32.68€</td>
-<td style="text-align: right;">32.68€</td>
-<td style="text-align: right;">65.36€</td>
-<td style="text-align: right;">32.68€</td>
-<td style="text-align: right;">65.36€</td>
-<td style="text-align: right;">32.68€</td>
-<td style="text-align: right;">32.68€</td>
-<td style="text-align: right;">65.36€</td>
+<td style="text-align: right;">86.50€</td>
+<td style="text-align: right;">86.50€</td>
+<td style="text-align: right;">86.50€</td>
+<td style="text-align: right;">173.00€</td>
+<td style="text-align: right;">86.50€</td>
+<td style="text-align: right;">173.00€</td>
+<td style="text-align: right;">86.50€</td>
+<td style="text-align: right;">86.50€</td>
+<td style="text-align: right;">173.00€</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right; border-bottom: 1px solid;">Peage</td>
-<td style="text-align: right; border-bottom: 1px solid;">18.66€</td>
-<td style="text-align: right; border-bottom: 1px solid;">18.66€</td>
-<td style="text-align: right; border-bottom: 1px solid;">18.66€</td>
-<td style="text-align: right; border-bottom: 1px solid;">37.32€</td>
-<td style="text-align: right; border-bottom: 1px solid;">18.66€</td>
-<td style="text-align: right; border-bottom: 1px solid;">37.32€</td>
-<td style="text-align: right; border-bottom: 1px solid;">18.66€</td>
-<td style="text-align: right; border-bottom: 1px solid;">18.66€</td>
-<td style="text-align: right; border-bottom: 1px solid;">37.32€</td>
+<td style="text-align: right; border-bottom: 1px solid;">34.94€</td>
+<td style="text-align: right; border-bottom: 1px solid;">34.94€</td>
+<td style="text-align: right; border-bottom: 1px solid;">34.94€</td>
+<td style="text-align: right; border-bottom: 1px solid;">69.88€</td>
+<td style="text-align: right; border-bottom: 1px solid;">34.94€</td>
+<td style="text-align: right; border-bottom: 1px solid;">69.88€</td>
+<td style="text-align: right; border-bottom: 1px solid;">34.94€</td>
+<td style="text-align: right; border-bottom: 1px solid;">34.94€</td>
+<td style="text-align: right; border-bottom: 1px solid;">69.88€</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; font-weight: bold;">Total</td>
-<td style="text-align: right; font-weight: bold;">272.74€</td>
-<td style="text-align: right; font-weight: bold;">323.30€</td>
-<td style="text-align: right; font-weight: bold;">323.30€</td>
-<td style="text-align: right; font-weight: bold;">520.20€</td>
-<td style="text-align: right; font-weight: bold;">323.30€</td>
-<td style="text-align: right; font-weight: bold;">520.20€</td>
-<td style="text-align: right; font-weight: bold;">323.30€</td>
-<td style="text-align: right; font-weight: bold;">263.10€</td>
-<td style="text-align: right; font-weight: bold;">310.62€</td>
+<td style="text-align: right; font-weight: bold;">325.49€</td>
+<td style="text-align: right; font-weight: bold;">439.34€</td>
+<td style="text-align: right; font-weight: bold;">409.40€</td>
+<td style="text-align: right; font-weight: bold;">728.99€</td>
+<td style="text-align: right; font-weight: bold;">424.37€</td>
+<td style="text-align: right; font-weight: bold;">714.02€</td>
+<td style="text-align: right; font-weight: bold;">439.34€</td>
+<td style="text-align: right; font-weight: bold;">468.61€</td>
+<td style="text-align: right; font-weight: bold;">435.12€</td>
 </tr>
 </tbody>
 </table>
@@ -995,47 +1041,47 @@ Table&nbsp;7: Bilan des coûts par plongeur et par poste
 <tr class="odd">
 <td style="text-align: right;">Anthony</td>
 <td style="text-align: right;">rembourse à l'AP</td>
-<td style="text-align: right;">263.10€</td>
+<td style="text-align: right;">343.61€</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">Baptiste</td>
 <td style="text-align: right;">rembourse à l'AP</td>
-<td style="text-align: right;">272.74€</td>
+<td style="text-align: right;">52.49€</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">Carole</td>
 <td style="text-align: right;">rembourse à l'AP</td>
-<td style="text-align: right;">15.22€</td>
+<td style="text-align: right;">78.52€</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">Pierre</td>
 <td style="text-align: right;">rembourse à l'AP</td>
-<td style="text-align: right;">35.87€</td>
+<td style="text-align: right;">11.89€</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">Thomas</td>
 <td style="text-align: right;">rembourse à l'AP</td>
-<td style="text-align: right;">195.42€</td>
+<td style="text-align: right;">311.46€</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">Valérianne</td>
 <td style="text-align: right;">rembourse à l'AP</td>
-<td style="text-align: right;">310.62€</td>
+<td style="text-align: right;">435.12€</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">Benoît</td>
 <td style="text-align: right;">se fait rembourser par l'AP</td>
-<td style="text-align: right;">272.24€</td>
+<td style="text-align: right;">156.20€</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">Jérôme</td>
 <td style="text-align: right;">se fait rembourser par l'AP</td>
-<td style="text-align: right;">620.10€</td>
+<td style="text-align: right;">421.78€</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">Nathalie</td>
 <td style="text-align: right;">se fait rembourser par l'AP</td>
-<td style="text-align: right;">81.53€</td>
+<td style="text-align: right;">356.06€</td>
 </tr>
 </tbody>
 </table>
@@ -1047,15 +1093,17 @@ Table&nbsp;7: Bilan des coûts par plongeur et par poste
 </section>
 <section id="bénéfices-essence-et-heures" class="level2">
 <h2 class="anchored" data-anchor-id="bénéfices-essence-et-heures">Bénéfices, essence et heures</h2>
-<p>La majoration de 3€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de 23€) permettent de faire des (petits) bénéfices. Ils s’élèvent ici à <strong>119.1€</strong>.</p>
-<p>Pour finir, nous avons parcouru 92.8 milles nautiques. Ça veut dire que nous consommons en moyenne 1.71 litres par mille, soit 0.92 litres au kilomètre, soit la bagatelle de 92 litres au 100 kilomètres. La plongée est un sport écologique !</p>
-<p>Le moteur a tourné 20 heures et 180 litres de sans plomb ont été mis dans le réservoir. D’après la console, 158.5 litres ont été consommés soit une consommation moyenne de 7.92 litres à l’heure. Il devrait donc rester environ 21.5 litres dans le réservoir. Thomas en a sorti environ 70 litres, soit -48.5 litres de moins que prévu. Cela représente une erreur d’estimation de consommation de -26.94%. Les boudins n’ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !</p>
+<p>La majoration de 3€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de 23€) permettent de faire des (petits) bénéfices. Ils s’élèvent ici à <strong>299.06€</strong>.</p>
+<p>Pour finir, nous avons parcouru 62.6 milles nautiques. Ça veut dire que nous consommons en moyenne 2.11 litres par mille, soit 1.14 litres au kilomètre, soit la bagatelle de 114 litres au 100 kilomètres. La plongée est un sport écologique !</p>
+<!-- Le moteur a tourné 9.9 heures et 150 litres de sans plomb ont été mis dans le réservoir. D'après la console, 131.9 litres ont été consommés soit une consommation moyenne de 13.32 litres à l'heure. Il devrait donc rester environ 18.1 litres dans le réservoir. Thomas en a sorti environ 70 litres, soit -51.9 litres de moins que prévu. Cela représente une erreur d'estimation de consommation de -34.6%. Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs ! -->
 </section>
 <section id="pour-mémoire" class="level2">
 <h2 class="anchored" data-anchor-id="pour-mémoire">Pour mémoire</h2>
-<p>Nous avons logé dans la petite rue de la fontaine, dans une maison sympa, bien que vieillotte. Grand terrain pour les véhicules et le matos, la remorque compresseur a une place idéale au niveau du portail. Trois chambres au niveau principal (une chambre avec lit double, une chambre avec un lit simple, et une chambre avec 2 lits doubles), et encore 2 chambres avec lit double en bas. De la place pour mettre des matelas éventuellement. Pièce de vie agréable, 2 WC et salles de bains. Proprio arrangeant : il nous a autorisé à stocker la remorque compresseurs dans le jardin en attendant les réparations du Ducato (mais maison en vente ?).</p>
-<p>Très belle sortie au niveau des plongées et des conditions météo (soleil presque tous les jours, peu de vent, mer globalement plate), même si l’eau était bien froide (14ºC toute la semaine). Mais grosses galères mécaniques. Un essieu de la remorque à changer. Le bateau a fait 700km sur 3 pattes à l’aller, à 85 km/h, et tout le trajet du retour dans les mêmes conditions. Il nous a fallu changer les roulements de la roue arrière gauche pour pouvoir rentrer : galère pour se faire livrer les roulements, (merci Germain Transmission à Poitiers !) et galère pour trouver l’arrache moyeu pour sortir les vieux roulements (merci le petit mécano de Cavalaire, pas du tout merci au garage/fournisseur de pièces de Cogolin). La pompe à eau du Ducato nous a aussi lâché, et comme elle est entraînée par la distribution, il faut changer le tout, pour la modique somme de 1600€. Nous sommes remontés dans un camion de déménagement de location (Rent and Drop) de 20 m<span class="math inline">\(^3\)</span>. Le bateau a bien tourné, malgré une petite frayeur (et une plongée perdue) le premier jour : lors de la révision de l’hiver dernier, une bobine avait été mal rebranchée. Il nous a donc fallu ressortir le bateau et l’emmener chez Mistral Plaisance le lundi à l’ouverture. Problème réglé en 20 minutes, ouf !</p>
-<p>Pour finir sur une note positive : le Ducato va repartir pour un tour (et c’est tant mieux car on a pu mesurer comme c’est galère sans lui !), un essieu de la remorque est déjà commandé, et nous savons maintenant qu’il faut jeter un œil aux roulements de la remorque au moins tous les 2 ans. Et enfin, nous avons retrouvé les barres des compresseurs, restées un an sous un buisson. Wouhou ! Un grand merci aussi à Yannick, pour ses bras et pour sa voiture !</p>
+<p>Nous avons logé au <a href="https://www.google.fr/maps/place/690+Av.+de+la+Castillane,+83240+Cavalaire-sur-Mer/@43.1799155,6.5186244,17z/data=!3m1!4b1!4m6!3m5!1s0x12cec">690, avenue de la Castillane</a> (<a href="https://www.leboncoin.fr/locations_saisonnieres/1489618857.htm">Description de la location sur Le Bon Coin</a>). Maison très sympa avec piscine (pas chaude, mais pratique pour repérer les fuites dans les combis étanches…), terrasse, gazon synthétique, et une grande allée en pente pour garer jusqu’à 4 véhicules. À environ 5 minutes du port de Cavalaire. Il y a 2 chambres doubles avec SDB au RDC. Possibilité de mettre un matelas dans chaque chambre. À l’étage, une chambre double et un “dortoir” avec jusqu’à 4 places (3 personnes idéalement). Pièce de vie agréable et location bon marché : une bonne adresse à conserver.</p>
+<p>Comme d’habitude, les remorques (bateau et compresseurs) sont restées sur le port toute la semaine. Côté plongées, c’est plutôt pas mal en dépit d’une météo (très) pénible. Beaucoup (BEAUCOUP) de vent. Nous avons été tranquilles le dimanche et le vendredi matin. Le reste du temps, vent très violent en rafales (jusqu’à 150 km/h enregistrés dans le Var), d’où les plongées répétées sur le Ramon Membru et dans la Calanque de la Cron (sables et posidonies dans 10 mètres d’eau à peine…). La visi était globalement moyenne (assez laiteuse la plupart du temps), mais nous avons quand même vu de belles choses : banc de sérioles, Saint Pierre, baracuda solitaire, sèche, poulpes, homards, mérous, dorades… et même un espadon a été aperçu en surface.</p>
+<p>Cette sortie a aussi été marquée par les débuts en recycleur de Grom, Baptiste et Benoît. Beaucoup de bricolage et d’ajustements de configs, qui se finissaient souvent à la frontale. Mais les problèmes se règlent petits à petit, et les configs se peaufinent plongée après plongée. Et Grom a retrouvé du temps de plongée et 2 plongées par jour 👍 Nous avons aussi bénéficié d’une commande de B50 d’oxy achetée à Gwen. Le bateau a été sorti de l’eau le vendredi soir (nuitée sur le chantier nautic) et tout le matos a été rincé sur le port.</p>
+<p>Dernière chose, il reste environ 70 litres de SP 95 dans les bidons. Ils seront utilisés cet été, ça sera ça de moins à payer en juillet !</p>
+<p>Au final, est-ce que ça nous a plu ? Poser la question, c’est déjà la répondre !</p>
 </section>
 <section id="quelques-graphiques" class="level2">
 <h2 class="anchored" data-anchor-id="quelques-graphiques">Quelques graphiques</h2>
