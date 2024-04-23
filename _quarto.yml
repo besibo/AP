@@ -34,10 +34,7 @@ website:
           - Historique.qmd
       - Entretien.qmd
       - Pratique.qmd
-      - section: "Gonflage et déco"
-        contents:
-          - Gonflage.qmd
-          - TrimixOC.qmd
+      - Gonflage.qmd
 
 format:
   html:

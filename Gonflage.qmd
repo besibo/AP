@@ -1,7 +1,5 @@
 ---
-title: "Préparation des mélanges"
-filters:
-  - shinylive
+title: "Gonflages et déco"
 ---
 
 ## Préparation de nitrox riches
@@ -14,136 +12,14 @@ Quel nitrox obtient-on quand on dispose d'un bloc contenant entre 50 et 180 bars
 
 ![](/img/Nitrox2.png)
 
+## Calculatrices pour préparation de mélanges
 
-## Préparation de bails out
-
-Que faire quand on dispose de relais contenant des nitrox et qu'on veut les gonfler à un mélange précis pour faire des bails-out peu riches ?
-
-```{shinylive-r}
-#| standalone: true
-#| viewerHeight: 350
-
-library(shiny)
-library(bslib)
-library(tidyverse)
-
-ui <- fluidPage(# Your UI components go here
-  ui <- page_sidebar(
-    sidebar = sidebar(
-      open = "always",
-      numericInput("gaz_bloc", "Pourcentage d'O2 actuellement dans le bloc", 45),
-      numericInput("gaz_final", "Pourcentage d'O2 souhaité après gonflage", 30),
-      numericInput("pression_finale", "Pression finale du bloc", 220),
-    ),
-    textOutput("out")
-  ))
-
-server <- function(input, output, session) {
-  # Fonction qui permet de calculer la pression à laquelle redescendre un bloc de nitrox pour l'amener à un mélange précis en complétant à l'air
-  # gaz.bloc : quel est le pourcentage d'oxygène dans le gaz du bloc à compléter ?
-  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)
-  # gaz.final : quelle est le pourcentage d'oxygène souhaité au final ? 
-  # pression.finale : quelle est la pression finale souhaitée après avoir complété.
-  
-  resultat <- reactive({
-    
-    vol_final <- input$gaz_final * input$pression_finale
-    
-    tbl <- tibble(added_air_bars = 0 : input$pression_finale,
-                  nitrox_bars = input$pression_finale - added_air_bars) |> 
-      mutate(vO2_ajout = 21 * added_air_bars,
-             vO2_nitrox  = input$gaz_bloc * nitrox_bars,
-             vO2_total   = vO2_ajout + vO2_nitrox,
-             volume_diff = abs(vO2_total - vol_final),
-             compo_finale = vO2_total / input$pression_finale) |> 
-      filter(volume_diff == min(volume_diff)) |> 
-      slice_min(added_air_bars)
-    
-    if (input$gaz_bloc <= input$gaz_final) {
-      out <- "Le pourcentage d'oxygène final doit être inférieur au pourcentage d'oxygène actuel"
-    } else if (tbl$added_air_bars > input$pression_finale) {
-      out <- "Il n'est pas possible de compléter le bloc avec les valeurs fournies"
-    } else {
-      out <- paste0("Descendez le bloc jusqu'à ", tbl$nitrox_bars, " bars puis compétez à l'air jusqu'à ", input$pression_finale, " bars pour obtenir un nitrox ", round(tbl$compo_finale,1))
-    }
-    
-    return(out)
-    
-  })
-  
-  output$out <- renderText(resultat())
-}
+<iframe height="650" width="100%" frameborder="no" src="https://diving.shinyapps.io/Gas_calculator//"> </iframe>
 
 
-# Create and launch the Shiny app
-shinyApp(ui, server)
 
-```
+## Plannification de plongées trimix en circuit ouvert
 
-## Préparation de nitrox et trimix quelconques
+Cet outil permet de plannifier des plongées trimix multigaz en circuit ouvert avec un modèle de décompression Bühlmann ZHL-16C avec gradients de facteurs..
 
-Ici, on dispose d'un bloc non vide, contenant n'importe quel gaz (y compris air, oxy pur, hélium pur, nitrox ou trimix), et on complète avec un autre gaz quelconque. La calculatrice ci-dessous fournit la composition du mélange final.
-
-```{shinylive-r}
-#| standalone: true
-#| viewerHeight: 350
-
-library(shiny)
-library(bslib)
-library(tidyverse)
-library(glue)
-
-ui <- fluidPage(# Your UI components go here
-  ui <- page_sidebar(
-    sidebar = sidebar(
-      open = "open",
-      numericInput("oxy_bloc", "Pourcentage d'O2 actuellement dans le bloc", 21),
-      numericInput("he_bloc", "Pourcentage d'hélium actuellement dans le bloc", 0),
-      numericInput("pression_initiale", "Pression actuelle du bloc", 110),
-      numericInput("oxy_ajout", "Pourcentage d'O2 du gaz qu'on ajoute", 40),
-      numericInput("he_ajout", "Pourcentage d'hélium du gaz qu'on ajoute", 0),
-      numericInput("pression_finale", "Pression finale du bloc", 220),
-    ),
-    textOutput("out")
-  ))
-
-server <- function(input, output, session) {
-  # Fonction qui permet de calculer la composition du mélange obtenu dans un bloc en partant d'un bloc non vide et en ajoutant un nitrox quelconque
-  # gaz.bloc : quel est le gaz contenu dans le bloc à compléter ? vecteur de 2 éléments entiers (O2 et He)
-  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)
-  # gaz.ajout : quelle est la composition du gaz que l'on souhaite ajouter ? vecteur de 2 éléments entiers (O2 et He)
-  # pression.finale : quelle est la pression finale souhaitée après avoir complété.
-  
-  resultat <- reactive({
-
-    # Transformation des gaz pour avoir 3 éléments : O2, He et N2
-    gaz_bloc  <- c(input$oxy_bloc,  input$he_bloc,  100 - input$oxy_bloc  - input$he_bloc)
-    gaz_ajout <- c(input$oxy_ajout, input$he_ajout, 100 - input$oxy_ajout - input$he_ajout)
-    
-    vol_gaz_depart <- gaz_bloc  * input$pression_initiale
-    vol_gaz_ajout  <- gaz_ajout * (input$pression_finale - input$pression_initiale)
-    
-    vol_final <- vol_gaz_depart + vol_gaz_ajout
-    gaz_final <- vol_final / input$pression_finale
-
-    if (gaz_final[2] > 0) {
-      gaz <- glue("Le mélange obtenu est un trimix {round(gaz_final[1], 1)}% O2, {round(gaz_final[2], 1)}% He, {round(gaz_final[3], 1)}% N2")
-    } else if (gaz_final[1] == 100) {
-      gaz <- "Le mélange obtenu est de l'oxygène pur"
-    } else if (gaz_final[1] == 21 && gaz_final[2] == 0) {
-      gaz <- "Le mélange obtenu est un nitrox du Bon Dieu"
-    } else if (gaz_final[1] > 21 && gaz_final[2] == 0) {
-      gaz <- glue("Le mélange obtenu est un nitrox {round(gaz_final[1], 1)}")
-    } else {
-    }
-        
-    return(gaz)
-
-  })
-  
-  output$out <- renderPrint(resultat())
-}
-
-# Create and launch the Shiny app
-shinyApp(ui, server)
-```
+<iframe height="1600" width="100%" frameborder="no" src="https://diving.shinyapps.io/DivingPlan/"> </iframe>

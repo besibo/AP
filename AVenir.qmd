@@ -1,5 +1,5 @@
 ---
-title: "Les sorties à venir"
+title: "À venir"
 date: now
 date-format: "dddd D MMMM YYYY"
 lang: fr

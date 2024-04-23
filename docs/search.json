@@ -4,24 +4,14 @@
     "href": "TrimixOC.html",
     "title": "Trimix en ouvert",
     "section": "",
-    "text": "Cet outil permet de plannifier des plongées trimix multigaz en circuit ouvert avec un modèle de décompression Bühlmann ZHL-16C avec gradients de facteurs..",
-    "crumbs": [
-      "Accueil",
-      "Gonflage et déco",
-      "Trimix en ouvert"
-    ]
+    "text": "Cet outil permet de plannifier des plongées trimix multigaz en circuit ouvert avec un modèle de décompression Bühlmann ZHL-16C avec gradients de facteurs.."
   },
   {
     "objectID": "TrimixOC.html#plannification-de-plongées-trimix-en-circuit-ouvert",
     "href": "TrimixOC.html#plannification-de-plongées-trimix-en-circuit-ouvert",
     "title": "Trimix en ouvert",
     "section": "",
-    "text": "Cet outil permet de plannifier des plongées trimix multigaz en circuit ouvert avec un modèle de décompression Bühlmann ZHL-16C avec gradients de facteurs..",
-    "crumbs": [
-      "Accueil",
-      "Gonflage et déco",
-      "Trimix en ouvert"
-    ]
+    "text": "Cet outil permet de plannifier des plongées trimix multigaz en circuit ouvert avec un modèle de décompression Bühlmann ZHL-16C avec gradients de facteurs.."
   },
   {
     "objectID": "about.html",
@@ -289,49 +279,45 @@
   {
     "objectID": "Gonflage.html",
     "href": "Gonflage.html",
-    "title": "Préparation des mélanges",
+    "title": "Gonflages et déco",
     "section": "",
     "text": "Quel nitrox obtient-on quand on dispose d’un bloc contenant entre 50 et 180 bars d’oxygène pur (en fait 98%) et qu’on le complète à l’air ?\n\nQuel nitrox obtient-on quand on dispose d’un bloc contenant entre 50 et 180 bars d’oxygène pur (en fait 98%) et qu’on le complète avec un nitrox 40 à la nitrouillette ?",
     "crumbs": [
       "Accueil",
-      "Gonflage et déco",
-      "Préparation des mélanges"
+      "Gonflages et déco"
     ]
   },
   {
     "objectID": "Gonflage.html#préparation-de-nitrox-riches",
     "href": "Gonflage.html#préparation-de-nitrox-riches",
-    "title": "Préparation des mélanges",
+    "title": "Gonflages et déco",
     "section": "",
     "text": "Quel nitrox obtient-on quand on dispose d’un bloc contenant entre 50 et 180 bars d’oxygène pur (en fait 98%) et qu’on le complète à l’air ?\n\nQuel nitrox obtient-on quand on dispose d’un bloc contenant entre 50 et 180 bars d’oxygène pur (en fait 98%) et qu’on le complète avec un nitrox 40 à la nitrouillette ?",
     "crumbs": [
       "Accueil",
-      "Gonflage et déco",
-      "Préparation des mélanges"
+      "Gonflages et déco"
     ]
   },
   {
-    "objectID": "Gonflage.html#préparation-de-bails-out",
-    "href": "Gonflage.html#préparation-de-bails-out",
-    "title": "Préparation des mélanges",
-    "section": "Préparation de bails out",
-    "text": "Préparation de bails out\nQue faire quand on dispose de relais contenant des nitrox et qu’on veut les gonfler à un mélange précis pour faire des bails-out peu riches ?\n#| standalone: true\n#| viewerHeight: 350\n\nlibrary(shiny)\nlibrary(bslib)\nlibrary(tidyverse)\n\nui &lt;- fluidPage(# Your UI components go here\n  ui &lt;- page_sidebar(\n    sidebar = sidebar(\n      open = \"always\",\n      numericInput(\"gaz_bloc\", \"Pourcentage d'O2 actuellement dans le bloc\", 45),\n      numericInput(\"gaz_final\", \"Pourcentage d'O2 souhaité après gonflage\", 30),\n      numericInput(\"pression_finale\", \"Pression finale du bloc\", 220),\n    ),\n    textOutput(\"out\")\n  ))\n\nserver &lt;- function(input, output, session) {\n  # Fonction qui permet de calculer la pression à laquelle redescendre un bloc de nitrox pour l'amener à un mélange précis en complétant à l'air\n  # gaz.bloc : quel est le pourcentage d'oxygène dans le gaz du bloc à compléter ?\n  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)\n  # gaz.final : quelle est le pourcentage d'oxygène souhaité au final ? \n  # pression.finale : quelle est la pression finale souhaitée après avoir complété.\n  \n  resultat &lt;- reactive({\n    \n    vol_final &lt;- input$gaz_final * input$pression_finale\n    \n    tbl &lt;- tibble(added_air_bars = 0 : input$pression_finale,\n                  nitrox_bars = input$pression_finale - added_air_bars) |&gt; \n      mutate(vO2_ajout = 21 * added_air_bars,\n             vO2_nitrox  = input$gaz_bloc * nitrox_bars,\n             vO2_total   = vO2_ajout + vO2_nitrox,\n             volume_diff = abs(vO2_total - vol_final),\n             compo_finale = vO2_total / input$pression_finale) |&gt; \n      filter(volume_diff == min(volume_diff)) |&gt; \n      slice_min(added_air_bars)\n    \n    if (input$gaz_bloc &lt;= input$gaz_final) {\n      out &lt;- \"Le pourcentage d'oxygène final doit être inférieur au pourcentage d'oxygène actuel\"\n    } else if (tbl$added_air_bars &gt; input$pression_finale) {\n      out &lt;- \"Il n'est pas possible de compléter le bloc avec les valeurs fournies\"\n    } else {\n      out &lt;- paste0(\"Descendez le bloc jusqu'à \", tbl$nitrox_bars, \" bars puis compétez à l'air jusqu'à \", input$pression_finale, \" bars pour obtenir un nitrox \", round(tbl$compo_finale,1))\n    }\n    \n    return(out)\n    \n  })\n  \n  output$out &lt;- renderText(resultat())\n}\n\n\n# Create and launch the Shiny app\nshinyApp(ui, server)",
+    "objectID": "Gonflage.html#calculatrices-pour-préparation-de-mélanges",
+    "href": "Gonflage.html#calculatrices-pour-préparation-de-mélanges",
+    "title": "Gonflages et déco",
+    "section": "Calculatrices pour préparation de mélanges",
+    "text": "Calculatrices pour préparation de mélanges",
     "crumbs": [
       "Accueil",
-      "Gonflage et déco",
-      "Préparation des mélanges"
+      "Gonflages et déco"
     ]
   },
   {
-    "objectID": "Gonflage.html#préparation-de-nitrox-et-trimix-quelconques",
-    "href": "Gonflage.html#préparation-de-nitrox-et-trimix-quelconques",
-    "title": "Préparation des mélanges",
-    "section": "Préparation de nitrox et trimix quelconques",
-    "text": "Préparation de nitrox et trimix quelconques\nIci, on dispose d’un bloc non vide, contenant n’importe quel gaz (y compris air, oxy pur, hélium pur, nitrox ou trimix), et on complète avec un autre gaz quelconque. La calculatrice ci-dessous fournit la composition du mélange final.\n#| standalone: true\n#| viewerHeight: 350\n\nlibrary(shiny)\nlibrary(bslib)\nlibrary(tidyverse)\nlibrary(glue)\n\nui &lt;- fluidPage(# Your UI components go here\n  ui &lt;- page_sidebar(\n    sidebar = sidebar(\n      open = \"open\",\n      numericInput(\"oxy_bloc\", \"Pourcentage d'O2 actuellement dans le bloc\", 21),\n      numericInput(\"he_bloc\", \"Pourcentage d'hélium actuellement dans le bloc\", 0),\n      numericInput(\"pression_initiale\", \"Pression actuelle du bloc\", 110),\n      numericInput(\"oxy_ajout\", \"Pourcentage d'O2 du gaz qu'on ajoute\", 40),\n      numericInput(\"he_ajout\", \"Pourcentage d'hélium du gaz qu'on ajoute\", 0),\n      numericInput(\"pression_finale\", \"Pression finale du bloc\", 220),\n    ),\n    textOutput(\"out\")\n  ))\n\nserver &lt;- function(input, output, session) {\n  # Fonction qui permet de calculer la composition du mélange obtenu dans un bloc en partant d'un bloc non vide et en ajoutant un nitrox quelconque\n  # gaz.bloc : quel est le gaz contenu dans le bloc à compléter ? vecteur de 2 éléments entiers (O2 et He)\n  # pression.bloc : quelle est la pression dans le bloc à compléter (avant de compléter !)\n  # gaz.ajout : quelle est la composition du gaz que l'on souhaite ajouter ? vecteur de 2 éléments entiers (O2 et He)\n  # pression.finale : quelle est la pression finale souhaitée après avoir complété.\n  \n  resultat &lt;- reactive({\n\n    # Transformation des gaz pour avoir 3 éléments : O2, He et N2\n    gaz_bloc  &lt;- c(input$oxy_bloc,  input$he_bloc,  100 - input$oxy_bloc  - input$he_bloc)\n    gaz_ajout &lt;- c(input$oxy_ajout, input$he_ajout, 100 - input$oxy_ajout - input$he_ajout)\n    \n    vol_gaz_depart &lt;- gaz_bloc  * input$pression_initiale\n    vol_gaz_ajout  &lt;- gaz_ajout * (input$pression_finale - input$pression_initiale)\n    \n    vol_final &lt;- vol_gaz_depart + vol_gaz_ajout\n    gaz_final &lt;- vol_final / input$pression_finale\n\n    if (gaz_final[2] &gt; 0) {\n      gaz &lt;- glue(\"Le mélange obtenu est un trimix {round(gaz_final[1], 1)}% O2, {round(gaz_final[2], 1)}% He, {round(gaz_final[3], 1)}% N2\")\n    } else if (gaz_final[1] == 100) {\n      gaz &lt;- \"Le mélange obtenu est de l'oxygène pur\"\n    } else if (gaz_final[1] == 21 && gaz_final[2] == 0) {\n      gaz &lt;- \"Le mélange obtenu est un nitrox du Bon Dieu\"\n    } else if (gaz_final[1] &gt; 21 && gaz_final[2] == 0) {\n      gaz &lt;- glue(\"Le mélange obtenu est un nitrox {round(gaz_final[1], 1)}\")\n    } else {\n    }\n        \n    return(gaz)\n\n  })\n  \n  output$out &lt;- renderPrint(resultat())\n}\n\n# Create and launch the Shiny app\nshinyApp(ui, server)",
+    "objectID": "Gonflage.html#plannification-de-plongées-trimix-en-circuit-ouvert",
+    "href": "Gonflage.html#plannification-de-plongées-trimix-en-circuit-ouvert",
+    "title": "Gonflages et déco",
+    "section": "Plannification de plongées trimix en circuit ouvert",
+    "text": "Plannification de plongées trimix en circuit ouvert\nCet outil permet de plannifier des plongées trimix multigaz en circuit ouvert avec un modèle de décompression Bühlmann ZHL-16C avec gradients de facteurs..",
     "crumbs": [
       "Accueil",
-      "Gonflage et déco",
-      "Préparation des mélanges"
+      "Gonflages et déco"
     ]
   },
   {
@@ -805,37 +791,37 @@
   {
     "objectID": "AVenir.html",
     "href": "AVenir.html",
-    "title": "Les sorties à venir",
+    "title": "À venir",
     "section": "",
     "text": "Toutes les infos de cette page ont été discutées lors de l’AG qui s’est tenue en présence de la majorité des membres de l’association le vendredi 3 novembre 2023. Les dates et sites proposés ne sont pas gravés dans le marbre à ce stade !",
     "crumbs": [
       "Accueil",
       "Sorties",
-      "Les sorties à venir"
+      "À venir"
     ]
   },
   {
     "objectID": "AVenir.html#été-2024",
     "href": "AVenir.html#été-2024",
-    "title": "Les sorties à venir",
+    "title": "À venir",
     "section": "Été 2024",
     "text": "Été 2024\n\nLieu : plongée depuis Camaret, location au 29 Rue du Vallon, 29160 Crozon\nDates : du samedi 13 au samedi 20 juillet\n\nDescription de la location sur Booking.com\nHoraires des marées à Brest",
     "crumbs": [
       "Accueil",
       "Sorties",
-      "Les sorties à venir"
+      "À venir"
     ]
   },
   {
     "objectID": "AVenir.html#toussaint-2024",
     "href": "AVenir.html#toussaint-2024",
-    "title": "Les sorties à venir",
+    "title": "À venir",
     "section": "Toussaint 2024",
     "text": "Toussaint 2024\n\nLieu : Probablement pas Cavalaire. Marseille ? La Londe ? Ailleurs ?\nDates : du samedi 26 octobre au samedi 2 novembre (semaine prévue initialement), ou du 19 au 26 octobre, selon dispo des uns et des autres",
     "crumbs": [
       "Accueil",
       "Sorties",
-      "Les sorties à venir"
+      "À venir"
     ]
   },
   {
