@@ -10,6 +10,7 @@ lang: fr
 title-block-banner: false
 language:
   title-block-published: "Dernière Mise à jour"
+lightbox: true
 ---
 
 ```{r}
@@ -72,7 +73,7 @@ autres <- tribble(
   "car" ,  0,  6.75+9.45+10.5+10.8+12,  141.38+115.20,  0,  0,  0,
   "grom",  980,  52.37+3.8+6.67,  0,  24.1+6.4,  0,  0,
   "nat" ,  0,  258.01+32.31,  78.18+96+68.71,  51.8+4+24.1+4.4+6.4+9.7,  0,  0,
-  "Ped" ,  0,  142.59+22+11.9+7.22+100+17.80,  100,  34.1+4.9+11.20,  0,  0,
+  "Ped" ,  0,  142.59+22+11.9+7.22+100+17.80,  100+169.58,  34.1+4.9+11.20 + 69.9,  0,  0,
   "tho" ,  0,  0,  250.50+137.48,  3.9+34.1+4.9+15.6+3.7+2.5+2.6+67.6,  0,  0,
   "ant" ,  0,  0,  125,  0,  0,  0,
   "val" ,  0,  0,  0,  0,  0,  0)
@@ -181,7 +182,7 @@ cout_plongee |>
 
 ## Les dépenses "hors plongée"
 
-Pour cette sortie, les dépenses n'entrant pas dans le prix des plongées et la liste des payeurs sont présentés dans le tableau @tbl-cout_hors_plongee. Pour chaque plongeur (et sa famille), les nombres de nuitées et de repas pris au cours du séjours sont indiqués dans le tableau @tbl-nights_and_food :
+Pour cette sortie, les dépenses n'entrant pas dans le prix des plongées et la liste des payeurs sont présentés dans la @tbl-cout_hors_plongee. Pour chaque plongeur (et sa famille), les nombres de nuitées et de repas pris au cours du séjours sont indiqués dans la @tbl-nights_and_food :
 
 ```{r}
 #| echo: false
@@ -190,8 +191,6 @@ Pour cette sortie, les dépenses n'entrant pas dans le prix des plongées et la 
 
 beautify_cost_table(autres)
 ```
-
-Ici, les dépenses de la rubrique "divers" concernent l'achat d'une bombe de WD40 et le "remerciement" du mécano de Cavalaire pour son coup de main avec le roulement de la remorque.
 
 
 ```{r}
@@ -235,7 +234,7 @@ beautify_cost_table(rembourse, total = FALSE)
 
 ## Bénéfices, essence et heures
 
-La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de `r dive.guest-overhead`€) permettent de faire des (petits) bénéfices. Ils s'élèvent ici à **`r benef`€**.
+La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de `r dive.guest`€) permettent de faire des (petits) bénéfices. Ils s'élèvent ici à **`r benef`€**.
 
 
 Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir. 
@@ -249,9 +248,9 @@ Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la c
 
 ## Pour mémoire
 
-Nous avons logé au [690, avenue de la Castillane](https://www.google.fr/maps/place/690+Av.+de+la+Castillane,+83240+Cavalaire-sur-Mer/@43.1799155,6.5186244,17z/data=!3m1!4b1!4m6!3m5!1s0x12cec) ([Description de la location sur Le Bon Coin](https://www.leboncoin.fr/locations_saisonnieres/1489618857.htm)). Maison très sympa avec piscine (pas chaude, mais pratique pour repérer les fuites dans les combis étanches...), terrasse, gazon synthétique, et une grande allée en pente pour garer jusqu'à 4 véhicules. À environ 5 minutes du port de Cavalaire. Il y a 2 chambres doubles avec SDB au RDC. Possibilité de mettre un matelas dans chaque chambre. À l'étage, une chambre double et un "dortoir" avec jusqu'à 4 places (3 personnes idéalement). Pièce de vie agréable et location bon marché : une bonne adresse à conserver.
+Nous avons logé au [690, avenue de la Castillane](https://www.google.fr/maps/place/690+Av.+de+la+Castillane,+83240+Cavalaire-sur-Mer/@43.1799155,6.5186244,17z/data=!3m1!4b1!4m6!3m5!1s0x12cec) ([Description de la location sur Le Bon Coin](https://www.leboncoin.fr/locations_saisonnieres/1489618857.htm)). Maison très sympa avec piscine (pas chaude, mais pratique pour repérer les fuites dans les combis étanches...), terrasse, gazon synthétique, et une grande allée en pente pour garer jusqu'à 4 véhicules. À environ 5 minutes du port de Cavalaire. Il y a 2 chambres doubles avec SDB au RDC. Possibilité de mettre un matelas dans chaque chambre (mais c'est un peu serré). À l'étage, une chambre double et un "dortoir" avec jusqu'à 4 places (3 personnes idéalement). Pièce de vie agréable et location bon marché : une bonne adresse à conserver.
 
-Comme d'habitude, les remorques (bateau et compresseurs) sont restées sur le port toute la semaine. Côté plongées, c'est plutôt pas mal en dépit d'une météo (très) pénible. Beaucoup (BEAUCOUP) de vent. Nous avons été tranquilles le dimanche et le vendredi matin. Le reste du temps, vent très violent en rafales (jusqu'à 150 km/h enregistrés dans le Var), d'où les plongées répétées sur le Ramon Membru et dans la Calanque de la Cron (sables et posidonies dans 10 mètres d'eau à peine...). La visi était globalement moyenne (assez laiteuse la plupart du temps), mais nous avons quand même vu de belles choses : banc de sérioles, Saint Pierre, baracuda solitaire, sèche, poulpes, homards, mérous, dorades... et même un espadon a été aperçu en surface.
+Comme d'habitude, les remorques (bateau et compresseurs) sont restées sur le port toute la semaine. Côté plongées, c'est plutôt pas mal en dépit d'une météo (très) pénible. Beaucoup (BEAUCOUP) de vent. Nous avons été tranquilles le dimanche et le vendredi matin. Le reste du temps, vent très violent en rafales (jusqu'à 150 km/h enregistrés dans le Var), d'où les plongées répétées sur le Ramon Membru et dans la Calanque de la Cron (sable et posidonies dans 10 mètres d'eau à peine...). La visi était globalement moyenne (assez laiteuse la plupart du temps), mais nous avons quand même vu de belles choses : banc de sérioles, Saint Pierre, baracuda solitaire, sèche, poulpes, homards, mérous, dorades... et même un espadon a été aperçu en surface.
 
 Cette sortie a aussi été marquée par les débuts en recycleur de Grom, Baptiste et Benoît. Beaucoup de bricolage et d'ajustements de configs, qui se finissaient souvent à la frontale. Mais les problèmes se règlent petits à petit, et les configs se peaufinent plongée après plongée. Et Grom a retrouvé du temps de plongée et 2 plongées par jour 👍 Nous avons aussi bénéficié d'une commande de B50 d'oxy achetée à Gwen. Le bateau a été sorti de l'eau le vendredi soir (nuitée sur le chantier nautic) et tout le matos a été rincé sur le port.
 
@@ -288,3 +287,15 @@ pl2
 pl3
 ```
 
+
+<br>
+
+::: {layout-ncol=3}
+
+![Sérioles sur le Rubis](img/Serioles.jpg){group="dive"}
+
+![Rougets sur le Rubis](img/Rougets.jpg){group="dive"}
+
+![Corb et Mérou sur le Ramon Membru](img/CorbMerou.jpg){group="dive"}
+:::
+*Photos de Jérôme Otruquin, Cavalaire, avril 2024*
