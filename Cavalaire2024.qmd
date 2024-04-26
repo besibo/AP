@@ -69,11 +69,11 @@ autres <- tribble(
  ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Diver,
   "bap" ,  0,  0,  178,  95,  0,  0,
   "beu" ,  0,  142,  69.12+66.96+114.67,  51.8+16.8+7.3,  0,  0,
-  "car" ,  0,  6.75+9.45+10.5+10.8+12,  141.38,  0,  0,  0,
+  "car" ,  0,  6.75+9.45+10.5+10.8+12,  141.38+115.20,  0,  0,  0,
   "grom",  980,  52.37+3.8+6.67,  0,  24.1+6.4,  0,  0,
   "nat" ,  0,  258.01+32.31,  78.18+96+68.71,  51.8+4+24.1+4.4+6.4+9.7,  0,  0,
   "Ped" ,  0,  142.59+22+11.9+7.22+100+17.80,  100,  34.1+4.9+11.20,  0,  0,
-  "tho" ,  0,  0,  0,  3.9+34.1+4.9+15.6+3.7+2.5+2.6,  0,  0,
+  "tho" ,  0,  0,  250.50+137.48,  3.9+34.1+4.9+15.6+3.7+2.5+2.6+67.6,  0,  0,
   "ant" ,  0,  0,  125,  0,  0,  0,
   "val" ,  0,  0,  0,  0,  0,  0)
 ```
@@ -237,9 +237,14 @@ beautify_cost_table(rembourse, total = FALSE)
 
 La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de `r dive.guest-overhead`€) permettent de faire des (petits) bénéfices. Ils s'élèvent ici à **`r benef`€**.
 
+
+Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir. 
+
 Pour finir, nous avons parcouru `r dist` milles nautiques. Ça veut dire que nous consommons en moyenne `r round(conso.fuel/dist, 2)` litres par mille, soit `r round(conso.fuel/dist/1.852, 2)` litres au kilomètre, soit la bagatelle de `r 100 * round(conso.fuel/dist/1.852, 2)` litres au 100 kilomètres. La plongée est un sport écologique !
 
-<!-- Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir. Thomas en a sorti environ 70 litres, soit `r vol.fuel-conso.fuel - 70` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 70) * 100 / (vol.fuel), 2)`%. Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs ! -->
+Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !
+
+<!-- Thomas en a sorti environ 70 litres, soit `r vol.fuel-conso.fuel - 70` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 70) * 100 / (vol.fuel), 2)`%.  -->
 
 
 ## Pour mémoire
