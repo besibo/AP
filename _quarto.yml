@@ -35,6 +35,7 @@ website:
       - Entretien.qmd
       - Pratique.qmd
       - Gonflage.qmd
+      - Epaves.qmd
 
 format:
   html:
