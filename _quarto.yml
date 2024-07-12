@@ -19,6 +19,7 @@ website:
         contents: 
           - section: "2024"
             contents:
+            - Camaret2024.qmd
             - Cavalaire2024.qmd
           - section: "2023"
             contents:
