@@ -30,24 +30,24 @@ options(knitr.kable.NA = '')
 # Update this chunk every day
 
 ## Dive sites
-sites <- c(	"Kleber", NA, # Dimanche
-			      NA, "Swansea Vale", # Lundi
-			      NA, NA, # Mardi
-			      NA, NA, # Mercredi
+sites <- c(	"Kleber", "Vorpostenboot", # Dimanche
+			      "V mes couilles et recherche bloc", NA, # Lundi
+			      "Kenilworth", "Swansea Vale", # Mardi
+			      "Kleber", "Canonière", # Mercredi
 			      NA, NA, # Jeudi
 			      NA, NA) # vendredi
 
 ## Who dived where ?
 plongees <- tibble(
 #			           Bap, Beu, Cal, Car, Gro, Nat, Ped, Tho, Bea
-`Plongée 01` = c(  1,   1,   1,   1,   0,   0,   0,   0,   0),
-`Plongée 02` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 03` = c(  1,   0,   0,   1,   1,   0,   0,   0,   0),
+`Plongée 01` = c(  0,   1,   1,   1,   1,   1,   0,   1,   0),
+`Plongée 02` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 03` = c(  1,   1,   1,   1,   0,   0,   1,   1,   0),
 `Plongée 04` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 05` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 06` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 07` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 08` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 05` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 06` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 07` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 08` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
 `Plongée 09` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
 `Plongée 10` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
 `Plongée 11` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
@@ -57,26 +57,26 @@ plongees <- tibble(
 ## Who spent what (only for dives and only for members!)
 depenses <- tribble(
   ~Qui, ~`Essence bateau`, ~`Essence compresseurs`, ~Port, ~Gaz, ~Divers,
-  "bap" , 1,  0,  0,  0, 0,
-  "beu" , 0,  0,  0,  0, 0,
+  "bap" , 118.1+65,  0,  0,  0, 0,
+  "beu" , 0,  0,  123.90,  0, 0,
   "cal" , 0,  0,  0,  0, 0,
-  "car" , 0,  0,  0,  0, 0,
-  "grom", 0,  0,  0,  0, 0,
+  "car" , 117.62,  0,  0,  0, 0,
+  "grom", 60.91+128.19,  36.22,  0,  0, 0,
   "nat" , 0,  0,  0,  0, 0,
-  "ped" , 0,  0,  0,  0, 0,
+  "ped" , 0,  0,  0,  111, 0,
   "tho" , 0,  0,  0,  0, 0)
 
 ## Who spent what (one line per diver, members or not, for everything not dive-related)
 autres <- tribble(
  ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Diver,
-  "bap" ,  0,  0,  0,  0,  0,  0,
+  "bap" ,  0,  0,  108.33,  0,  0,  0,
   "beu" ,  273.62,  133.85,  0,  0,  0,  0,
-  "cal" ,  159,  0,  0,  0,  0,  0,
-  "car" ,  159,  0,  0,  0,  0,  0,
-  "grom",  159*2,  0,  0,  0,  0,  0,
-  "nat" ,  159,  349.50,  0,  0,  0,  0,
-  "Ped" ,  159*2,  0,  0,  0,  0,  0,
-  "tho" ,  159,  0,  0,  0,  0,  0,
+  "cal" ,  159,  0,  102.69,  0,  0,  0,
+  "car" ,  159,  0,  40.36,  0,  0,  0,
+  "grom",  159*2,  35+42.15,  0,  0,  0,  0,
+  "nat" ,  159,  349.50+7.99+7.1+25.8+8.49,  0,  0,  0,  0,
+  "Ped" ,  159*2,  40.74+8.1+8+12.56+38+24,  0,  0,  0,  0,
+  "tho" ,  159,  0,  115.66,  0,  0,  20,   # Réparation pneu Ducato
   "bea" ,  200,  0,  0,  0,  0,  0)
 ```
 
@@ -113,7 +113,7 @@ start.hours <- 822.0
 end.hours <- 842.0
 
 ## Volume of fuel used
-vol.fuel <- 150
+vol.fuel <- 325
 conso.fuel <- 131.9
 dist <- 62.6 # Nautic miles
 
@@ -249,15 +249,9 @@ Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la c
 
 ## Pour mémoire
 
-Nous avons logé au [690, avenue de la Castillane](https://www.google.fr/maps/place/690+Av.+de+la+Castillane,+83240+Cavalaire-sur-Mer/@43.1799155,6.5186244,17z/data=!3m1!4b1!4m6!3m5!1s0x12cec) ([Description de la location sur Le Bon Coin](https://www.leboncoin.fr/locations_saisonnieres/1489618857.htm)). Maison très sympa avec piscine (pas chaude, mais pratique pour repérer les fuites dans les combis étanches...), terrasse, gazon synthétique, et une grande allée en pente pour garer jusqu'à 4 véhicules. À environ 5 minutes du port de Cavalaire. Il y a 2 chambres doubles avec SDB au RDC. Possibilité de mettre un matelas dans chaque chambre (mais c'est un peu serré). À l'étage, une chambre double et un "dortoir" avec jusqu'à 4 places (3 personnes idéalement). Pièce de vie agréable et location bon marché : une bonne adresse à conserver. Pour contacter la propriétaire (plus réactive par SMS que *via* le bon coin) : +33 6 17 80 07 86.
+Nous avons logé au [29 Rue du Vallon, 29160 Crozon](https://www.google.fr/maps/place/29+Rue+du+Vallon,+29160+Crozon/@48.2422406,-4.4903547,17z/data=!4m6!3m5!1s0x4816c14558e67321:0xa6cbfd4677f8f404!8m2!3d48.242415!4d-4.4902283!16s%2Fg%2F11cs842dhp?entry=ttu) ([Description de la location sur Booking.com](https://sp.booking.com/hotel/fr/ker-seasea-vue-mer-wifi.fr.html?aid=882988&label=adtechclicktripz-link-dcomparetofr-city-M1416272_pub-3127_campaign-4601_xqdz-7b5d51b969d7f7c70c6f8013c2940ff2_los-01_bw-007_lang-fr_curr-EUR_nrm-01_gstadt-02_gstkid-00_clkid-28cdeb005ec4ad5036e94e2e2fb2f2da&sid=81576bb4ed2502ce40882105f4059b69&checkin=2024-07-13;checkout=2024-07-20;dest_id=-1423109;dest_type=city;dist=0;group_adults=10;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=10;req_children=0;room1=A%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA;sb_price_type=total;soh=1;sr_order=popularity;srepoch=1712522013;srpvid=60dc908b0f520501;type=total;ucfs=1&#no_availability_msg). Maison très agréable, garage pratique en haut d'une étroite allée pour entreposer les CCR et le compresseur électrique, grande pièce de vie au RDC, avec salon, salle à manger, cuisine, buanderie et un WC. Au premier, 3 chambres (2 avec lit double, une avec 2 lits simples), une salle de douche et une salle de bain avec WC, et au deuxième, une chambre sous combles avec 4 lits simples. Voisins conciliants pour garer le camion et la remorque compresseurs, et pas mal de parking gratuit alentour. La maison est à 15 minutes environ du port de Camaret. Lieu de gonflage à la sortie de Crozon le soir, et près de la déchetterie de Lanvéoc le midi.
 
-Comme d'habitude, les remorques (bateau et compresseurs) sont restées sur le port toute la semaine. Côté plongées, c'est plutôt pas mal en dépit d'une météo (très) pénible. Beaucoup (BEAUCOUP) de vent. Nous avons été tranquilles le dimanche et le vendredi matin. Le reste du temps, vent très violent en rafales (jusqu'à 150 km/h enregistrés dans le Var), d'où les plongées répétées sur le Ramon Membru et dans la Calanque de la Cron (sable et posidonies dans 10 mètres d'eau à peine...). La visi était globalement moyenne (assez laiteuse la plupart du temps), mais nous avons quand même vu de belles choses : banc de sérioles, Saint Pierre, baracuda solitaire, sèche, poulpes, homards, mérous, dorades... et même un espadon a été aperçu en surface.
-
-Cette sortie a aussi été marquée par les débuts en recycleur de Grom, Baptiste et Benoît. Beaucoup de bricolage et d'ajustements de configs, qui se finissaient souvent à la frontale. Mais les problèmes se règlent petits à petit, et les configs se peaufinent plongée après plongée. Et Grom a retrouvé du temps de plongée et 2 plongées par jour 👍 Nous avons aussi bénéficié d'une commande de B50 d'oxy achetée à Gwen. Le bateau a été sorti de l'eau le vendredi soir (nuitée sur le chantier nautic) et tout le matos a été rincé sur le port.
-
-Dernière chose, il reste environ 70 litres de SP 95 dans les bidons. Ils seront utilisés cet été, ça sera ça de moins à payer en juillet !
-
-Au final, est-ce que ça nous a plu ? Poser la question, c'est déjà la répondre !
+La remorque bateau est restée sur le port derrière les bâtiments de la SNSM, et on a eu une place au port du Styvel (changement en cours de semaine, pour finir au ras de la passerelle d'accès), avec beaucoup moins de portage que du côté du port Vauban. Toujours aussi compliqué de se garer le midi, mais facile de rincer les CCR sur les pontons le soir. Super semaine au niveau météo, à part le lundi matin marqué par la pluie. Peu de vent, mer d'huile ou presque tous les jours sauf le lundi et le mardi (et même ces jours là, ça n'était pas méchant). On a vu des dauphins communs presque à chaque plongée, et plusieurs fois le matin. Un gros thon a été aperçu en surface par quelques uns, impressionnant. Côté plongée, globalement très belles visi toute la semaine, épaves poissonneuses mais de plus en plus cassées (ce qui est triste, mais pas vraiment étonnant). Beaucoup (beaucoup !) de petites langoustes, de homards, de poulpes, de lieus. Et des espèces plus rares (jolie baudroie, Saint Pierre, raies torpilles et brunettes, etc.).
 
 
 ## Quelques graphiques
