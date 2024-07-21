@@ -3,7 +3,7 @@ title: "Camaret"
 subtitle: |
   | Du 13 au 20 juillet 2024
   |
-  | *Citation rigolote* --- Auteur, 18 juillet.
+  | *Il faut remonter, Marine Nationale !!!* --- Carole, 19 juillet.
 date: now
 date-format: "dddd D MMMM YYYY"
 lang: fr
@@ -31,11 +31,11 @@ options(knitr.kable.NA = '')
 
 ## Dive sites
 sites <- c(	"Kleber", "Vorpostenboot", # Dimanche
-			      "V mes couilles et recherche bloc", NA, # Lundi
+			      "V 724 (ou VMC) et recherche bloc", NA, # Lundi
 			      "Kenilworth", "Swansea Vale", # Mardi
 			      "Kleber", "Canonière", # Mercredi
-			      NA, NA, # Jeudi
-			      NA, NA) # vendredi
+			      "Forest Castle", "VMC", # Jeudi
+			      "Kenilworth", "Swansea Vale") # vendredi
 
 ## Who dived where ?
 plongees <- tibble(
@@ -48,10 +48,10 @@ plongees <- tibble(
 `Plongée 06` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
 `Plongée 07` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
 `Plongée 08` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
-`Plongée 09` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 10` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 11` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 12` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0)
+`Plongée 09` = c(  0,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 10` = c(  0,   1,   1,   0,   1,   1,   1,   1,   0),
+`Plongée 11` = c(  0,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 12` = c(  0,   1,   1,   1,   1,   1,   1,   1,   0)
 )
 
 ## Who spent what (only for dives and only for members!)
@@ -69,15 +69,15 @@ depenses <- tribble(
 ## Who spent what (one line per diver, members or not, for everything not dive-related)
 autres <- tribble(
  ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Diver,
-  "bap" ,  0,  0,  108.33,  0,  0,  0,
+  "bap" ,  0,  0,  108.33+99.32,  0,  0,  0,
   "beu" ,  273.62,  133.85,  0,  0,  0,  0,
   "cal" ,  159,  0,  102.69,  0,  0,  0,
-  "car" ,  159,  0,  40.36,  0,  0,  0,
-  "grom",  159*2,  35+42.15,  0,  0,  0,  0,
-  "nat" ,  159,  349.50+7.99+7.1+25.8+8.49,  0,  0,  0,  0,
-  "Ped" ,  159*2,  40.74+8.1+8+12.56+38+24,  0,  0,  0,  0,
+  "car" ,  159,  5.2,  40.36,  17,  0,  0,
+  "grom",  159*2,  35+42.15+15.72+6.5,  0,  0,  0,  0,
+  "nat" ,  159,  349.50+7.99+7.1+25.8+8.49+5.2,  73.85,  10.6,  0,  0,
+  "Ped" ,  159*2,  40.74+8.1+8+12.56+38+24+5,  0,  0,  0,  0,
   "tho" ,  159,  0,  115.66,  0,  0,  20,   # Réparation pneu Ducato
-  "bea" ,  200,  0,  0,  0,  0,  0)
+  "bea" ,  200,  110.44+77.40,  0,  0,  0,  0)
 ```
 
 
@@ -98,8 +98,9 @@ invites.full <- c("Béatrice")
 famille <- c(1, 1, 1, 1, 2, 1, 2, 1, 1)
 
 ## For each diver, how many nights and meals
-nuitees <- c(7, 7, 7, 7, 14, 7, 14, 7, 6)
-repas <- nuitees * 3
+nuitees <- c(7, 7, 7, 7, 14, 7, 14, 7, 7)
+# repas <- nuitees * 3
+repas <- c(21, 24, 21, 21, 42, 21, 48, 21, 21)
 
 ## Total number of people including non divers
 nb.pers <- sum(famille)
