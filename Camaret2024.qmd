@@ -63,20 +63,20 @@ depenses <- tribble(
   "car" , 117.62,  0,  0,  0, 0,
   "grom", 60.91+128.19,  36.22,  0,  0, 0,
   "nat" , 0,  0,  0,  0, 0,
-  "ped" , 0,  0,  0,  111, 0,
+  "ped" , 0,  0,  0,  111, 26,  # Remplacement matériel de secours (masques, BAVU...)
   "tho" , 0,  0,  0,  0, 0)
 
 ## Who spent what (one line per diver, members or not, for everything not dive-related)
 autres <- tribble(
- ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Diver,
+ ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Autre,
   "bap" ,  0,  0,  108.33+99.32,  0,  0,  0,
-  "beu" ,  273.62,  133.85,  0,  0,  0,  0,
+  "beu" ,  273.62,  133.85,  41,  9,  0,  0,
   "cal" ,  159,  0,  102.69,  0,  0,  0,
-  "car" ,  159,  5.2,  40.36,  17,  0,  0,
-  "grom",  159*2,  35+42.15+15.72+6.5,  0,  0,  0,  0,
-  "nat" ,  159,  349.50+7.99+7.1+25.8+8.49+5.2,  73.85,  10.6,  0,  0,
+  "car" ,  159,  5.2,  40.36+45,  17,  0,  0,
+  "grom",  159*2,  35+42.15+15.72+6.5,  86.79,  0,  0,  0,
+  "nat" ,  159,  349.50+7.99+7.1+25.8+8.49+5.2,  73.85+33.40,  10.6+9.9,  0,  0,
   "Ped" ,  159*2,  40.74+8.1+8+12.56+38+24+5,  0,  0,  0,  0,
-  "tho" ,  159,  0,  115.66,  0,  0,  20,   # Réparation pneu Ducato
+  "tho" ,  159,  0,  115.66,  0,  0,  22,   # Réparation pneu Ducato + photocopies port
   "bea" ,  200,  110.44+77.40,  0,  0,  0,  0)
 ```
 
@@ -111,12 +111,12 @@ last.day <-  "19-07-2024"
 
 ## Runtime for the Yamaha
 start.hours <- 822.0
-end.hours <- 842.0
+end.hours <- 840.4
 
 ## Volume of fuel used
 vol.fuel <- 325
-conso.fuel <- 131.9
-dist <- 62.6 # Nautic miles
+conso.fuel <- 306.8
+dist <- 153.6 # Nautic miles
 
 ## Cost for guest
 dive.guest <- 26
@@ -159,7 +159,7 @@ Les dépenses entrant dans le calcul du coût des plongées sont détaillés dan
 beautify_cost_table(depenses)
 ```
 
-Ici, les dépenses de la rubrique "divers" concernent l'achat d'un nouveau tuyau d'arrosage pour le rinçage du matériel ainsi que de 2 courroies neuves pour le compresseur rouge.
+Ici, les dépenses de la rubrique "divers" concernent le remplacement d'une partie du matériel d'oxygénothérapie (masques, BAVU...).
 
 
 ## Coût des plongées
@@ -194,6 +194,7 @@ Pour cette sortie, les dépenses n'entrant pas dans le prix des plongées et la 
 beautify_cost_table(autres)
 ```
 
+Ici, les dépenses de la rubrique "autre" concernent la réparation de la crevaison du Ducato la veille du départ et les photocopies du macaron pour le stationnement.
 
 ```{r}
 #| echo: false
@@ -250,9 +251,11 @@ Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la c
 
 ## Pour mémoire
 
-Nous avons logé au [29 Rue du Vallon, 29160 Crozon](https://www.google.fr/maps/place/29+Rue+du+Vallon,+29160+Crozon/@48.2422406,-4.4903547,17z/data=!4m6!3m5!1s0x4816c14558e67321:0xa6cbfd4677f8f404!8m2!3d48.242415!4d-4.4902283!16s%2Fg%2F11cs842dhp?entry=ttu) ([Description de la location sur Booking.com](https://sp.booking.com/hotel/fr/ker-seasea-vue-mer-wifi.fr.html?aid=882988&label=adtechclicktripz-link-dcomparetofr-city-M1416272_pub-3127_campaign-4601_xqdz-7b5d51b969d7f7c70c6f8013c2940ff2_los-01_bw-007_lang-fr_curr-EUR_nrm-01_gstadt-02_gstkid-00_clkid-28cdeb005ec4ad5036e94e2e2fb2f2da&sid=81576bb4ed2502ce40882105f4059b69&checkin=2024-07-13;checkout=2024-07-20;dest_id=-1423109;dest_type=city;dist=0;group_adults=10;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=10;req_children=0;room1=A%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA;sb_price_type=total;soh=1;sr_order=popularity;srepoch=1712522013;srpvid=60dc908b0f520501;type=total;ucfs=1&#no_availability_msg). Maison très agréable, garage pratique en haut d'une étroite allée pour entreposer les CCR et le compresseur électrique, grande pièce de vie au RDC, avec salon, salle à manger, cuisine, buanderie et un WC. Au premier, 3 chambres (2 avec lit double, une avec 2 lits simples), une salle de douche et une salle de bain avec WC, et au deuxième, une chambre sous combles avec 4 lits simples. Voisins conciliants pour garer le camion et la remorque compresseurs, et pas mal de parking gratuit alentour. La maison est à 15 minutes environ du port de Camaret. Lieu de gonflage à la sortie de Crozon le soir, et près de la déchetterie de Lanvéoc le midi.
+Nous avons logé au [29 Rue du Vallon, 29160 Crozon](https://www.google.fr/maps/place/29+Rue+du+Vallon,+29160+Crozon/@48.2422406,-4.4903547,17z/data=!4m6!3m5!1s0x4816c14558e67321:0xa6cbfd4677f8f404!8m2!3d48.242415!4d-4.4902283!16s%2Fg%2F11cs842dhp?entry=ttu) ([Description de la location sur Booking.com](https://sp.booking.com/hotel/fr/ker-seasea-vue-mer-wifi.fr.html?aid=882988&label=adtechclicktripz-link-dcomparetofr-city-M1416272_pub-3127_campaign-4601_xqdz-7b5d51b969d7f7c70c6f8013c2940ff2_los-01_bw-007_lang-fr_curr-EUR_nrm-01_gstadt-02_gstkid-00_clkid-28cdeb005ec4ad5036e94e2e2fb2f2da&sid=81576bb4ed2502ce40882105f4059b69&checkin=2024-07-13;checkout=2024-07-20;dest_id=-1423109;dest_type=city;dist=0;group_adults=10;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=10;req_children=0;room1=A%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA;sb_price_type=total;soh=1;sr_order=popularity;srepoch=1712522013;srpvid=60dc908b0f520501;type=total;ucfs=1&#no_availability_msg). Maison très agréable, garage pratique en haut d'une étroite allée pour entreposer les CCR et le compresseur électrique, grande pièce de vie au RDC, avec salon, salle à manger, cuisine, buanderie et un WC. Au premier, 3 chambres (2 avec lit double, une avec 2 lits simples), une salle de douche et une salle de bain avec WC, et au deuxième, une chambre sous combles avec 4 lits simples. Voisins conciliants pour garer le camion et la remorque compresseurs, et pas mal de parking gratuit alentour. La maison est à 15 minutes environ du port de Camaret. Lieu de gonflage à la sortie de Crozon le soir, et près de la déchetterie de Lanvéoc le midi. On partait avec la remorque le matin, et on la déposait près de la SNSM à port Vauban pour pouvoir se garer su Styvel. 
 
-La remorque bateau est restée sur le port derrière les bâtiments de la SNSM, et on a eu une place au port du Styvel (changement en cours de semaine, pour finir au ras de la passerelle d'accès), avec beaucoup moins de portage que du côté du port Vauban. Toujours aussi compliqué de se garer le midi, mais facile de rincer les CCR sur les pontons le soir. Super semaine au niveau météo, à part le lundi matin marqué par la pluie. Peu de vent, mer d'huile ou presque tous les jours sauf le lundi et le mardi (et même ces jours là, ça n'était pas méchant). On a vu des dauphins communs presque à chaque plongée, et plusieurs fois le matin. Un gros thon a été aperçu en surface par quelques uns, impressionnant. Côté plongée, globalement très belles visi toute la semaine, épaves poissonneuses mais de plus en plus cassées (ce qui est triste, mais pas vraiment étonnant). Beaucoup (beaucoup !) de petites langoustes, de homards, de poulpes, de lieus. Et des espèces plus rares (jolie baudroie, Saint Pierre, raies torpilles et brunettes, etc.).
+La remorque bateau est restée sur le port derrière les bâtiments de la SNSM, et on a eu une place au port du Styvel (changement en cours de semaine, pour finir au ras de la passerelle d'accès), avec beaucoup moins de portage que du côté du port Vauban. Toujours aussi compliqué de se garer le midi, mais facile de rincer les CCR sur les pontons le soir. Super semaine au niveau météo, à part le lundi matin marqué par la pluie. Peu de vent, mer d'huile ou presque tous les jours sauf le lundi et le mardi (et même ces jours là, ça n'était pas méchant). On a vu des dauphins communs presque à chaque plongée, et plusieurs fois le matin. Un gros thon a été aperçu en surface par quelques uns, impressionnant. Côté plongée, globalement très belles visi toute la semaine, épaves poissonneuses mais de plus en plus cassées (un peu comme nous, ce qui est triste, mais pas vraiment étonnant !). Beaucoup (beaucoup !) de petites langoustes, de homards, de poulpes, de lieus. Et des espèces plus rares (jolie baudroie, Saint Pierre, raies torpilles et brunettes, etc.). Un S80 perdu (bloc de Marc, détendeur de Pédro 😢) n'a pas été retrouvé le lendemain en dépit d'une plongée commando hyper organisée... Et parce que ça faisait longtemps, un sous-marin nucléaire qui sortait de la rade nous a obligé à larguer le mouillage sur la dernière plongée pour remonter plus vite que prévu. Grom a fait le Saint Bernard pour rabattre les plongeurs, mais pour rien au final : quand Pierre et lui sont sortis de l'eau, le sous-marin était déjà loin et il ne nous restait plus qu'à mouiller à nouveau pour la plongée des amis en circuit ouvert. Baptiste a en revanche perdu 2 jours de plongée : la tête de son CCR a dû partir en révision pour cause de problèmes récurrents (cellules, connecteurs, solénoïde...). On croise les doigts pour qu'elle soit de retour avant octobre prochain. On a aussi rincé tout le matos et la partie "à l'air" du bateau directement sur le ponton de port Vauban où la pression d'eau est bien meilleure qu'au Styvel. Seul le Ducato et quelques blocs vides ont été rincés à la location. La coque et le moteur du bateau ont été rincés chez Thomas le samedi soir.
+
+Au final, excellente semaine au niveau météo et plongée. Ça fait plaisir d'avoir tout le monde d'un coup sur une sortie. On constate qu'à nos grands âges on compare plus facilement nos bobos divers et variés que nos exploits sportifs ! La pluie de début de semaine et le jour du départ, les fêtes nautiques et autres feux d'artifices n'ont été qu'une gêne très minime. En regardant [la pages des épaves](https://besibo.github.io/AP/Epaves.html), je me dis qu'il y en a encore plein d'autres dans le coin sur lesquelles on n'a jamais plongé. Ça vaudrait le coup d'y retourner (l'été prochain ?) pour faire un peu de recherche... 
 
 
 ## Quelques graphiques
