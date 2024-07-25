@@ -98,9 +98,9 @@ invites.full <- c("Béatrice")
 famille <- c(1, 1, 1, 1, 2, 1, 2, 1, 1)
 
 ## For each diver, how many nights and meals
-nuitees <- c(7, 7, 7, 7, 14, 7, 14, 7, 7)
+nuitees <- c(7, 7, 7, 7, 14, 7, 14, 7, 6)
 # repas <- nuitees * 3
-repas <- c(21, 24, 21, 21, 42, 21, 48, 21, 21)
+repas <- c(21, 24, 21, 21, 42, 21, 48, 21, 18)
 
 ## Total number of people including non divers
 nb.pers <- sum(famille)
