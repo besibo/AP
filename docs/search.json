@@ -1105,5 +1105,27 @@
       "Accueil",
       "Entretien"
     ]
+  },
+  {
+    "objectID": "Gonflage.html#création-dhéliairs",
+    "href": "Gonflage.html#création-dhéliairs",
+    "title": "Gonflages et déco",
+    "section": "Création d’héliairs",
+    "text": "Création d’héliairs\nQuel héliair (trimix) obtient-on quand on dispose d’un bloc contenant entre 10 et 150 bars d’hélium et qu’on le complète avec de l’air à une pression finale donnée ?",
+    "crumbs": [
+      "Accueil",
+      "Gonflages et déco"
+    ]
+  },
+  {
+    "objectID": "Gonflage.html#plannification-de-plongées-trimix-en-circuit-fermé",
+    "href": "Gonflage.html#plannification-de-plongées-trimix-en-circuit-fermé",
+    "title": "Gonflages et déco",
+    "section": "Plannification de plongées trimix en circuit fermé",
+    "text": "Plannification de plongées trimix en circuit fermé\nCet outil permet de plannifier des plongées trimix en circuit fermé avec un modèle de décompression Bühlmann ZHL-16C avec gradients de facteurs..",
+    "crumbs": [
+      "Accueil",
+      "Gonflages et déco"
+    ]
   }
 ]
