@@ -59,17 +59,17 @@ depenses <- tribble(
   "car" , 0,  0,  0,  0,  0,
   "grom", 178.42,  0,  0,  0,  0,
   "nat" , 71.40,  0,  0,  0,  0,
-  "tho" , 0,  0,  0,  0,  0)
+  "tho" , 0,  0,  0,  0,  56.60) # Fusée de détresse et pavillon alpha
 
 ## Who spent what (one line per diver, members or not, for everything not dive-related)
 autres <- tribble(
  ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Autre,
-  "bap" ,  0.001,  0,  0,  0,  0,  0,
-  "beu" ,  0,  130.65,  128.48+112.42,  0,  0,  0,
+  "bap" ,  0.001,  0,  176,  72,  0,  0,
+  "beu" ,  0,  130.65+27.10,  128.48+112.42,  7.30+9+9+24.10,  0,  0,
   "car" ,  0,  352.04+49.50,  0,  33.50+6.40,  0,  0,
-  "grom",  0,  20.86+7.20+7.20+7.55,  0,  3.2+15.6,  0,  0,
-  "nat" ,  0,  5.99+39.96,  65.93+57.37,  0,  0,  0,
-  "tho" ,  0,  0,  148.16,  24.1+6.4+51.80,  0,  0)
+  "grom",  0,  20.86+7.20+7.20+7.55+7.20,  100.06,  3.2+15.6+58.2,  0,  0,
+  "nat" ,  0,  5.99+39.96,  65.93+57.37+65.78+79.02,  2.3,  0,  0,
+  "tho" ,  0,  16.90,  148.16+348,  24.1+6.4+51.80 + 65.10,  0,  0)
 ```
 
 
@@ -103,12 +103,12 @@ last.day <-  "30-10-2024"
 
 ## Runtime for the Yamaha
 start.hours <- 840.4
-end.hours <- 860.4
+end.hours <- 865.5
 
 ## Volume of fuel used
-vol.fuel <- 340
-conso.fuel <- 330
-dist <- 153.6 # Nautic miles
+vol.fuel <- 380 + 18.2 + 18.1  # Le reste de Camaret 2024
+conso.fuel <- 383.5
+dist <- 195 # Nautic miles
 
 ## Cost for guest
 dive.guest <- 26
@@ -151,7 +151,7 @@ Les dépenses entrant dans le calcul du coût des plongées sont détaillés dan
 beautify_cost_table(depenses)
 ```
 
-<!-- Ici, les dépenses de la rubrique "divers" concernent le remplacement d'une partie du matériel d'oxygénothérapie (masques, BAVU...). -->
+Ici, les dépenses de la rubrique "divers" concernent le remplacement ddes fusées de détresse et l'achat d'un pavillon alpha neuf. Le pavillon est neuf, mais il est minuscule et sera certainement inutilisable...
 
 
 ## Coût des plongées
@@ -232,13 +232,13 @@ beautify_cost_table(rembourse, total = FALSE)
 La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de `r dive.guest`€) permettent de faire des (petits) bénéfices. Ils s'élèvent ici à **`r benef`€**.
 
 
-Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir. 
+Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir, en comptant environ 18 litres qui restaient de Camaret et 18 litres qui restaient de Cavalaire à Pâques. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir : Thomas en a sorti 20 litres. L'erreur d'estimation de consomation est donc très faible : 12 litres cumulés sur les 3 sorties de l'année 2024, soit moins de 2%.
 
 Pour finir, nous avons parcouru `r dist` milles nautiques. Ça veut dire que nous consommons en moyenne `r round(conso.fuel/dist, 2)` litres par mille, soit `r round(conso.fuel/dist/1.852, 2)` litres au kilomètre, soit la bagatelle de `r 100 * round(conso.fuel/dist/1.852, 2)` litres au 100 kilomètres. La plongée est un sport écologique !
 
-Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !
+Nous avons commencé à nettoyer les boudins. Il reste la plus grosse part du boulot : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !
 
-<!-- Thomas en a sorti environ 70 litres, soit `r vol.fuel-conso.fuel - 70` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 70) * 100 / (vol.fuel), 2)`%.  -->
+<!-- Thomas en a sorti environ 20 litres, soit `r vol.fuel-conso.fuel - 20` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 20) * 100 / (vol.fuel), 2)`%.  -->
 
 
 ## Pour mémoire
