@@ -13,15 +13,9 @@ language:
 ## Pâques 2025
 
 
-- **Lieu** : Cavalaire, ou plus probablement, La Londe
+- **Lieu** : Cavalaire, au [690, avenue de la Castillane.](https://www.google.fr/maps/place/690+Av.+de+la+Castillane,+83240+Cavalaire-sur-Mer/@43.1799155,6.5186244,17z/data=!3m1!4b1!4m6!3m5!1s0x12cece591e5930d7:0xb10c8954cab91355!8m2!3d43.1799155!4d6.5212047!16s%2Fg%2F11v03txd_3?entry=ttu) [Description de la location sur Le Bon Coin.](https://www.leboncoin.fr/locations_saisonnieres/1489618857.htm) Aucune location n'était disponible le long de la rivière à La Londe... 😢
 - **Dates** : du samedi 19 au samedi 26 avril 2025. C'est la première semaine des vacances scolaires de la zone A (Poitiers, La Rochelle), deuxième semaine de celles de la zone C (Toulouse).
 
-<!-- ## Pâques 2024 -->
-
-<!-- - **Lieu** : Cavalaire, au [690, avenue de la Castillane](https://www.google.fr/maps/place/690+Av.+de+la+Castillane,+83240+Cavalaire-sur-Mer/@43.1799155,6.5186244,17z/data=!3m1!4b1!4m6!3m5!1s0x12cece591e5930d7:0xb10c8954cab91355!8m2!3d43.1799155!4d6.5212047!16s%2Fg%2F11v03txd_3?entry=ttu) -->
-<!-- - **Dates** : du samedi 13 au samedi 20 avril -->
-
-<!-- [Description de la location sur Le Bon Coin](https://www.leboncoin.fr/locations_saisonnieres/1489618857.htm) -->
 
 <!-- ## Été 2024 -->
 
