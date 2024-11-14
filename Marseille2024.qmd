@@ -277,14 +277,40 @@ pl3
 ```
 
 
-<!-- <br> -->
+<br>
 
-<!-- ::: {layout-ncol=3} -->
+::: {layout-ncol=4}
 
-<!-- ![Sérioles sur le Rubis](img/Serioles.jpg){group="dive"} -->
+![](img/Marseille11.jpeg){group="dive"}
 
-<!-- ![Rougets sur le Rubis](img/Rougets.jpg){group="dive"} -->
+![](img/Marseille13.jpeg){group="dive"}
 
-<!-- ![Corb et Mérou sur le Ramon Membru](img/CorbMerou.jpg){group="dive"} -->
-<!-- ::: -->
-<!-- *Photos de Jérôme Otruquin, Cavalaire, avril 2024* -->
+![](img/Marseille12.jpeg){group="dive"}
+
+![](img/Marseille15.jpeg){group="dive"}
+
+![](img/Marseille9.jpeg){group="dive"}
+
+![](img/Marseille16.jpeg){group="dive"}
+
+![](img/Marseille1.jpeg){group="dive"}
+
+![](img/Marseille2.jpeg){group="dive"}
+
+![](img/Marseille3.jpeg){group="dive"}
+
+![](img/Marseille4.jpeg){group="dive"}
+
+![](img/Marseille5.jpeg){group="dive"}
+
+![](img/Marseille7.jpeg){group="dive"}
+
+![](img/Marseille6.jpeg){group="dive"}
+
+![](img/Marseille8.jpeg){group="dive"}
+
+![](img/Marseille10.jpeg){group="dive"}
+
+![](img/Marseille14.jpeg){group="dive"}
+:::
+*Photos sous-marines : Jérôme Otruquin, Marseille, Octobre 2024*
