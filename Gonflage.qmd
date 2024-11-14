@@ -20,7 +20,7 @@ Quel héliair (trimix) obtient-on quand on dispose d'un bloc contenant entre 10 
 
 ## Création de trimix
 
-Quel trimix obtient-on quand on transfère (ou qu'on booste) de l'hélium et de l'oxygène pur dans un bloc contenant et qu'on le complète **jusqu'à 230 bars** à l'air ?
+Quel trimix obtient-on quand on transfère (ou qu'on booste) de l'hélium et de l'oxygène pur dans un bloc vide et qu'on le complète **jusqu'à 230 bars** à l'air ?
 
 ![](img/trimix_ok.jpg)
 
