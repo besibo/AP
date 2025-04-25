@@ -13,4 +13,4 @@ Lorsqu'on valide une réservation avec signature électronique, un SMS de confir
 
 Suite à la panne moteur en avril 2025,nous avons sorti le bateau de l'eau 2 nuits plus tôt que prévu. La facture payée pour une semaine était de 70,90€. La facture corrigée est fournie ci-dessous. Il faudra penser à contacter la capitainerie pour faire valloir ce trop perçu.
 
-![Facture](www/FactureCavalaire.png)
+![](www/FactureCavalaire.png)
