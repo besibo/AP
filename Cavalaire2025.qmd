@@ -317,4 +317,4 @@ pl3
 
 :::
 
-{{< video img/Cavalaire_25_03.MOV >}}
+{{< video img/Cavalaire_25_03.mp4 >}}
