@@ -252,7 +252,15 @@ Nous étions logés au [150, allée Trémière.](https://maps.app.goo.gl/ARBdEF7
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2909.567215352485!2d6.510897013174119!3d43.17660788300228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cece676e4b788d%3A0xe4d8df7233a5d611!2sAll.%20Tr%C3%A9mi%C3%A8re%2C%2083240%20Cavalaire-sur-Mer!5e0!3m2!1sfr!2sfr!4v1731572573722!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+Super maison, proche du port (2,5km), piscine chauffée, 3 chambres doubles à l'étage principal, une chambre double et une chambre 4 places en bas. 2 salles de bain et 2 WC. De la place pour les véhicules (mais pas trop pour les remorques, sauf en contrebas éventuellement). De la place pour bricoler les recycleurs et pour booster le long de la terrasse, de la place pour stocker du matos, etc.
 
+Au titre des péripéties, par ordre décroissant de gravité :
+
+1. Le manomètre du booster a explosé, blessant Pierre au visage et à l'œil. Personne n'avait pensé à vérifier si le manomètre était oxygène ou pas, et ni Thomas ni moi n'avons même envisagé qu'il pouvait ne pas être oxygène quand nous avons monté la lyre cet hiver. Heureusement, plus de peur que de mal. Dix points de suture pour Pierre, et un œil convalescent...
+2. L'avant dernier jour, en route pour le Togo (et avec une journée Donator/Grec prévue le lendemain), perte de puissance instantannée du moteur à 1 mile de la sortie du port. Le moteur ne faisait que de caler, on a tenté de ramer... Peine perdue ! Au final, remorquage par la SNSM (pour la modique somme de 350€, heureusement pris en charge par l'assurance suite au coup de téléphone de Thomas à son pote), puis sortie de l'eau plus tôt que prévu. Sébastien nous a appris que la panne était due au clapet de la poire qui s'est retourné, privant les deux pompes à essence (basse et haute pression) du précieux carburant. La poire coûte 20€. Les pompes à essence qui font maintenant un bruit anormal, nettement plus. Devis en préparation...
+3. Toilettes bouchées le dernier jour à la location ! Appel à Sonia et au plombier pour régler le problème.
+
+Ah oui, et 3 d'entre nous ont acheté une combi Santi chez Gwen...
 
 ## Quelques graphiques
 
@@ -282,3 +290,31 @@ pl2
 pl3
 ```
 
+
+<br>
+
+::: {layout-ncol=4}
+
+![](img/Cavalaire_25_01.jpeg){group="dive"}
+
+![](img/Cavalaire_25_02.jpeg){group="dive"}
+
+![](img/Cavalaire_25_04.jpeg){group="dive"}
+
+![](img/Cavalaire_25_05.jpeg){group="dive"}
+
+![](img/Cavalaire_25_06.jpg){group="dive"}
+
+![](img/Cavalaire_25_07.jpeg){group="dive"}
+
+![](img/Cavalaire_25_08.jpeg){group="dive"}
+
+![](img/Cavalaire_25_09.jpeg){group="dive"}
+
+![](img/Cavalaire_25_10.jpeg){group="dive"}
+
+![](img/Cavalaire_25_11.jpeg){group="dive"}
+
+:::
+
+{{< video img/Cavalaire_25_03.MOV >}}
