@@ -1,0 +1,49 @@
+project:
+  type: website
+  output-dir: docs
+  resources: "www/"
+
+website:
+  favicon: img/logo.png
+  title: "Amitié Pictave"
+  open-graph: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Accueil
+  sidebar:
+    style: docked
+    search: true
+    contents: 
+      - section: "Sorties"
+        contents: 
+          - section: "2025"
+            contents:
+            - Cavalaire2025.qmd
+          - section: "2024"
+            contents:
+            - Marseille2024.qmd
+            - Camaret2024.qmd
+            - Cavalaire2024.qmd
+          - section: "2023"
+            contents:
+            - Cavalaire2023.qmd
+            - Lanildut2023.qmd
+            - LaLonde2023.qmd
+          - section: "2022"
+            contents:
+            - Cavalaire2022.qmd
+            - Lorient2022.qmd
+            - LaLonde2022.qmd
+          - AVenir.qmd
+          - Historique.qmd
+      - Entretien.qmd
+      - Pratique.qmd
+      - Gonflage.qmd
+      - Epaves.qmd
+
+format:
+  html:
+    theme: MyUnited.scss
+    css: styles.css
+    toc: true

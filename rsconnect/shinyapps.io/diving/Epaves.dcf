@@ -1,0 +1,13 @@
+name: Epaves
+title: Epaves
+username: diving
+account: diving
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12301240
+bundleId: 8847925
+url: https://diving.shinyapps.io/Epaves/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: _extensions/quarto-ext/shinylive/_extension.yml|_extensions/quarto-ext/shinylive/README.md|_extensions/quarto-ext/shinylive/resources/css/shinylive-quarto.css|_extensions/quarto-ext/shinylive/shinylive.lua|_quarto.yml|about.qmd|AVenir.qmd|Cavalaire2022.qmd|Cavalaire2023.qmd|Cavalaire2024.qmd|computations.R|data/Sortie.html|Entretien.qmd|Epaves.qmd|Gonflage.ipynb|Gonflage.qmd|Historique.qmd|index.qmd|LaLonde2022.qmd|LaLonde2023.qmd|Lanildut2023.qmd|Lorient2022.qmd|MyUnited.scss|Pratique.qmd|Sortie_files/figure-html/fig-all-1.png|Sortie_files/figure-html/fig-dep-1.png|Sortie_files/figure-html/fig-plong-1.png|styles.css|docs|img|index_files|www

@@ -1,0 +1,284 @@
+---
+title: "Cavalaire"
+subtitle: |
+  | Du 19 au 26 avril 2025
+  |
+  | *Citation rigolote* --- Auteur, date.
+date: now
+date-format: "dddd D MMMM YYYY"
+lang: fr
+title-block-banner: false
+language:
+  title-block-published: "Dernière Mise à jour"
+lightbox: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(janitor)
+library(kableExtra)
+library(scales)
+
+options(knitr.kable.NA = '')
+```
+
+
+```{r}
+#| include: false
+
+# Update this chunk every day
+
+## Dive sites
+sites <- c(	"Espingole", "Prophète", # Dimanche
+            "Togo", "Ramon Membru", # Lundi
+			      NA, "Togo", # Mardi
+			      "Trafik", "Rubis", # Mercredi
+			      NA, NA, # Jeudi
+			      NA, NA) # Vendredi
+
+## Who dived where?
+plongees <- tibble(
+#			           Bap, Beu, Cal, Gro, Nat, Ped, Tho
+`Plongée 01` = c(  1,   1,   1,   1,   1,   0,   1),
+`Plongée 02` = c(  1,   1,   1,   1,   1,   1,   1),
+`Plongée 03` = c(  1,   1,   1,   1,   1,   0,   1),
+`Plongée 04` = c(  1,   1,   1,   1,   1,   0,   1),
+`Plongée 05` = c(  0,   0,   0,   0,   0,   0,   0),
+`Plongée 06` = c(  1,   1,   1,   1,   1,   0,   1),
+`Plongée 07` = c(  1,   1,   1,   1,   1,   0,   1),
+`Plongée 08` = c(  1,   1,   1,   1,   1,   0,   1),
+`Plongée 09` = c(  0,   0,   0,   0,   0,   0,   0),
+`Plongée 10` = c(  0,   0,   0,   0,   0,   0,   0),
+`Plongée 11` = c(  0,   0,   0,   0,   0,   0,   0),
+`Plongée 12` = c(  0,   0,   0,   0,   0,   0,   0)
+)
+
+## Who spent what (only for dives and only for members!)
+depenses <- tribble(
+  ~Qui, ~`Essence bateau`, ~`Essence compresseurs`, ~Port, ~Gaz, ~Divers,
+  "bap"  , 170,  0,  0,  0,  0,
+  "beu"  , 0,  0,  0,  0,  0,
+  "cal"  , 0,  0,  0,  0,  0,
+  "grom" , 170,  0,  70.90,  0,  0,  # +69.26 
+  "nat"  , 0,  0,  0,  0,  0,
+  "ped"  , 0,  0,  0,  107*2,  0,
+  "tho"  , 0,  0,  0,  0,  0)
+
+## Who spent what (one line per diver, members or not, for everything not dive-related)
+autres <- tribble(
+ ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Autre,
+  "bap" ,  133.33,  0,  73.94+82.8,  0,  0,  0,
+  "beu" ,  1001.07,  142+7.5,  0,  18.5+13,  0,  0,
+  "cal" ,  133.33,  0,  146.04,  0,  0,  0,
+  "grom",  266.66,  202.16+46.8,  97.11+26.34,  5.5+7.4+52.10+24.6+17.30,  0,  0,
+  "nat" ,  133.33,  8.1+19.25+121.48+44.37+14.60,  0,  3.9+15.90+5+34.8+11.2,  0,  0,
+  "ped" ,  266.66,  33.6+28+6+27.53+7.27+43.42+5.2+16.50+26.80,  55.37+46.19,  3.90+9.3+34.8+15.9+5,  0,  0,
+  "tho" ,  266.66,  0,  0,  0,  0,  0)
+```
+
+
+```{r}
+#| include: false
+
+# Update once for every diving trip
+
+## List of members
+membres <- c("Bap", "Beu", "Cal", "Grom", "Nat", "Pedro", "Thomas")
+membres.full <- c("Baptiste", "Benoît", "Jean-Claude", "Jérôme", "Nathalie", "Pierre", "Thomas")
+
+## List of guests
+invites <- c()
+invites.full <- c()
+
+## For each diver, how many people in charge (divers + non-divers included)
+famille <- c(1, 1, 1, 2, 1, 2, 1)
+
+## For each diver, how many nights and meals
+nuitees <- famille * 7
+# repas <- nuitees * 3
+repas <- nuitees * 3
+
+## Total number of people including non divers
+nb.pers <- sum(famille)
+
+## Diving days
+first.day <- "20-04-2025"
+last.day <-  "25-04-2025"
+
+## Runtime for the Yamaha
+start.hours <- 865.5
+end.hours <- 885
+
+## Volume of fuel used
+vol.fuel <- 400  # Le reste de Camaret 2024
+conso.fuel <- 330
+dist <- 150 # Nautic miles
+
+## Cost for guest
+dive.guest <- 26
+
+## Overhead of diving Cost
+overhead <- 3 # €
+
+source("computations.R")
+```
+
+
+----
+
+## Plongeurs présents
+
+Membres : `r membres.full`  
+Invités : `r invites.full`
+
+## Les plongées
+
+```{r}
+#| echo: false
+#| label: tbl-plongee
+#| tbl-cap: "Récapitulatif des plongées effectuées"
+
+beautify_table(liste_plongees)
+```
+
+Au total, `r liste_plongees |> pull(Total) |> sum()` plongées ont été effectuées.
+
+## Les dépenses "plongée"
+
+Les dépenses entrant dans le calcul du coût des plongées sont détaillés dans le tableau ci-dessous.
+
+```{r}
+#| echo: false
+#| tbl-cap: "Dépenses engagées par les membres de l'AP"
+#| label: tbl-dep_plong
+
+beautify_cost_table(depenses)
+```
+
+Ici, les dépenses de la rubrique "divers" concernent le remplacement ddes fusées de détresse et l'achat d'un pavillon alpha neuf. Le pavillon est neuf, mais il est minuscule et sera certainement inutilisable...
+
+
+## Coût des plongées
+
+
+Le coût d'une plongée est calculé en divisant la somme des dépenses effectuées durant le séjour (ici, `r depenses |> pull(Total) |> sum()`€) par le nombre total de plongées effectuées durant le séjour (ici, `r liste_plongees |> pull(Total) |> sum()` plongées). Pour cette sortie, le coût d'une plongée pour les membres de l'AP est de `r cout_membres - overhead`€. Toutefois, afin d'anticiper sur la révision annuelle du moteur, nous avons décidé de majorer chaque plongée de `r overhead`€. Ainsi, **pour les membres, la plongée coûte `r cout_membres`€**.
+
+Pour les invités, le prix de la plongée est fixé à `r cout_guest - overhead`€ si la plongée des membres coûte moins cher. Sinon, tout le monde paie le même prix. La même majoration de `r overhead`€ est appliquée pour les invités, soit un prix de `r cout_guest`€ par plongée.
+
+Au total, pour les plongées uniquement, chaque plongeur doit les sommes suivantes à  l'AP :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Montants dûs pour la plongée"
+#| label: tbl-cout_plongee
+
+cout_plongee |> 
+  select(Plongeur, Cout) |> 
+  pivot_wider(names_from = Plongeur, values_from = Cout) |> 
+  beautify_cost_table(total = FALSE)
+```
+
+## Les dépenses "hors plongée"
+
+Pour cette sortie, les dépenses n'entrant pas dans le prix des plongées et la liste des payeurs sont présentés dans la @tbl-cout_hors_plongee. Pour chaque plongeur (et sa famille), les nombres de nuitées et de repas pris au cours du séjours sont indiqués dans la @tbl-nights_and_food :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Dépenses hors plongées engagées par les participants à  la sortie"
+#| label: tbl-cout_hors_plongee
+
+beautify_cost_table(autres)
+```
+
+Ici, les dépenses de la rubrique "autre" concernent la réparation de la crevaison du Ducato la veille du départ et les photocopies du macaron pour le stationnement.
+
+```{r}
+#| echo: false
+#| tbl-cap: "Nombre de nuitées et de repas"
+#| label: tbl-nights_and_food
+
+beautify_table(nr, total = FALSE)
+```
+
+Pour chaque **personne** (plongeur ou non), le coût d'une nuitée, d'un repas et du transport s'élèvent à  :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Coûts unitaires par personne"
+#| label: tbl-other_per_person
+
+beautify_cost_table(autres_unit, total = FALSE)
+```
+
+## Bilan et remboursement
+
+Au final, chaque **plongeur** doit donc les sommes suivantes
+
+```{r}
+#| echo: false
+#| tbl-cap: "Bilan des coûts par plongeur et par poste"
+#| label: tbl-cost_per_diver
+
+beautify_cost_table(cout_all)
+```
+
+Compte tenu des sommes déjà  engagées, les remboursements à effectuer sont les suivants :
+
+```{r}
+#| echo: false
+
+beautify_cost_table(rembourse, total = FALSE)
+```
+
+
+## Bénéfices, essence et heures
+
+La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de `r dive.guest`€) permettent de faire des (petits) bénéfices. Ils s'élèvent ici à **`r benef`€**.
+
+
+Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir, en comptant environ 18 litres qui restaient de Camaret et 18 litres qui restaient de Cavalaire à Pâques. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir : Thomas en a sorti 20 litres. L'erreur d'estimation de consomation est donc très faible : 12 litres cumulés sur les 3 sorties de l'année 2024, soit moins de 2%.
+
+Pour finir, nous avons parcouru `r dist` milles nautiques. Ça veut dire que nous consommons en moyenne `r round(conso.fuel/dist, 2)` litres par mille, soit `r round(conso.fuel/dist/1.852, 2)` litres au kilomètre, soit la bagatelle de `r 100 * round(conso.fuel/dist/1.852, 2)` litres au 100 kilomètres. La plongée est un sport écologique !
+
+Nous avons commencé à nettoyer les boudins. Il reste la plus grosse part du boulot : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !
+
+<!-- Thomas en a sorti environ 20 litres, soit `r vol.fuel-conso.fuel - 20` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 20) * 100 / (vol.fuel), 2)`%.  -->
+
+
+## Pour mémoire
+
+Nous étions logés au [150, allée Trémière.](https://maps.app.goo.gl/ARBdEF7RomfWtA4y6) [Description de la location sur Abritel.](https://www.abritel.fr/location-vacances/p1559446?chkin=2025-04-19&chkout=2025-04-26&d1=2025-04-19&d2=2025-04-26&startDate=2025-04-19&endDate=2025-04-26&x_pwa=1&rfrr=HSR&pwa_ts=1731235639382&referrerUrl=aHR0cHM6Ly93d3cuYWJyaXRlbC5mci9Ib3RlbC1TZWFyY2g%3D&useRewards=false&adults=10&regionId=5820&destination=La%20Croix-Valmer%2C%20Var%2C%20France&destType=BOUNDING_BOX&latLong=43.20652%2C6.568811&total_price=0%2C2763&privacyTrackingState=CAN_TRACK&searchId=f731331e-77e3-472e-af7d-8e094b23e8cf&sort=RECOMMENDED&top_dp=2201&top_cur=EUR&userIntent=&selectedRoomType=33393363&selectedRatePlan=0003c5787f7ffc0e421680a75be28e560c9f&expediaPropertyId=33393363). 
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2909.567215352485!2d6.510897013174119!3d43.17660788300228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cece676e4b788d%3A0xe4d8df7233a5d611!2sAll.%20Tr%C3%A9mi%C3%A8re%2C%2083240%20Cavalaire-sur-Mer!5e0!3m2!1sfr!2sfr!4v1731572573722!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+
+## Quelques graphiques
+
+```{r}
+#| echo: false
+#| label: fig-plong
+#| fig-cap: "Plongeurs à bord du Valiant lors de chaque plongée"
+#| fig-asp: 0.4
+
+pl1
+```
+
+```{r}
+#| echo: false
+#| label: fig-dep
+#| fig-cap: "Proportion des dépenses par poste, pour la plongée et le reste"
+
+pl2
+```
+
+```{r}
+#| echo: false
+#| label: fig-all
+#| fig-cap: "Proportion des dépenses de la sortie, tous postes confondus"
+#| fig-asp: 0.618
+
+pl3
+```
+

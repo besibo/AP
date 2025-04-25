@@ -1,0 +1,46 @@
+---
+title: "Gonflages et déco"
+---
+
+## Préparation de nitrox riches
+
+Quel nitrox obtient-on quand on dispose d'un bloc contenant entre 50 et 180 bars d'oxygène pur (en fait 98%) et qu'on le complète à l'air ?
+
+![](img/Nitrox.png)
+
+Quel nitrox obtient-on quand on dispose d'un bloc contenant entre 50 et 180 bars d'oxygène pur (en fait 98%) et qu'on le complète avec un nitrox 40 à la nitrouillette ?
+
+![](img/Nitrox2.png)
+
+## Création d'héliairs
+
+Quel héliair (trimix) obtient-on quand on dispose d'un bloc contenant entre 10 et 150 bars d'hélium et qu'on le complète avec de l'air à une pression finale donnée ?
+
+![](img/heliair.png)
+
+## Création de trimix
+
+Quel trimix obtient-on quand on transfère (ou qu'on booste) de l'hélium et de l'oxygène pur dans un bloc vide et qu'on le complète **jusqu'à 230 bars** à l'air ?
+
+![](img/trimix_ok.jpg)
+
+
+## Calculatrices pour préparation de mélanges
+
+<iframe height="650" width="100%" frameborder="no" src="https://diving.shinyapps.io/Gas_calculator//"> </iframe>
+
+
+## Plannification de plongées trimix en circuit fermé
+
+Cet outil permet de plannifier des plongées trimix en circuit fermé avec un modèle de décompression Bühlmann ZHL-16C avec gradients de facteurs..
+
+<iframe height="1600" width="100%" frameborder="no" src="https://diving.shinyapps.io/_DivingPlanCCR/"> </iframe>
+
+
+
+## Plannification de plongées trimix en circuit ouvert
+
+Cet outil permet de plannifier des plongées trimix multigaz en circuit ouvert avec un modèle de décompression Bühlmann ZHL-16C avec gradients de facteurs..
+
+<iframe height="1600" width="100%" frameborder="no" src="https://diving.shinyapps.io/DivingPlan/"> </iframe>
+

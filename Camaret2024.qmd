@@ -1,0 +1,300 @@
+---
+title: "Camaret"
+subtitle: |
+  | Du 13 au 20 juillet 2024
+  |
+  | *Il faut remonter, Marine Nationale !!!* --- Carole, 19 juillet.
+date: now
+date-format: "dddd D MMMM YYYY"
+lang: fr
+title-block-banner: false
+language:
+  title-block-published: "Dernière Mise à jour"
+lightbox: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(janitor)
+library(kableExtra)
+library(scales)
+
+options(knitr.kable.NA = '')
+```
+
+
+```{r}
+#| include: false
+
+# Update this chunk every day
+
+## Dive sites
+sites <- c(	"Kleber", "Vorpostenboot", # Dimanche
+			      "V 724 (ou VMC) et recherche bloc", NA, # Lundi
+			      "Kenilworth", "Swansea Vale", # Mardi
+			      "Kleber", "Canonière", # Mercredi
+			      "Forest Castle", "VMC", # Jeudi
+			      "Kenilworth", "Swansea Vale") # vendredi
+
+## Who dived where ?
+plongees <- tibble(
+#			           Bap, Beu, Cal, Car, Gro, Nat, Ped, Tho, Bea
+`Plongée 01` = c(  0,   1,   1,   1,   1,   1,   0,   1,   0),
+`Plongée 02` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 03` = c(  1,   1,   1,   1,   0,   0,   1,   1,   0),
+`Plongée 04` = c(  0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 05` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 06` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 07` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 08` = c(  1,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 09` = c(  0,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 10` = c(  0,   1,   1,   0,   1,   1,   1,   1,   0),
+`Plongée 11` = c(  0,   1,   1,   1,   1,   1,   1,   1,   0),
+`Plongée 12` = c(  0,   1,   1,   1,   1,   1,   1,   1,   0)
+)
+
+## Who spent what (only for dives and only for members!)
+depenses <- tribble(
+  ~Qui, ~`Essence bateau`, ~`Essence compresseurs`, ~Port, ~Gaz, ~Divers,
+  "bap" , 118.1+65,  0,  0,  0, 0,
+  "beu" , 0,  0,  123.90,  0, 0,
+  "cal" , 0,  0,  0,  0, 0,
+  "car" , 117.62,  0,  0,  0, 0,
+  "grom", 60.91+128.19,  36.22,  0,  0, 0,
+  "nat" , 0,  0,  0,  0, 0,
+  "ped" , 0,  0,  0,  111, 26,  # Remplacement matériel de secours (masques, BAVU...)
+  "tho" , 0,  0,  0,  0, 0)
+
+## Who spent what (one line per diver, members or not, for everything not dive-related)
+autres <- tribble(
+ ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Autre,
+  "bap" ,  0,  0,  108.33+99.32+121.5,  0,  0,  0,
+  "beu" ,  273.62,  133.85,  41,  9,  0,  0,
+  "cal" ,  159,  0,  102.69,  0,  0,  0,
+  "car" ,  159,  5.2,  40.36+45,  17,  0,  0,
+  "grom",  159*2,  35+42.15+15.72+6.5,  86.79,  0,  0,  0,
+  "nat" ,  159,  349.50+7.99+7.1+25.8+8.49+5.2,  73.85+33.40,  10.6+9.9,  0,  0,
+  "Ped" ,  159*2,  40.74+8.1+8+12.56+38+24+5,  0,  0,  0,  0,
+  "tho" ,  159,  0,  115.66,  0,  0,  22,   # Réparation pneu Ducato + photocopies port
+  "bea" ,  200,  110.44+77.40,  0,  0,  0,  0)
+```
+
+
+```{r}
+#| include: false
+
+# Update once for every diving trip
+
+## List of members
+membres <- c("Bap", "Beu", "Calude", "Carole", "Grom", "Nat", "Ped", "Thomas")
+membres.full <- c("Baptiste", "Benoît", "Jean-Claude", "Carole", "Jérôme", "Nathalie", "Pierre", "Thomas")
+
+## List of guests
+invites <- c("Bea")
+invites.full <- c("Béatrice")
+
+## For each diver, how many people in charge (divers + non-divers included)
+famille <- c(1, 1, 1, 1, 2, 1, 2, 1, 1)
+
+## For each diver, how many nights and meals
+nuitees <- c(7, 7, 7, 7, 14, 7, 14, 7, 6)
+# repas <- nuitees * 3
+repas <- c(21, 24, 21, 21, 42, 21, 48, 21, 18)
+
+## Total number of people including non divers
+nb.pers <- sum(famille)
+
+## Diving days
+first.day <- "14-07-2024"
+last.day <-  "19-07-2024"
+
+## Runtime for the Yamaha
+start.hours <- 822.0
+end.hours <- 840.4
+
+## Volume of fuel used
+vol.fuel <- 325
+conso.fuel <- 306.8
+dist <- 153.6 # Nautic miles
+
+## Cost for guest
+dive.guest <- 26
+
+## Overhead of diving Cost
+overhead <- 3 # €
+
+source("computations.R")
+```
+
+
+----
+
+## Plongeurs présents
+
+Membres : `r membres.full`  
+Invités : `r invites.full`
+
+## Les plongées
+
+```{r}
+#| echo: false
+#| label: tbl-plongee
+#| tbl-cap: "Récapitulatif des plongées effectuées"
+
+beautify_table(liste_plongees)
+```
+
+Au total, `r liste_plongees |> pull(Total) |> sum()` plongées ont été effectuées.
+
+## Les dépenses "plongée"
+
+Les dépenses entrant dans le calcul du coût des plongées sont détaillés dans le tableau ci-dessous.
+
+```{r}
+#| echo: false
+#| tbl-cap: "Dépenses engagées par les membres de l'AP"
+#| label: tbl-dep_plong
+
+beautify_cost_table(depenses)
+```
+
+Ici, les dépenses de la rubrique "divers" concernent le remplacement d'une partie du matériel d'oxygénothérapie (masques, BAVU...).
+
+
+## Coût des plongées
+
+
+Le coût d'une plongée est calculé en divisant la somme des dépenses effectuées durant le séjour (ici, `r depenses |> pull(Total) |> sum()`€) par le nombre total de plongées effectuées durant le séjour (ici, `r liste_plongees |> pull(Total) |> sum()` plongées). Pour cette sortie, le coût d'une plongée pour les membres de l'AP est de `r cout_membres - overhead`€. Toutefois, afin d'anticiper sur la révision annuelle du moteur, nous avons décidé de majorer chaque plongée de `r overhead`€. Ainsi, **pour les membres, la plongée coûte `r cout_membres`€**.
+
+Pour les invités, le prix de la plongée est fixé à `r cout_guest - overhead`€ si la plongée des membres coûte moins cher. Sinon, tout le monde paie le même prix. La même majoration de `r overhead`€ est appliquée pour les invités, soit un prix de `r cout_guest`€ par plongée.
+
+Au total, pour les plongées uniquement, chaque plongeur doit les sommes suivantes à  l'AP :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Montants dûs pour la plongée"
+#| label: tbl-cout_plongee
+
+cout_plongee |> 
+  select(Plongeur, Cout) |> 
+  pivot_wider(names_from = Plongeur, values_from = Cout) |> 
+  beautify_cost_table(total = FALSE)
+```
+
+## Les dépenses "hors plongée"
+
+Pour cette sortie, les dépenses n'entrant pas dans le prix des plongées et la liste des payeurs sont présentés dans la @tbl-cout_hors_plongee. Pour chaque plongeur (et sa famille), les nombres de nuitées et de repas pris au cours du séjours sont indiqués dans la @tbl-nights_and_food :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Dépenses hors plongées engagées par les participants à  la sortie"
+#| label: tbl-cout_hors_plongee
+
+beautify_cost_table(autres)
+```
+
+Ici, les dépenses de la rubrique "autre" concernent la réparation de la crevaison du Ducato la veille du départ et les photocopies du macaron pour le stationnement.
+
+```{r}
+#| echo: false
+#| tbl-cap: "Nombre de nuitées et de repas"
+#| label: tbl-nights_and_food
+
+beautify_table(nr, total = FALSE)
+```
+
+Pour chaque **personne** (plongeur ou non), le coût d'une nuitée, d'un repas et du transport s'élèvent à  :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Coûts unitaires par personne"
+#| label: tbl-other_per_person
+
+beautify_cost_table(autres_unit, total = FALSE)
+```
+
+## Bilan et remboursement
+
+Au final, chaque **plongeur** doit donc les sommes suivantes
+
+```{r}
+#| echo: false
+#| tbl-cap: "Bilan des coûts par plongeur et par poste"
+#| label: tbl-cost_per_diver
+
+beautify_cost_table(cout_all)
+```
+
+Compte tenu des sommes déjà  engagées, les remboursements à effectuer sont les suivants :
+
+```{r}
+#| echo: false
+
+beautify_cost_table(rembourse, total = FALSE)
+```
+
+
+## Bénéfices, essence et heures
+
+La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de `r dive.guest`€) permettent de faire des (petits) bénéfices. Ils s'élèvent ici à **`r benef`€**.
+
+
+Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir. 
+
+Pour finir, nous avons parcouru `r dist` milles nautiques. Ça veut dire que nous consommons en moyenne `r round(conso.fuel/dist, 2)` litres par mille, soit `r round(conso.fuel/dist/1.852, 2)` litres au kilomètre, soit la bagatelle de `r 100 * round(conso.fuel/dist/1.852, 2)` litres au 100 kilomètres. La plongée est un sport écologique !
+
+Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !
+
+<!-- Thomas en a sorti environ 70 litres, soit `r vol.fuel-conso.fuel - 70` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 70) * 100 / (vol.fuel), 2)`%.  -->
+
+
+## Pour mémoire
+
+Nous avons logé au [29 Rue du Vallon, 29160 Crozon](https://www.google.fr/maps/place/29+Rue+du+Vallon,+29160+Crozon/@48.2422406,-4.4903547,17z/data=!4m6!3m5!1s0x4816c14558e67321:0xa6cbfd4677f8f404!8m2!3d48.242415!4d-4.4902283!16s%2Fg%2F11cs842dhp?entry=ttu) ([Description de la location sur Booking.com](https://sp.booking.com/hotel/fr/ker-seasea-vue-mer-wifi.fr.html?aid=882988&label=adtechclicktripz-link-dcomparetofr-city-M1416272_pub-3127_campaign-4601_xqdz-7b5d51b969d7f7c70c6f8013c2940ff2_los-01_bw-007_lang-fr_curr-EUR_nrm-01_gstadt-02_gstkid-00_clkid-28cdeb005ec4ad5036e94e2e2fb2f2da&sid=81576bb4ed2502ce40882105f4059b69&checkin=2024-07-13;checkout=2024-07-20;dest_id=-1423109;dest_type=city;dist=0;group_adults=10;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=10;req_children=0;room1=A%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA;sb_price_type=total;soh=1;sr_order=popularity;srepoch=1712522013;srpvid=60dc908b0f520501;type=total;ucfs=1&#no_availability_msg). Maison très agréable, garage pratique en haut d'une étroite allée pour entreposer les CCR et le compresseur électrique, grande pièce de vie au RDC, avec salon, salle à manger, cuisine, buanderie et un WC. Au premier, 3 chambres (2 avec lit double, une avec 2 lits simples), une salle de douche et une salle de bain avec WC, et au deuxième, une chambre sous combles avec 4 lits simples. Voisins conciliants pour garer le camion et la remorque compresseurs, et pas mal de parking gratuit alentour. La maison est à 15 minutes environ du port de Camaret. Lieu de gonflage à la sortie de Crozon le soir, et près de la déchetterie de Lanvéoc le midi. On partait avec la remorque le matin, et on la déposait près de la SNSM à port Vauban pour pouvoir se garer su Styvel. 
+
+La remorque bateau est restée sur le port derrière les bâtiments de la SNSM, et on a eu une place au port du Styvel (changement en cours de semaine, pour finir au ras de la passerelle d'accès), avec beaucoup moins de portage que du côté du port Vauban. Toujours aussi compliqué de se garer le midi, mais facile de rincer les CCR sur les pontons le soir. Super semaine au niveau météo, à part le lundi matin marqué par la pluie. Peu de vent, mer d'huile ou presque tous les jours sauf le lundi et le mardi (et même ces jours là, ça n'était pas méchant). On a vu des dauphins communs presque à chaque plongée, et plusieurs fois le matin. Un gros thon a été aperçu en surface par quelques uns, impressionnant. Côté plongée, globalement très belles visi toute la semaine, épaves poissonneuses mais de plus en plus cassées (un peu comme nous, ce qui est triste, mais pas vraiment étonnant !). Beaucoup (beaucoup !) de petites langoustes, de homards, de poulpes, de lieus. Et des espèces plus rares (jolie baudroie, Saint Pierre, raies torpilles et brunettes, etc.). Un S80 perdu (bloc de Marc, détendeur de Pédro 😢) n'a pas été retrouvé le lendemain en dépit d'une plongée commando hyper organisée... Et parce que ça faisait longtemps, un sous-marin nucléaire qui sortait de la rade nous a obligé à larguer le mouillage sur la dernière plongée pour remonter plus vite que prévu. Grom a fait le Saint Bernard pour rabattre les plongeurs, mais pour rien au final : quand Pierre et lui sont sortis de l'eau, le sous-marin était déjà loin et il ne nous restait plus qu'à mouiller à nouveau pour la plongée des amis en circuit ouvert. Baptiste a en revanche perdu 2 jours de plongée : la tête de son CCR a dû partir en révision pour cause de problèmes récurrents (cellules, connecteurs, solénoïde...). On croise les doigts pour qu'elle soit de retour avant octobre prochain. On a aussi rincé tout le matos et la partie "à l'air" du bateau directement sur le ponton de port Vauban où la pression d'eau est bien meilleure qu'au Styvel. Seul le Ducato et quelques blocs vides ont été rincés à la location. La coque et le moteur du bateau ont été rincés chez Thomas le samedi soir.
+
+Au final, excellente semaine au niveau météo et plongée. Ça fait plaisir d'avoir tout le monde d'un coup sur une sortie. On constate qu'à nos grands âges on compare plus facilement nos bobos divers et variés que nos exploits sportifs ! La pluie de début de semaine et le jour du départ, les fêtes nautiques et autres feux d'artifices n'ont été qu'une gêne très minime. En regardant [la pages des épaves](https://besibo.github.io/AP/Epaves.html), je me dis qu'il y en a encore plein d'autres dans le coin sur lesquelles on n'a jamais plongé. Ça vaudrait le coup d'y retourner (l'été prochain ?) pour faire un peu de recherche... 
+
+
+## Quelques graphiques
+
+```{r}
+#| echo: false
+#| label: fig-plong
+#| fig-cap: "Plongeurs à bord du Valiant lors de chaque plongée"
+#| fig-asp: 0.4
+
+pl1
+```
+
+```{r}
+#| echo: false
+#| label: fig-dep
+#| fig-cap: "Proportion des dépenses par poste, pour la plongée et le reste"
+
+pl2
+```
+
+```{r}
+#| echo: false
+#| label: fig-all
+#| fig-cap: "Proportion des dépenses de la sortie, tous postes confondus"
+#| fig-asp: 0.618
+
+pl3
+```
+
+
+<!-- <br> -->
+
+<!-- ::: {layout-ncol=3} -->
+
+<!-- ![Sérioles sur le Rubis](img/Serioles.jpg){group="dive"} -->
+
+<!-- ![Rougets sur le Rubis](img/Rougets.jpg){group="dive"} -->
+
+<!-- ![Corb et Mérou sur le Ramon Membru](img/CorbMerou.jpg){group="dive"} -->
+<!-- ::: -->
+<!-- *Photos de Jérôme Otruquin, Cavalaire, avril 2024* -->
