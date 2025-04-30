@@ -60,21 +60,21 @@ depenses <- tribble(
   "bap"  , 170,  0,  0,  0,  0,
   "beu"  , 0,  0,  0,  0,  0,
   "cal"  , 0,  0,  0,  0,  0,
-  "grom" , 170,  0,  70.90,  0,  0,  # +69.26 
+  "grom" , 170,  0,  70.90,  0,  0,  # +69.26 SP 95 non consommé, racheté par Thomas
   "nat"  , 0,  0,  0,  0,  0,
-  "ped"  , 0,  0,  0,  107*2,  0,
-  "tho"  , 0,  0,  0,  0,  0)
+  "ped"  , 0,  0,  0,  107*2,  144.61, # Cellules
+  "tho"  , 0,  0,  0,  0,  50) # Réparation booster
 
 ## Who spent what (one line per diver, members or not, for everything not dive-related)
 autres <- tribble(
  ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Autre,
   "bap" ,  133.33,  0,  73.94+82.8+93.04,  52.1+17.3+7.4,  0,  0,
   "beu" ,  1001.07,  142+7.5,  72.52,  18.5+22.2+22.2+18.5,  0,  0,
-  "cal" ,  133.33,  0,  146.04+69.24,  0,  0,  0,
+  "cal" ,  133.33,  0,  146.04+69.24+42.98,  2.5+2.6+3.9+15.9+34.80,  0,  0,
   "grom",  266.66,  202.16+46.8,  97.11+26.34+46.44,  5.5+7.4+52.10+24.6+17.30,  0,  0,
   "nat" ,  133.33,  8.1+19.25+121.48+44.37+14.60,  0,  3.9+15.90+5+34.8+11.2,  0,  0,
   "ped" ,  266.66,  33.6+28+6+27.53+7.27+43.42+5.2+16.50+26.80+9+2.5+1.9,  55.37+46.19,  3.90+9.3+34.8+15.9+5,  0,  0,
-  "tho" ,  266.66,  0,  0,  0,  0,  0)
+  "tho" ,  266.66,  0,  288,  20.50,  0,  0)
 ```
 
 
@@ -261,8 +261,8 @@ Super maison, proche du port (2,5km), 3 chambres doubles à l'étage principal, 
 Au titre des péripéties, par ordre décroissant de gravité :
 
 1. Le manomètre du booster a explosé, blessant Pierre au visage et à l'œil. Personne n'avait pensé à vérifier si le manomètre était oxygène ou pas, et ni Thomas ni moi n'avons même envisagé qu'il pouvait ne pas être oxygène quand nous avons monté la lyre cet hiver. Heureusement, plus de peur que de mal. Dix points de suture pour Pierre, et un œil convalescent...
-2. L'avant dernier jour, en route pour le Togo (et avec une journée Donator/Grec prévue le lendemain), perte de puissance instantannée du moteur à 1 mile de la sortie du port. Le moteur ne faisait que de caler, on a tenté de ramer... Peine perdue ! Au final, remorquage par la SNSM (pour la modique somme de 350€, heureusement pris en charge par l'assurance suite au coup de téléphone de Thomas à son pote), puis sortie de l'eau plus tôt que prévu. Sébastien nous a appris que la panne était due au clapet de la poire qui s'est retourné, privant les deux pompes à essence (basse et haute pression) du précieux carburant. La poire coûte 20€. Les pompes à essence qui font maintenant un bruit anormal, nettement plus. Devis en préparation...
-3. À l'aller, un chevreuil est passé sous les roues de la voiture de Thomas (et sous celles de la remorque !) après avoir rencontre son pare-choc. Pas trop de mal en dehors de la calandre, mais une bonne franchise à payer auprès de l'assurance !
+2. L'avant dernier jour, en route pour le Togo (et avec une journée Donator/Grec prévue le lendemain), perte de puissance instantannée du moteur à 1 mile de la sortie du port. Le moteur ne faisait que de caler, on a tenté de ramer... Peine perdue ! Au final, remorquage par la SNSM (pour la modique somme de 350€, heureusement pris en charge par l'assurance suite au coup de téléphone de Thomas à son pote), puis sortie de l'eau plus tôt que prévu. Sébastien nous a appris que la panne était due au clapet de la poire qui s'est retourné, privant les deux pompes à essence (basse et haute pression) du précieux carburant. La poire coûte 20€. Les pompes à essence qui font maintenant un bruit anormal, nettement plus : 2457€ sur le devis reçu lundi 28 avril 😫😭
+3. À l'aller, un chevreuil est passé sous les roues de la voiture de Thomas (et sous celles de la remorque !) après avoir rencontré son pare-choc. Pas trop de mal en dehors de la calandre, mais une bonne franchise à payer auprès de l'assurance !
 4. Toilettes bouchées le dernier jour à la location ! Appel à Sonia et au plombier pour régler le problème, finalement résolu assez facilement.
 
 Ah oui, et parce que la sortie n'était pas très chère, 3 d'entre nous ont acheté une combi Santi chez Gwen...
