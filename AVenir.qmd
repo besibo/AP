@@ -30,7 +30,7 @@ language:
 
 **Horaires des marées à Brest**
 
-![](img/Marees2025.png){width=45%}
+![](img/Marees2025.png){width=18.3%}
 ![](img/Coef2025.png){width=45%} 
 
 
