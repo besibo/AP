@@ -30,7 +30,8 @@ language:
 
 **Horaires des marées à Brest**
 
-![](img/Coef2025.png){width=45%}
+![](img/Marees2025.png){width=45%}
+![](img/Coef2025.png){width=45%} 
 
 
 ## Toussaint 2025

@@ -1,0 +1,290 @@
+---
+title: "Lanildut"
+subtitle: |
+  | Du 29 juillet au 8 août 2025
+  |
+  | *C'est un coup dur pour les jaunes !* --- Auteur, date.
+date: now
+date-format: "dddd D MMMM YYYY"
+lang: fr
+title-block-banner: false
+language:
+  title-block-published: "Dernière Mise à jour"
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(janitor)
+library(kableExtra)
+library(scales)
+
+options(knitr.kable.NA = '')
+```
+
+
+```{r}
+#| include: false
+
+# Update this chunk every day
+
+## Dive sites
+sites <- c(	NA, "Saracen", # Mercredi
+            NA, NA, # Jeudi
+            NA, NA, # Vendredi
+            NA, NA, # Samedi
+            NA, NA, # Dimanche
+            NA, NA, # Lundi
+            NA, NA, # Mardi
+            NA, NA, # Mercredi
+            NA, NA) # Jeudi
+
+## Who dived where ?
+plongees <- tibble(
+#			           Bap, Beu, Cal, Car, Gro, Nat, Ped, Tho, Béa, Yan
+`Plongée 01` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 02` = c(1,   1,   1,   1,   0,   1,   0,   1,   0,   0),
+`Plongée 03` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 04` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 05` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 06` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 07` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 08` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 09` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 10` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 11` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 12` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 13` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 14` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 15` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 16` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 17` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 18` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0))
+
+## Who spent what (only for dives and only for members!)
+depenses <- tribble(
+  ~Qui, ~`Essence bateau`, ~`Essence compresseurs`, ~Port, ~Gaz, ~Divers,
+  "bap", 0,  0,  0,  0, 0, 
+  "beu", 0,  0,  0,  0, 0, 
+  "cal", 0,  0,  0,  0, 0, 
+  "car", 118.32 + 118.32,  0,  0,  0, 0,
+  "gro", 0,  0,  0,  0, 0, 
+  "nat", 0,  0,  0,  0, 0, 
+  "ped", 0,  0,  0,  0, 0, 
+  "tho", 0,  0,  0,  0, 0) 
+
+## Who spent what (one line per diver, members or not, for everything not dive-related)
+autres <- tribble(
+ ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Divers,
+  "bap",  0, 0, 0, 0, 0, 0,
+  "beu",  0, 131.8, 92.01, 0, 0, 0,
+  "cal",  300, 0, 0, 0, 0, 0,
+  "car",  1000, 0, 0, 0, 0, 0,
+  "gro",  0, 0, 0, 0, 0, 0,
+  "nat",  0, 389.92, 0, 0, 0, 0,
+  "ped",  0, 0, 0, 0, 0, 0,
+  "tho",  0, 0, 0, 0, 0, 0,
+  "bea",  0, 0, 0, 0, 0, 0,
+  "yan",  0, 0, 0, 0, 0, 0) 
+```
+
+
+```{r}
+#| include: false
+
+# Update once for every diving trip
+
+membres <- c("Bap", "Beu", "Cal", "Car", "Gro", "Nat", "Pedro", "Thomas")
+membres.full <- c("Baptiste", "Benoît", "Calude", "Carole", "Jérôme", "Nathalie", "Pierre", "Thomas")
+
+## List of guests
+invites <- c("Béa", "Yan")
+invites.full <- c("Béatrice", "Yannick")
+
+## For each diver, how many people in charge (divers + non-divers included)
+famille <- c(2, 1, 1, 1, 2, 1, 2, 1, 1, 1)
+
+## For each diver, how many nights and meals
+nuitees <- c(20, 10, 10, 10, 6, 10, 14, 10, 5, 5)
+repas <- nuitees * 3
+
+## Total number of people including non divers
+nb.pers <- sum(famille)
+
+## Diving days
+first.day <- "30-07-2025"
+last.day <-  "07-08-2025"
+
+## Runtime for the Yamaha
+start.hours <- 874.3
+end.hours <- 895
+
+## Volume of fuel used
+vol.fuel <- 71.58 + 71.58 + 42
+conso.fuel <- 219
+dist <- 146.6 # Nautic miles
+
+## Cost for guest
+dive.guest <- 26
+
+## Overhead of diving Cost
+overhead <- 3 # €
+
+source("computations.R")
+```
+
+
+----
+
+## Plongeurs présents
+
+Membres : `r membres.full`  
+Invités : `r invites.full`
+
+## Les plongées
+
+```{r}
+#| echo: false
+#| label: tbl-plongee
+#| tbl-cap: "Récapitulatif des plongées effectuées"
+
+beautify_table(liste_plongees)
+```
+
+Au total, `r liste_plongees |> pull(Total) |> sum()` plongées ont été effectuées.
+
+## Les dépenses "plongée"
+
+Les dépenses entrant dans le calcul du coût des plongées sont détaillés dans le tableau ci-dessous.
+
+```{r}
+#| echo: false
+#| tbl-cap: "Dépenses engagées par les membres de l'AP"
+#| label: tbl-dep_plong
+
+beautify_cost_table(depenses)
+```
+
+Ici, les dépenses de la rubrique "divers" concernent l'achat d'un nouveau cadenas pour la remorque.
+
+
+## Coût des plongées
+
+
+Le coût d'une plongée est calculé en divisant la somme des dépenses effectuées durant le séjour (ici, `r depenses |> pull(Total) |> sum()`€) par le nombre total de plongées effectuées durant le séjour (ici, `r liste_plongees |> pull(Total) |> sum()` plongées). Pour cette sortie, le coût d'une plongée pour les membres de l'AP est de `r cout_membres - overhead`€. Toutefois, afin d'anticiper sur la révision annuelle du moteur, nous avons décidé de majorer chaque plongée de `r overhead`€. Ainsi, **pour les membres, la plongée coûte `r cout_membres`€**.
+
+Pour les invités, le prix de la plongée est fixé à `r cout_guest - overhead`€ si la plongée des membres coûte moins cher. Sinon, tout le monde paie le même prix. La même majoration de `r overhead`€ est appliquée pour les invités, soit un prix de `r cout_guest`€ par plongée.
+
+Au total, pour les plongées uniquement, chaque plongeur doit les sommes suivantes à  l'AP :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Montants dûs pour la plongée"
+#| label: tbl-cout_plongee
+
+cout_plongee |> 
+  select(Plongeur, Cout) |> 
+  pivot_wider(names_from = Plongeur, values_from = Cout) |> 
+  beautify_cost_table(total = FALSE)
+```
+
+## Les dépenses "hors plongée"
+
+Pour cette sortie, les dépenses n'entrant pas dans le prix des plongées et la liste des payeurs sont présentés dans le tableau @tbl-cout_hors_plongee. Pour chaque plongeur (et sa famille), les nombres de nuitées et de repas pris au cours du séjours sont indiqués dans le tableau @tbl-nights_and_food :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Dépenses hors plongées engagées par les participants à  la sortie"
+#| label: tbl-cout_hors_plongee
+
+beautify_cost_table(autres)
+```
+
+```{r}
+#| echo: false
+#| tbl-cap: "Nombre de nuitées et de repas"
+#| label: tbl-nights_and_food
+
+beautify_table(nr, total = FALSE)
+```
+
+Pour chaque **personne** (plongeur ou non), le coût d'une nuitée, d'un repas et du transport s'élèvent à  :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Coûts unitaires par personne"
+#| label: tbl-other_per_person
+
+beautify_cost_table(autres_unit, total = FALSE)
+```
+
+## Bilan et remboursement
+
+Au final, chaque **plongeur** doit donc les sommes suivantes
+
+```{r}
+#| echo: false
+#| tbl-cap: "Bilan des coûts par plongeur et par poste"
+#| label: tbl-cost_per_diver
+
+beautify_cost_table(cout_all)
+```
+
+Compte tenu des sommes déjà  engagées, les remboursements à effectuer sont les suivants :
+
+```{r}
+#| echo: false
+
+beautify_cost_table(rembourse, total = FALSE)
+```
+
+
+## Bénéfices, essence et heures
+
+La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de `r dive.guest-overhead`€) permettent de faire des (petits) bénéfices. Ils s'élèvent ici à **`r benef`€**.
+
+Pour finir, nous avons parcouru `r dist` milles nautiques. Ça veut dire que nous consommons en moyenne `r round(conso.fuel/dist, 2)` litres par mille, soit `r round(conso.fuel/dist/1.852, 2)` litres au kilomètre, soit la bagatelle de `r 100 * round(conso.fuel/dist/1.852, 2)` litres au 100 kilomètres. La plongée est un sport écologique !
+
+Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir. 
+
+<!-- Thomas en a sorti environ 70 litres, soit `r vol.fuel-conso.fuel - 70` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 70) * 100 / (vol.fuel), 2)`%.  -->
+
+Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !
+
+
+## Pour mémoire
+
+Location au milieu des champs, comme en 2014, 2017 et 2023. Toujours 4 places en bas (1 lit double et 2 lits simples, dans 2 chambres), et 5 places en haut (un lit double dans une chambre, 3 lits simples dans l'autre), et il y a de la place pour 2 ou 3 matelas si besoin. La maison est un peu vieillotte, mais absolument parfaite pour nous (literie un peu molle quand même !). On peu gonfler dans le jardin, il y a de la place pour la remorque bateau et tous les véhicules, et le garage/grange est parfait pour stocker le matos. Un WC en haut et un en bas, une seule douche. Tarif imbattable.
+
+Première plongée le mercredi après-midi car la flotte du tour du Finistère à la voile monopoliait le port dès le mardi midi. 
+
+Dans la semaine, nous avons aussi pas mal tourné sur le Taboga. Le point est limite et il faut chercher au Nord, à au moins 20 à 30 mètres.
+
+## Quelques graphiques
+
+```{r}
+#| echo: false
+#| label: fig-plong
+#| fig-cap: "Plongeurs à bord du Valiant lors de chaque plongée"
+#| fig-asp: 0.4
+
+pl1
+```
+
+```{r}
+#| echo: false
+#| label: fig-dep
+#| fig-cap: "Proportion des dépenses par poste, pour la plongée et le reste"
+
+pl2
+```
+
+```{r}
+#| echo: false
+#| label: fig-all
+#| fig-cap: "Proportion des dépenses de la sortie, tous postes confondus"
+#| fig-asp: 0.3
+
+pl3
+```
+
