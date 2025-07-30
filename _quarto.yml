@@ -19,8 +19,8 @@ website:
         contents: 
           - section: "2025"
             contents:
-            - Lanildut2025.qmd
             - Cavalaire2025.qmd
+            - Lanildut2025.qmd
           - section: "2024"
             contents:
             - Marseille2024.qmd
