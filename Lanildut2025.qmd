@@ -30,9 +30,9 @@ options(knitr.kable.NA = '')
 
 ## Dive sites
 sites <- c(	NA, "Saracen", # Mercredi
-            NA, NA, # Jeudi
-            NA, NA, # Vendredi
-            NA, NA, # Samedi
+            "Columbian", "Lake Borgne", # Jeudi
+            "Saracen", "Eildon", # Vendredi
+            "Columbian", "Taboga", # Samedi
             NA, NA, # Dimanche
             NA, NA, # Lundi
             NA, NA, # Mardi
@@ -44,12 +44,12 @@ plongees <- tibble(
 #			           Bap, Beu, Cal, Car, Gro, Nat, Ped, Tho, Béa, Yan
 `Plongée 01` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
 `Plongée 02` = c(1,   1,   1,   1,   0,   1,   0,   1,   0,   0),
-`Plongée 03` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 04` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 05` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 06` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 07` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 08` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 03` = c(1,   1,   0,   1,   0,   1,   0,   1,   0,   0),
+`Plongée 04` = c(1,   1,   1,   1,   1,   1,   0,   1,   0,   0),
+`Plongée 05` = c(1,   1,   1,   1,   1,   1,   0,   1,   0,   0),
+`Plongée 06` = c(1,   1,   0,   1,   1,   1,   0,   1,   0,   0),
+`Plongée 07` = c(1,   1,   1,   1,   1,   1,   1,   1,   0,   0),
+`Plongée 08` = c(1,   1,   1,   1,   0,   1,   1,   1,   0,   0),
 `Plongée 09` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
 `Plongée 10` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
 `Plongée 11` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
@@ -64,9 +64,9 @@ plongees <- tibble(
 ## Who spent what (only for dives and only for members!)
 depenses <- tribble(
   ~Qui, ~`Essence bateau`, ~`Essence compresseurs`, ~Port, ~Gaz, ~Divers,
-  "bap", 0,  0,  0,  0, 0, 
-  "beu", 0,  0,  0,  0, 0, 
-  "cal", 0,  0,  0,  0, 0, 
+  "bap", 0,  0,  0,  107, 0, 
+  "beu", 0,  0,  132.3,  0, 0, 
+  "cal", 148.35,  0,  0,  0, 0, 
   "car", 118.32 + 118.32,  0,  0,  0, 0,
   "gro", 0,  0,  0,  0, 0, 
   "nat", 0,  0,  0,  0, 0, 
@@ -80,8 +80,8 @@ autres <- tribble(
   "beu",  0, 131.8, 92.01, 0, 0, 0,
   "cal",  300, 0, 0, 0, 0, 0,
   "car",  1000, 0, 0, 0, 0, 0,
-  "gro",  0, 0, 0, 0, 0, 0,
-  "nat",  0, 389.92, 0, 0, 0, 0,
+  "gro",  0, 9.2, 0, 0, 0, 0,
+  "nat",  0, 389.92+59.89+187.79, 0, 0, 0, 0,
   "ped",  0, 0, 0, 0, 0, 0,
   "tho",  0, 0, 0, 0, 0, 0,
   "bea",  0, 0, 0, 0, 0, 0,
@@ -105,7 +105,7 @@ invites.full <- c("Béatrice", "Yannick")
 famille <- c(2, 1, 1, 1, 2, 1, 2, 1, 1, 1)
 
 ## For each diver, how many nights and meals
-nuitees <- c(20, 10, 10, 10, 6, 10, 14, 10, 5, 5)
+nuitees <- c(20, 10, 10, 10, 6, 10, 14, 10, 7, 5)
 repas <- nuitees * 3
 
 ## Total number of people including non divers
