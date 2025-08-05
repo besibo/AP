@@ -3,7 +3,7 @@ title: "Lanildut"
 subtitle: |
   | Du 29 juillet au 8 août 2025
   |
-  | *C'est un coup dur pour les jaunes !* --- Auteur, date.
+  | *C'est un coup duuur pour les jaunes !* --- Auteur, date.
 date: now
 date-format: "dddd D MMMM YYYY"
 lang: fr
@@ -33,9 +33,9 @@ sites <- c(	NA, "Saracen", # Mercredi
             "Columbian", "Lake Borgne", # Jeudi
             "Saracen", "Eildon", # Vendredi
             "Columbian", "Taboga", # Samedi
-            NA, NA, # Dimanche
-            NA, NA, # Lundi
-            NA, NA, # Mardi
+            "Drummond Castle", NA, # Dimanche
+            "European", NA, # Lundi
+            "Nelson", "Eildon", # Mardi
             NA, NA, # Mercredi
             NA, NA) # Jeudi
 
@@ -48,14 +48,14 @@ plongees <- tibble(
 `Plongée 04` = c(1,   1,   1,   1,   1,   1,   0,   1,   0,   0),
 `Plongée 05` = c(1,   1,   1,   1,   1,   1,   0,   1,   0,   0),
 `Plongée 06` = c(1,   1,   0,   1,   1,   1,   0,   1,   0,   0),
-`Plongée 07` = c(1,   1,   1,   1,   1,   1,   1,   1,   0,   0),
-`Plongée 08` = c(1,   1,   1,   1,   0,   1,   1,   1,   0,   0),
-`Plongée 09` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 07` = c(1,   1,   0,   1,   1,   1,   0,   1,   0,   0),
+`Plongée 08` = c(0,   1,   0,   0,   0,   0,   0,   1,   0,   0),
+`Plongée 09` = c(1,   1,   1,   1,   0,   1,   1,   1,   0,   1),
 `Plongée 10` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 11` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 11` = c(0,   1,   1,   1,   0,   1,   1,   1,   0,   1),
 `Plongée 12` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 13` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 14` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 13` = c(0,   1,   1,   0,   0,   0,   1,   0,   0,   0),
+`Plongée 14` = c(1,   1,   1,   1,   1,   1,   1,   1,   0,   1),
 `Plongée 15` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
 `Plongée 16` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
 `Plongée 17` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
@@ -64,7 +64,7 @@ plongees <- tibble(
 ## Who spent what (only for dives and only for members!)
 depenses <- tribble(
   ~Qui, ~`Essence bateau`, ~`Essence compresseurs`, ~Port, ~Gaz, ~Divers,
-  "bap", 0,  0,  0,  107, 0, 
+  "bap", 53.63+128.14,  0,  0,  107.72+123.89, 0, 
   "beu", 0,  0,  132.3,  0, 0, 
   "cal", 148.35,  0,  0,  0, 0, 
   "car", 118.32 + 118.32,  0,  0,  0, 0,
@@ -76,13 +76,13 @@ depenses <- tribble(
 ## Who spent what (one line per diver, members or not, for everything not dive-related)
 autres <- tribble(
  ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Divers,
-  "bap",  0, 0, 0, 0, 0, 0,
+  "bap",  0, 0, 114+64.53, 0, 0, 0,
   "beu",  0, 131.8, 92.01, 0, 0, 0,
   "cal",  300, 0, 0, 0, 0, 0,
   "car",  1000, 0, 0, 0, 0, 0,
   "gro",  0, 9.2, 0, 0, 0, 0,
   "nat",  0, 389.92+59.89+187.79, 0, 0, 0, 0,
-  "ped",  0, 0, 0, 0, 0, 0,
+  "ped",  0, 13.9+20.8+89.9+21, 0, 0, 0, 0,
   "tho",  0, 0, 0, 0, 0, 0,
   "bea",  0, 0, 0, 0, 0, 0,
   "yan",  0, 0, 0, 0, 0, 0) 
@@ -249,16 +249,16 @@ Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de s
 
 <!-- Thomas en a sorti environ 70 litres, soit `r vol.fuel-conso.fuel - 70` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 70) * 100 / (vol.fuel), 2)`%.  -->
 
-Les boudins n'ont toujours pas été nettoyés : le savon spécial est dans la console et le balais brosse dans le Ducato : avis aux amateurs !
+Les boudins ont enfin été nettoyés : merci Mistral Plaisance !
 
 
 ## Pour mémoire
 
-Location au milieu des champs, comme en 2014, 2017 et 2023. Toujours 4 places en bas (1 lit double et 2 lits simples, dans 2 chambres), et 5 places en haut (un lit double dans une chambre, 3 lits simples dans l'autre), et il y a de la place pour 2 ou 3 matelas si besoin. La maison est un peu vieillotte, mais absolument parfaite pour nous (literie un peu molle quand même !). On peu gonfler dans le jardin, il y a de la place pour la remorque bateau et tous les véhicules, et le garage/grange est parfait pour stocker le matos. Un WC en haut et un en bas, une seule douche. Tarif imbattable.
+Location au milieu des champs, comme en 2014, 2017 et 2023. Toujours 4 places en bas (1 lit double et 2 lits simples, dans 2 chambres), et 5 places en haut (un lit double dans une chambre, 3 lits simples dans l'autre), et il y a de la place pour 2 ou 3 matelas si besoin. La maison est un peu vieillotte, mais absolument parfaite pour nous (literie un peu molle quand même !). On peut gonfler dans le jardin, il y a de la place pour la remorque bateau et tous les véhicules, et le garage/grange est parfait pour stocker le matos. Un WC en haut et un en bas, une seule douche. Tarif imbattable.
 
-Première plongée le mercredi après-midi car la flotte du tour du Finistère à la voile monopoliait le port dès le mardi midi. 
+Première plongée le mercredi après-midi car la flotte du tour du Finistère à la voile monopolisait le port dès le mardi midi. 
 
-Dans la semaine, nous avons aussi pas mal tourné sur le Taboga. Le point est limite et il faut chercher au Nord, à au moins 20 à 30 mètres.
+Le point du Taboga a été corrigé après plusieurs plongées sable/roche. Au final, le bon point, près des chaudières, était celui du bouquin de Job. Même manip sur l'European : On a repris le bon point au niveau des chaudières : ça devrait rouler sans problème pour la prochaine fois.
 
 ## Quelques graphiques
 
