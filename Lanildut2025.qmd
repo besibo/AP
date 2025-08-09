@@ -3,7 +3,7 @@ title: "Lanildut"
 subtitle: |
   | Du 29 juillet au 8 août 2025
   |
-  | *C'est un coup duuur pour les jaunes !* --- Auteur, date.
+  | *C'est un coup duuur pour les jaunes !* --- Denis Brogniard, tous les jours.
 date: now
 date-format: "dddd D MMMM YYYY"
 lang: fr
@@ -36,8 +36,8 @@ sites <- c(	NA, "Saracen", # Mercredi
             "Drummond Castle", NA, # Dimanche
             "European", NA, # Lundi
             "Nelson", "Eildon", # Mardi
-            NA, NA, # Mercredi
-            NA, NA) # Jeudi
+            "Columbian", "Yembo", # Mercredi
+            "Saracen", "Lake Borgne") # Jeudi
 
 ## Who dived where ?
 plongees <- tibble(
@@ -55,18 +55,18 @@ plongees <- tibble(
 `Plongée 11` = c(0,   1,   1,   1,   0,   1,   1,   1,   0,   1),
 `Plongée 12` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
 `Plongée 13` = c(0,   1,   1,   0,   0,   0,   1,   0,   0,   0),
-`Plongée 14` = c(1,   1,   1,   1,   1,   1,   1,   1,   0,   1),
-`Plongée 15` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 16` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 17` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0),
-`Plongée 18` = c(0,   0,   0,   0,   0,   0,   0,   0,   0,   0))
+`Plongée 14` = c(1,   1,   1,   1,   1,   1,   0,   1,   0,   1),
+`Plongée 15` = c(1,   1,   1,   1,   1,   1,   1,   1,   0,   1),
+`Plongée 16` = c(1,   1,   1,   1,   1,   1,   1,   1,   0,   1),
+`Plongée 17` = c(1,   1,   1,   1,   1,   1,   1,   1,   0,   1),
+`Plongée 18` = c(1,   1,   1,   1,   1,   1,   1,   1,   0,   1))
 
 ## Who spent what (only for dives and only for members!)
 depenses <- tribble(
   ~Qui, ~`Essence bateau`, ~`Essence compresseurs`, ~Port, ~Gaz, ~Divers,
   "bap", 53.63+128.14,  0,  0,  107.72+123.89, 0, 
-  "beu", 0,  0,  132.3,  0, 0, 
-  "cal", 148.35,  0,  0,  0, 0, 
+  "beu", 148.27,  0,  132.3,  0, 29.90,  # Garcette 2mm x 200m 
+  "cal", 148.35+148.32,  0,  0,  0, 11.5, # Prises électrique murale + compresseur électrique
   "car", 118.32 + 118.32,  0,  0,  0, 0,
   "gro", 0,  0,  0,  0, 0, 
   "nat", 0,  0,  0,  0, 0, 
@@ -78,13 +78,13 @@ autres <- tribble(
  ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Divers,
   "bap",  0, 0, 114+64.53, 0, 0, 0,
   "beu",  0, 131.8, 92.01, 0, 0, 0,
-  "cal",  300, 0, 0, 0, 0, 0,
+  "cal",  300, 2.3, 0, 0, 0, 0,
   "car",  1000, 0, 0, 0, 0, 0,
-  "gro",  0, 9.2, 0, 0, 0, 0,
-  "nat",  0, 389.92+59.89+187.79, 0, 0, 0, 0,
-  "ped",  0, 13.9+20.8+89.9+21, 0, 0, 0, 0,
-  "tho",  0, 0, 0, 0, 0, 0,
-  "bea",  0, 0, 0, 0, 0, 0,
+  "gro",  0, 9.2, 150, 0, 0, 0,
+  "nat",  0, 389.92+59.89+187.79, 8.12+67.79, 10.60*2, 0, 0,
+  "ped",  0, 13.9+20.8+89.9+21+5.85+9.25+11.81+7.2, 55+86.64, 0, 0, 0,
+  "tho",  0, 0, 150+144.27+36.43, 0, 0, 0,
+  "bea",  0, 13.56+91.95+40.47, 0, 0, 0, 0,
   "yan",  0, 0, 0, 0, 0, 0) 
 ```
 
@@ -117,12 +117,12 @@ last.day <-  "07-08-2025"
 
 ## Runtime for the Yamaha
 start.hours <- 874.3
-end.hours <- 895
+end.hours <- 904.8
 
 ## Volume of fuel used
-vol.fuel <- 71.58 + 71.58 + 42
-conso.fuel <- 219
-dist <- 146.6 # Nautic miles
+vol.fuel <- 71.58 * 2 + 42 + 100 + 80 * 3 + 40
+conso.fuel <- 536.6
+dist <- 245 # Nautic miles
 
 ## Cost for guest
 dive.guest <- 26
@@ -256,9 +256,9 @@ Les boudins ont enfin été nettoyés : merci Mistral Plaisance !
 
 Location au milieu des champs, comme en 2014, 2017 et 2023. Toujours 4 places en bas (1 lit double et 2 lits simples, dans 2 chambres), et 5 places en haut (un lit double dans une chambre, 3 lits simples dans l'autre), et il y a de la place pour 2 ou 3 matelas si besoin. La maison est un peu vieillotte, mais absolument parfaite pour nous (literie un peu molle quand même !). On peut gonfler dans le jardin, il y a de la place pour la remorque bateau et tous les véhicules, et le garage/grange est parfait pour stocker le matos. Un WC en haut et un en bas, une seule douche. Tarif imbattable.
 
-Première plongée le mercredi après-midi car la flotte du tour du Finistère à la voile monopolisait le port dès le mardi midi. 
+Première plongée le mercredi après-midi car la flotte du tour du Finistère à la voile monopolisait le port dès le mardi midi. En dehors, de ça, aucune plongée annulée : 2 plongées par jour, tous les jours, sauf sur 2 jours au moment de la bascule (petits coef en plein milieu de journée). Les épaves notables du coin ont toutes été plongées au moins une fois, y compris le Drummond, l'Européan et le Nelson. Et une nouvelle épave a été faite sous la vigie du Stiff : le Yembo, jolie épave très cassée dans le fond d'un canyon.
 
-Le point du Taboga a été corrigé après plusieurs plongées sable/roche. Au final, le bon point, près des chaudières, était celui du bouquin de Job. Même manip sur l'European : On a repris le bon point au niveau des chaudières : ça devrait rouler sans problème pour la prochaine fois.
+Sur le plan pratique, le point du Taboga a été corrigé après plusieurs plongées sable/roche. Au final, le bon point, près des chaudières, était celui du bouquin de Job. Même manip sur l'European : On a repris le bon point au niveau des chaudières : ça devrait rouler sans problème pour la prochaine fois. Pour le Yembo, le premier des 2 points tombe pile sur l'avant de l'épave, dans la zone des 40 mètres. Toujours sur les aspects pratiques, il n'y a presque pas de courant sur l'Eildon, le Yembo et l'European (en mortes eaux !). Impossible en revanche de plonger à marée haute sur le Nelson : viser une heure avant et maximum une heure après la BM. 
 
 ## Quelques graphiques
 

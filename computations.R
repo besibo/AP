@@ -206,6 +206,8 @@ pl1 <-  tmp |>
        title = "Nombre de plongeurs sur le Valiant",
        color = "") +
   scale_color_brewer(palette = "Accent") +
+  scale_y_continuous(breaks = breaks_pretty()) +
+  scale_x_continuous(breaks = breaks_pretty()) +
   theme_bw()
 
 ## Type of spendings as a proportion of all spendings
