@@ -20,21 +20,28 @@ language:
 <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2909.567215352485!2d6.510897013174119!3d43.17660788300228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cece676e4b788d%3A0xe4d8df7233a5d611!2sAll.%20Tr%C3%A9mi%C3%A8re%2C%2083240%20Cavalaire-sur-Mer!5e0!3m2!1sfr!2sfr!4v1731572573722!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
 
 
-<!-- ## Été 2025 -->
-<!-- 
-- **Lieu** : plongée depuis Lanildut, même location au milieu des champs qu'en 2014, 2017 et 2023, à [Kernaeret](https://maps.app.goo.gl/JQ3J7bfib4vKk3nH8). Toujours 4 places en bas (1 lit double et 2 lits simples, dans 2 chambres), et 5 places en haut (un lit double dans une chambre, 3 lits simples dans l'autre), et il y a de la place pour 2 ou 3 matelas si besoin. La maison est vieillotte, mais très bien pour nous (literie un peu molle quand même !). On peut gonfler dans le jardin, il y a de la place pour la remorque bateau et tous les véhicules, et le garage/grange est parfait pour stocker le matos. Un WC en haut et un en bas, une seule douche. Tarif imbattable.
+## Toussaint 2025
 
-- **Dates** : location réservée du samedi 26 juillet au samedi 09 août. La meilleure fenêtre pour plonger est à cheval sur les 2 semaines, du jeudi 31 juillet au jeudi 07 août.
+- **Dates** : du samedi 18 au samedi 25 octobre. Il s'agit de la première semaine des vacances scolaires. 
+- **Lieu** : La Londe. Grom a versé les arrhes. Il faudra payer 640€ avant le 18 septembre
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4173.186987997045!2d-4.721153!3d48.48730200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDjCsDI5JzE0LjMiTiA0wrA0MycxNi4yIlc!5e1!3m2!1sen!2sfr!4v1745595330917!5m2!1sen!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+Location située au 279 quai Jean Lamoudru à La Londe les Maures. On ouvre le portail, on traverse la route, et on est au bateau ! De la place dans le jardin pour stocker la remorque compresseur, qui est restée sans ridelles ni bâche tous les jours de beau temps. Ducato garé le long du quai, on ne démarre que pour aller gonfler. Un grand préau pour stocker les sacs de plongée, les blocs, et s'équiper à l'abri du vent, avec un petit débarras pour les recycleux, les bidons et les analyseurs. Maison également très agréable : 2 chambres avec lit double (avec possibilité de poser un matelas dans la plus grande), une chambre avec un lit double et 2 lits superposés. Deux salles de bain et 3 WC. Grande pièce de vie avec clic-clac, terrasses, c'est top quand il fait beau. Il y a de quoi venir à 10.
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.3098151572226!2d6.245350816532982!3d43.11901746114732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c92f7817eca977%3A0xeae7976797a2090!2s279%20Quai%20Lamoudru%2C%2083250%20La%20Londe-les-Maures!5e0!3m2!1sen!2sfr!4v1756284215126!5m2!1sen!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+
+## Pâques 2026
+
+- **Dates** : à décider
+- **Lieu** : à décider
+
+## Été 2026
+ 
+- **Dates** : à décider
+- **Lieu** : à décider
 
 **Horaires des marées à Brest**
 
-![](img/Marees2025.png){width=18.3%}
-![](img/Coef2025.png){width=45%} 
- -->
+![](img/Coef2026.png){width=75%} 
 
-## Toussaint 2025
-
-- **Lieu** : Probablement pas Cavalaire. Marseille ? La Londe ? Ailleurs ? À décider rapidement. Nathalie a contacté l'agence à La Londe pour savoir si la maison habituelle est encore disponible.
-- **Dates** : du samedi 18 au samedi 25 octobre. Il s'agit de la première semaine des vacances scolaires. 
