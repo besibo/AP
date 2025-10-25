@@ -1,0 +1,282 @@
+---
+title: "La Londe"
+subtitle: |
+  | Du 18 au 25 octobre 2025
+  |
+  | *C'est pas un jour à sortir sans parachute !* --- La Gambas, 19 octobre 2025.
+date: now
+date-format: "dddd D MMMM YYYY"
+lang: fr
+title-block-banner: false
+language:
+  title-block-published: "Dernière Mise à jour"
+---
+
+```{r}
+#| include: false
+
+# fmt: skip file
+
+library(tidyverse)
+library(janitor)
+library(kableExtra)
+library(scales)
+
+options(knitr.kable.NA = '')
+```
+
+
+```{r}
+#| include: false
+
+# Update this chunk every day
+
+## Dive sites
+sites <- c(	"Le Grec", "Le Ferrando", # Dimanche
+            NA, NA, # Lundi
+            "La Gabinière", "Le Donator", # Mardi
+            "Le Torpilleur / Le Grec", "Michel C / Ville de Grasse", # Mercredi
+            "Le Donator", NA, # Jeudi
+            NA, NA) # Vendredi
+
+## Who dived where ?
+plongees <- tibble(
+#			         Bap, Beu, Cal, Car, Gro, Ped, Tho, Gin, Marc
+`Plongée 01` = c(0,   1,   1,   1,   1,   1,   1,   1,   1),
+`Plongée 02` = c(1,   1,   1,   1,   1,   1,   1,   1,   1),
+`Plongée 03` = c(0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 04` = c(0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 06` = c(1,   1,   1,   1,   1,   1,   1,   1,   1),
+`Plongée 05` = c(1,   1,   1,   1,   1,   1,   1,   1,   1),
+`Plongée 07` = c(1,   1,   1,   1,   1,   1,   1,   1,   1),
+`Plongée 08` = c(1,   1,   1,   1,   1,   1,   1,   1,   1),
+`Plongée 09` = c(1,   1,   1,   1,   1,   1,   1,   1,   1),
+`Plongée 10` = c(0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 11` = c(0,   0,   0,   0,   0,   0,   0,   0,   0),
+`Plongée 12` = c(0,   0,   0,   0,   0,   0,   0,   0,   0))
+
+## Who spent what (only for dives and only for members!)
+depenses <- tribble(
+  ~Qui, ~`Essence bateau`, ~`Essence compresseurs`, ~Port, ~Gaz, ~Divers,
+  "bap", 98.26+79.04,  0,  0,  0,  0, 
+  "beu", 98.26+8.7,  0,  102,  0,  0, 
+  "cal", 98.38+72.92,  0,  0,  0,  0, 
+  "car", 0,  0,  0,  0,  0, 
+  "gro", 0,  42.76,  0,  0,  0,  
+  "ped", 98.26,  0,  0,  110,  0, 
+  "tho", 0,  0,  0,  0,  0) 
+
+## Who spent what (one line per diver, members or not, for everything not dive-related)
+autres <- tribble(
+ ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Divers,
+  "bap",   40, 0, 0, 0, 0, 0,
+  "beu",    0, 154.20+5.99, 0, 18.5+22.2, 0, 0,
+  "cal",   90, 0, 81.62+114.03, 24.6+5.5+5.8+52.10+4.1+7.4+4.4, 0, 0,
+  "car",   90+213, 18.49+16.48, 148.06, 3.7+34.8+2.6+1.4+5+1.4, 0, 0,
+  "gro",  450, 404.21+64.55+7.01+20, 12.25, 0, 0, 0,
+  "ped",   90, 46.5+6, 99.52+96.4, 0, 0, 0,
+  "tho",   90, 0, 0, 0, 0, 0,
+  "ginou",  0, 0, 0, 0, 0, 0,
+  "marc",   0, 59.23, 100, 72.4, 0, 0) 
+```
+
+
+```{r}
+#| include: false
+
+# Update once for every diving trip
+
+membres <- c("Bap", "Beu", "Cal", "Car", "Gro", "Pedro", "Thomas")
+membres.full <- c("Baptiste", "Benoît", "Calude", "Carole", "Jérôme", "Pierre", "Thomas")
+
+## List of guests
+invites <- c("Ginou", "Marc")
+invites.full <- c("Geneviève", "Marc")
+
+## For each diver, how many people in charge (divers + non-divers included)
+famille <- c(1, 1, 1, 1, 2, 1, 1, 1, 1)
+
+## For each diver, how many nights and meals
+nuitees <- c(7, 7, 7, 7, 14, 7, 7, 7, 7)
+repas <- nuitees * 3
+
+## Total number of people including non divers
+nb.pers <- sum(famille)
+
+## Diving days
+first.day <- "19-10-2025"
+last.day <-  "24-10-2025"
+
+## Runtime for the Yamaha
+start.hours <- 904.8
+end.hours <- 923.3
+
+## Volume of fuel used
+vol.fuel <- 80+90+100+60
+conso.fuel <- 305
+dist <- 132.7 # Nautic miles
+
+## Cost for guest
+dive.guest <- 26
+
+## Overhead of diving Cost
+overhead <- 3 # €
+
+source("computations.R")
+```
+
+
+----
+
+## Plongeurs présents
+
+Membres : `r membres.full`  
+Invités : `r invites.full`
+
+## Les plongées
+
+```{r}
+#| echo: false
+#| label: tbl-plongee
+#| tbl-cap: "Récapitulatif des plongées effectuées"
+
+beautify_table(liste_plongees)
+```
+
+Au total, `r liste_plongees |> pull(Total) |> sum()` plongées ont été effectuées.
+
+## Les dépenses "plongée"
+
+Les dépenses entrant dans le calcul du coût des plongées sont détaillés dans le tableau ci-dessous.
+
+```{r}
+#| echo: false
+#| tbl-cap: "Dépenses engagées par les membres de l'AP"
+#| label: tbl-dep_plong
+
+beautify_cost_table(depenses)
+```
+
+Ici, les dépenses de la rubrique "divers" concernent l'achat d'un nouveau cadenas pour la remorque.
+
+
+## Coût des plongées
+
+
+Le coût d'une plongée est calculé en divisant la somme des dépenses effectuées durant le séjour (ici, `r depenses |> pull(Total) |> sum()`€) par le nombre total de plongées effectuées durant le séjour (ici, `r liste_plongees |> pull(Total) |> sum()` plongées). Pour cette sortie, le coût d'une plongée pour les membres de l'AP est de `r cout_membres - overhead`€. Toutefois, afin d'anticiper sur la révision annuelle du moteur, nous avons décidé de majorer chaque plongée de `r overhead`€. Ainsi, **pour les membres, la plongée coûte `r cout_membres`€**.
+
+Pour les invités, le prix de la plongée est fixé à `r cout_guest - overhead`€ si la plongée des membres coûte moins cher. Sinon, tout le monde paie le même prix. La même majoration de `r overhead`€ est appliquée pour les invités, soit un prix de `r cout_guest`€ par plongée.
+
+Au total, pour les plongées uniquement, chaque plongeur doit les sommes suivantes à  l'AP :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Montants dûs pour la plongée"
+#| label: tbl-cout_plongee
+
+cout_plongee |> 
+  select(Plongeur, Cout) |> 
+  pivot_wider(names_from = Plongeur, values_from = Cout) |> 
+  beautify_cost_table(total = FALSE)
+```
+
+## Les dépenses "hors plongée"
+
+Pour cette sortie, les dépenses n'entrant pas dans le prix des plongées et la liste des payeurs sont présentés dans le tableau @tbl-cout_hors_plongee. Pour chaque plongeur (et sa famille), les nombres de nuitées et de repas pris au cours du séjours sont indiqués dans le tableau @tbl-nights_and_food :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Dépenses hors plongées engagées par les participants à  la sortie"
+#| label: tbl-cout_hors_plongee
+
+beautify_cost_table(autres)
+```
+
+```{r}
+#| echo: false
+#| tbl-cap: "Nombre de nuitées et de repas"
+#| label: tbl-nights_and_food
+
+beautify_table(nr, total = FALSE)
+```
+
+Pour chaque **personne** (plongeur ou non), le coût d'une nuitée, d'un repas et du transport s'élèvent à  :
+
+```{r}
+#| echo: false
+#| tbl-cap: "Coûts unitaires par personne"
+#| label: tbl-other_per_person
+
+beautify_cost_table(autres_unit, total = FALSE)
+```
+
+## Bilan et remboursement
+
+Au final, chaque **plongeur** doit donc les sommes suivantes
+
+```{r}
+#| echo: false
+#| tbl-cap: "Bilan des coûts par plongeur et par poste"
+#| label: tbl-cost_per_diver
+
+beautify_cost_table(cout_all)
+```
+
+Compte tenu des sommes déjà  engagées, les remboursements à effectuer sont les suivants :
+
+```{r}
+#| echo: false
+
+beautify_cost_table(rembourse, total = FALSE)
+```
+
+
+## Bénéfices, essence et heures
+
+La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des invités (si la plongée des membres coûte moins de `r dive.guest-overhead`€) permettent de faire des (petits) bénéfices. Ils s'élèvent ici à **`r benef`€**.
+
+Pour finir, nous avons parcouru `r dist` milles nautiques. Ça veut dire que nous consommons en moyenne `r round(conso.fuel/dist, 2)` litres par mille, soit `r round(conso.fuel/dist/1.852, 2)` litres au kilomètre, soit la bagatelle de `r 100 * round(conso.fuel/dist/1.852, 2)` litres au 100 kilomètres. La plongée est un sport écologique !
+
+Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir et Thomas en a sorti environ 30, soit `r vol.fuel-conso.fuel - 30` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 30) * 100 / (vol.fuel), 2)`%.
+
+Les boudins ont enfin été nettoyés : merci Mistral Plaisance !
+
+
+## Pour mémoire
+
+Location au milieu des champs, comme en 2014, 2017 et 2023. Toujours 4 places en bas (1 lit double et 2 lits simples, dans 2 chambres), et 5 places en haut (un lit double dans une chambre, 3 lits simples dans l'autre), et il y a de la place pour 2 ou 3 matelas si besoin. La maison est un peu vieillotte, mais absolument parfaite pour nous (literie un peu molle quand même !). On peut gonfler dans le jardin, il y a de la place pour la remorque bateau et tous les véhicules, et le garage/grange est parfait pour stocker le matos. Un WC en haut et un en bas, une seule douche. Tarif imbattable. Pas de mouches cette année car il y avait du maïs dans le champ, mais les génisses reviendront prochainement...
+
+Première plongée le mercredi après-midi car la flotte du tour du Finistère à la voile monopolisait le port dès le mardi midi. En dehors, de ça, aucune plongée annulée : 2 plongées par jour, tous les jours, sauf sur 2 jours au moment de la bascule (petits coef en plein milieu de journée). Les épaves notables du coin ont toutes été plongées au moins une fois, y compris le Drummond, l'Européan et le Nelson. Et une nouvelle épave a été faite sous la vigie du Stiff : le Yembo, jolie épave très cassée dans le fond d'un canyon, entre -25 et -45.
+
+Sur le plan pratique, le point du Taboga a été corrigé après plusieurs plongées sable/roche. Au final, le bon point, près des chaudières, était celui du bouquin de Job. Même manip sur l'European : On a repris le bon point au niveau des chaudières : ça devrait rouler sans problème pour la prochaine fois. Pour le Yembo, le premier des 2 points tombe pile sur l'avant de l'épave, dans la zone des 40 mètres. Toujours sur les aspects pratiques, il n'y a presque pas de courant sur l'Eildon, le Yembo (y compris près de 2h après la PM) et l'European (en mortes eaux !). Impossible en revanche de plonger à marée haute sur le Nelson : viser une heure avant et maximum une heure après la BM. 
+
+Enfin, au départ de Lanildut, le Taboga, le Lake Borgne, Le Saracen et le Columbian sont à moins de 6 miles. L'Eildon est à environ 7 miles, Le Nelson et le Yembo sont à environ 10 miles, le Drummond à 12 et l'European à 15 miles.
+
+## Quelques graphiques
+
+```{r}
+#| echo: false
+#| label: fig-plong
+#| fig-cap: "Plongeurs à bord du Valiant lors de chaque plongée"
+#| fig-asp: 0.4
+
+pl1
+```
+
+```{r}
+#| echo: false
+#| label: fig-dep
+#| fig-cap: "Proportion des dépenses par poste, pour la plongée et le reste"
+
+pl2
+```
+
+```{r}
+#| echo: false
+#| label: fig-all
+#| fig-cap: "Proportion des dépenses de la sortie, tous postes confondus"
+#| fig-asp: 0.3
+
+pl3
+```
+

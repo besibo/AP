@@ -21,11 +21,12 @@ website:
             contents:
             - Cavalaire2025.qmd
             - Lanildut2025.qmd
+            - LaLonde2025.qmd
           - section: "2024"
             contents:
-            - Marseille2024.qmd
-            - Camaret2024.qmd
             - Cavalaire2024.qmd
+            - Camaret2024.qmd
+            - Marseille2024.qmd
           - section: "2023"
             contents:
             - Cavalaire2023.qmd
