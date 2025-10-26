@@ -71,11 +71,11 @@ autres <- tribble(
  ~Qui,  ~Logement, ~Nourriture, ~Carburant, ~Peages, ~Navette, ~Divers,
   "bap",   40, 0, 0, 0, 0, 0,
   "beu",    0, 154.20+5.99, 0, 18.5+22.2, 0, 0,
-  "cal",   90, 0, 81.62+114.03, 24.6+5.5+5.8+52.10+4.1+7.4+4.4, 0, 0,
+  "cal",   90, 0, 81.62+114.03, 24.6+5.5+5.8+52.10+4.1+7.4+4.4+24.8+53+6.4+3.3+4.1+4.4, 0, 0,
   "car",   90+213, 18.49+16.48, 148.06, 3.7+34.8+2.6+1.4+5+1.4, 0, 0,
   "gro",  450, 404.21+64.55+7.01+20, 12.25, 0, 0, 0,
   "ped",   90, 46.5+6, 99.52+96.4, 0, 0, 0,
-  "tho",   90, 0, 0, 0, 0, 0,
+  "tho",   90, 119.99, 442.59, 88.20, 0, 0,
   "ginou",  0, 0, 0, 0, 0, 0,
   "marc",   0, 59.23, 100, 72.4, 0, 0) 
 ```
@@ -237,20 +237,20 @@ La majoration de `r overhead`€ de chaque plongée ainsi que les plongées des 
 
 Pour finir, nous avons parcouru `r dist` milles nautiques. Ça veut dire que nous consommons en moyenne `r round(conso.fuel/dist, 2)` litres par mille, soit `r round(conso.fuel/dist/1.852, 2)` litres au kilomètre, soit la bagatelle de `r 100 * round(conso.fuel/dist/1.852, 2)` litres au 100 kilomètres. La plongée est un sport écologique !
 
-Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir et Thomas en a sorti environ 30, soit `r vol.fuel-conso.fuel - 30` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 30) * 100 / (vol.fuel), 2)`%.
+Le moteur a tourné `r end.hours-start.hours` heures et `r vol.fuel` litres de sans plomb ont été mis dans le réservoir. D'après la console, `r conso.fuel` litres ont été consommés soit une consommation moyenne de `r round(conso.fuel/(end.hours-start.hours),2)` litres à l'heure. Il devrait donc rester environ `r vol.fuel-conso.fuel` litres dans le réservoir avant la révision et la mise en hivernage 
 
-Les boudins ont enfin été nettoyés : merci Mistral Plaisance !
+<!-- et Thomas en a sorti environ 30, soit `r vol.fuel-conso.fuel - 30` litres de moins que prévu. Cela représente une erreur d'estimation de consommation de `r round((vol.fuel - conso.fuel - 30) * 100 / (vol.fuel), 2)`%. -->
 
 
 ## Pour mémoire
 
-Location au milieu des champs, comme en 2014, 2017 et 2023. Toujours 4 places en bas (1 lit double et 2 lits simples, dans 2 chambres), et 5 places en haut (un lit double dans une chambre, 3 lits simples dans l'autre), et il y a de la place pour 2 ou 3 matelas si besoin. La maison est un peu vieillotte, mais absolument parfaite pour nous (literie un peu molle quand même !). On peut gonfler dans le jardin, il y a de la place pour la remorque bateau et tous les véhicules, et le garage/grange est parfait pour stocker le matos. Un WC en haut et un en bas, une seule douche. Tarif imbattable. Pas de mouches cette année car il y avait du maïs dans le champ, mais les génisses reviendront prochainement...
+Comme en 2022 et 2023, location exceptionnellement bien située, au 279 quai Jean Lamoudru à La Londe les Maures. On ouvre le portail, on traverse la route, et on est au bateau ! De la place dans le jardin pour stocker la remorque compresseur, qui est restée sans ridelles ni bâche tous les jours de beau temps. Ducato garé le long du quai, on ne démarre que pour aller gonfler, et aps bien loin (près du parking remorques, à 200 mètres). Un grand préau pour stocker le matos de plongée et s'équiper au sec, et un petit débarras parfait pour le compresseur électrique. Le soir, on rince directement devant le portail. EN dehors des moustique, particulièrement nombreux et agressifs, on ne peut pas faire beaucoup mieux pour la plongée. Maison également très agréable : 2 chambres avec lit double (avec possibilité de poser un matelas dans la plus grande), une chambre avec un lit double et 2 lits superposés. Deux salles de bain et 3 WC. Il y a largement de quoi venir à 10 ou 12. Grande pièce de vie avec clic-clac, terrasses... Trop bien !
 
-Première plongée le mercredi après-midi car la flotte du tour du Finistère à la voile monopolisait le port dès le mardi midi. En dehors, de ça, aucune plongée annulée : 2 plongées par jour, tous les jours, sauf sur 2 jours au moment de la bascule (petits coef en plein milieu de journée). Les épaves notables du coin ont toutes été plongées au moins une fois, y compris le Drummond, l'Européan et le Nelson. Et une nouvelle épave a été faite sous la vigie du Stiff : le Yembo, jolie épave très cassée dans le fond d'un canyon, entre -25 et -45.
+Un peu galère côté capitainerie cette année : si on ne sort pas le bateau de l'eau avant 11h le matin, la journée est due. Et un peu pénible aussi concernant le respect de la place attribuée alors que le port était à moitié vide.
 
-Sur le plan pratique, le point du Taboga a été corrigé après plusieurs plongées sable/roche. Au final, le bon point, près des chaudières, était celui du bouquin de Job. Même manip sur l'European : On a repris le bon point au niveau des chaudières : ça devrait rouler sans problème pour la prochaine fois. Pour le Yembo, le premier des 2 points tombe pile sur l'avant de l'épave, dans la zone des 40 mètres. Toujours sur les aspects pratiques, il n'y a presque pas de courant sur l'Eildon, le Yembo (y compris près de 2h après la PM) et l'European (en mortes eaux !). Impossible en revanche de plonger à marée haute sur le Nelson : viser une heure avant et maximum une heure après la BM. 
+Côté plongée, fabuleux quand on a pu sortir. Eau chaude (20-21 ºC, mais thermocline sévère vers 50 mètre), grosse visi, et énormément de faune. Pas de plongée le lundi en raison d'un coup de vent annoncé et qui a tardé à venir (on aurait pu sortir le matin). Pas de plongée non plus le jeudi après-midi car le gros coup de vent annoncé était bien au rendez-vous (force 6-8 à La Londe, 9 au large). Avec un départ du port à 7h30, dans la nuit, on a pu rentrer pour 11h00. Même pour des journées sans vent, ça pourrait être une bonne habitude à prendre pour finir la journée plus tôt (et pour éviter les moustiques !). Vendredi, pas de plongée non plus : révision du moteur oblige. Les 4 plongeurs recycleur trimix on pu faire le Torpilleur (nouvel echec sur le Sally of New York, et on est tombé à côté du Heinkel 111 sans faire exprès !). Les autres ont fait le Grec ce jour là. À noter aussi la prise de tête sur les sorties de l'eau sans parachute sur le Donator et le Grec. Thomas a failli en venir aux mains avec un local con comme une bi.. !
 
-Enfin, au départ de Lanildut, le Taboga, le Lake Borgne, Le Saracen et le Columbian sont à moins de 6 miles. L'Eildon est à environ 7 miles, Le Nelson et le Yembo sont à environ 10 miles, le Drummond à 12 et l'European à 15 miles.
+Pour le reste, gros gavage. Super plongée, super ambiance, super rencontre avec Marc et Ginou. Pas de problème de Ducato, pas de problème de bateau, pas de problème en plongée. Vivement le mois d'Avril qu'on recommence, et avec Nath !
 
 ## Quelques graphiques
 
