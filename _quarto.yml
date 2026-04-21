@@ -17,6 +17,9 @@ website:
     contents: 
       - section: "Sorties"
         contents: 
+          - section: "2026"
+            contents:
+            - Marseille2026.qmd
           - section: "2025"
             contents:
             - Cavalaire2025.qmd
