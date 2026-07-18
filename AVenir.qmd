@@ -54,4 +54,5 @@ Par ailleurs, Thomas tente de contacter le propriétaire de la maison de Lanvéo
 **Horaires des marées à Brest**
 
 ![](img/Coef2026.png){width=75%} 
+![](img/Brest2026.png){width=35%} 
 
