@@ -32,7 +32,7 @@ options(knitr.kable.NA = '')
 
 ## Dive sites
 sites <- c(
-  "Kleber", "Kleber", # Dimanche
+  "Kleber", "Swansea Vale", # Dimanche
   NA, NA, # Lundi
   NA, NA, # Mardi
   NA, NA, # Mercredi
@@ -43,7 +43,7 @@ sites <- c(
 plongees <- tibble(
   #			           Bap, Beu, Cal, Car, Ped, Tho, Yan
   `Plongée 01` = c(1, 1, 1, 1, 1, 1, 1),
-  `Plongée 02` = c(1, 1, 1, 1, 1, 1, 1),
+  `Plongée 02` = c(1, 0, 1, 0, 1, 0, 1),
   `Plongée 03` = c(0, 0, 0, 0, 0, 0, 0),
   `Plongée 04` = c(0, 0, 0, 0, 0, 0, 0),
   `Plongée 05` = c(0, 0, 0, 0, 0, 0, 0),
@@ -59,24 +59,24 @@ plongees <- tibble(
 ## Who spent what (only for dives and only for members!)
 depenses <- tribble(
   ~Qui  , ~`Essence bateau` , ~`Essence compresseurs` , ~Port , ~Gaz , ~Divers ,
-  "bap" ,                 1 ,                       0 ,     0 ,    0 ,       0 ,
-  "beu" ,                 0 ,                       1 ,     0 ,    0 ,       0 ,
-  "cal" ,                 0 ,                       0 ,     1 ,    0 ,       0 ,
-  "car" ,                 0 ,                       0 ,     0 ,    1 ,       0 ,
-  "ped" ,                 0 ,                       0 ,     0 ,    0 ,       1 ,
-  "tho" ,                 0 ,                       0 ,     0 ,    0 ,       0
+  "bap" ,                 0 ,                       0 , 163.2 ,    0 ,       0 ,
+  "beu" ,                 0 ,                       0 ,   0   ,    0 ,       0 ,
+  "cal" , 128 * 2           ,                       0 ,   0   ,    0 ,       0 ,
+  "car" ,               128 ,                       0 ,   0   ,    0 ,       0 ,
+  "ped" ,                 0 ,                       0 ,   0   ,  111 ,       0 ,
+  "tho" ,                 0 ,                       0 ,   0   ,    0 ,       0
 )
 
 ## Who spent what (one line per diver, members or not, for everything not dive-related)
 autres <- tribble(
   ~Qui  , ~Logement , ~Nourriture , ~Carburant , ~Peages , ~Navette , ~Autre ,
-  "bap" , 200       ,   0         ,          0 ,       0 ,        0 ,      0 ,
-  "beu" , 440.80    , 148.75      ,          0 ,       0 ,        0 ,      0 ,
-  "cal" , 200       ,   0         ,          0 ,       0 ,        0 ,      0 ,
-  "car" , 200       ,   0         ,          0 ,       0 ,        0 ,      0 ,
-  "ped" , 400       ,   0         ,          0 ,       0 ,        0 ,      0 ,
-  "tho" , 200       ,   0         ,          0 ,       0 ,        0 ,      0 ,
-  "yan" ,   0       ,   0         ,          0 ,       0 ,        0 ,      0
+  "bap" , 200       ,   0         , 131.98     ,       0 ,        0 ,      0 ,
+  "beu" , 440.80    , 148.75      ,  14.80     ,       0 ,        0 ,      0 ,
+  "cal" , 200       ,   0         , 108        ,       0 ,        0 ,      0 ,
+  "car" , 200       , 241.86      ,   0        ,       0 ,        0 ,      0 ,
+  "ped" , 400       ,   0         ,   0        ,       0 ,        0 ,      0 ,
+  "tho" , 200       ,   0         , 200.94     ,       0 ,        0 ,      0 ,
+  "yan" ,   0       ,   0         ,   0        ,       0 ,        0 ,      0
 )
 ```
 
@@ -256,9 +256,13 @@ Pour finir, nous avons parcouru `r dist` milles nautiques. Ça veut dire que nou
 
 ## Pour mémoire
 
-Nous avons logé à l'Estaque. Toujours aussi pratique, accueil toujours aussi chaleureux de la part de René, qui sait maintenant que 4 ou 5 d'entre nous plongeons en recycleur 😅 Les Santi sont définitivement adoptées et la BZ200 transforme l'eau à 15ºC en eau à 21ºC. Calude continue de découvrir les joies du CCR, et comme Pierre, il oublie parfois de fermer sa combi. Belle ou très belle visi la plupart du temps, peu de poissons par rapport à la Toussaint, mais quand même de bien belles choses (poisson lune, saint pierre, dentis, daurades, mérous, murènes, langoustes, etc.)
+Comme il y a deux ans, nous étions au [29 Rue du Vallon à Crozon](https://sp.booking.com/hotel/fr/ker-seasea-vue-mer-wifi.fr.html?aid=882988&label=adtechclicktripz-link-dcomparetofr-city-M1416272_pub-3127_campaign-4601_xqdz-7b5d51b969d7f7c70c6f8013c2940ff2_los-01_bw-007_lang-fr_curr-EUR_nrm-01_gstadt-02_gstkid-00_clkid-28cdeb005ec4ad5036e94e2e2fb2f2da&sid=81576bb4ed2502ce40882105f4059b69&checkin=2024-07-13;checkout=2024-07-20;dest_id=-1423109;dest_type=city;dist=0;group_adults=10;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=10;req_children=0;room1=A%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA;sb_price_type=total;soh=1;sr_order=popularity;srepoch=1712522013;srpvid=60dc908b0f520501;type=total;ucfs=1&#no_availability_msg). 
 
-Au final, excellente semaine. Très froid et venteux les lundis et mardis, mais très beau, chaud et calme ensuite. La semaine ayant commencé un jour plus tard que d'habitude, ça laisse une impression de trop peu. Jérôme, Laurence et Monique ont en plus dû faire la route dès le vendredi après la plongée pour que Jérôme puisse embaucher à l'aube samedi matin 😩. On va donc devoir revenir !...
+La maison est toujours aussi agréable, mais sur 4 niveaux en comptant le garage. Le garage est d'ailleurs très pratique pour le matos et le bricolage, et le jardin permet de stocker du matos et de faire sécher tout ce qui doit sécher quand il y a du soleil.
+
+## Journal de bord
+
+**Dimanche 19 juillet**. Nous avons attaqué la semaine par le Kléber, le classique de Camaret. C'est toujours aussi gros, mais ça s'affaisse gentiment. Et c'était très sombre, en raison d'un gros tapis d'algues brunes sur toute une partie de l'épave. Les homards et langoustes sont nombreux, mais personne n'était très enthousiaste en raison de l'ambiance générale que nous avons connu bien plus belle sur cette épave. Baptiste, qui était de sécu surface avec Calude a gagné le concours de bulles : après immersion, il a dû remonter sur le bateau pour régler un problème de fuite sur son détendeur oxy. Il a aussi des microbulles partout (détendeurs, manos, injecteurs...) : grosse commande de swivels en perspective. Les nettoyages au vinaigre blanc de l'hiver ont été très efficaces ! En remettant son recycleur sur le dos, il s'est à moitié arraché l'épaule gauche : petite pensée pour Nath en ce jour d'anniversaire ! Il a finalement pu se remettre à l'eau. Calude a poireauté 15 minutes en surface en claquant des dents. Il était bleu en sortant de l'eau une heure plus tard. On avait prévu la glacière et un deuxième bi pour Carole, ce qui nous a évité de rentrer au port à midi. Et c'est tant mieux car Calude et Baptiste sont sortis de l'eau à 12h30. Nous avons donc mangé au soleil, en remplissant tranquillement nos combis étanches de transpiration. Environ une heure avant l'étale, Carole, Thomas et moi avons basculé pour assurer le mouillage sur le Kenil Worth. Très vite à la descente, nous nous sommes rendus compte que le courant allait être très fort. Carole est rapidement remontée, mais le plomb, coincé à 40m, nous a obligés à descendre. La lutte fut âpre, mais nous y sommes parvenus à la force des bras au bout de plus de 10 minutes de descente. Arrivé au fond, l'ambiance de sable blanc et les langoustes faisaient envie, mais comme nous sommes très raisonnables, on a simplement renvoyé le plomb avant de remonter. Sur la bateau, on a enfin sorti la carte SHOM (bonne idée de faire ça après coup...) pour constater que dans le coin, il est difficile (impossible ?) de plonger à l'étale de basse mer en période de vives eaux (or, nous sommes encore en vives eaux jusqu'à demain). Pour nos 4 compères, nous nous sommes donc rabattus sur le Swansea, en prenant soin de prévenir "Brest approche" à la VHF (canal 16, puis bascule sur canal 8, 2 fois 4). Le Swansea relevant du secteur "Saint Matthieu", on a contacté Saint Matthieu sur le canal 10, unité zéro. Moralité : ne pas s'emmerder à contacter qui que ce soit quand on plonge sur le Swansea : tout le monde s'en fout. La plongée était belle, mais avec pas mal de jus au fond également. Même l'arrière de l'épave est écrasé, mais il y a de la vie. De retour au port, sur le parking en épis, un bon coup de vent a fermement ouvert la porte arrière droite du Ducato, qui est venue s'encastrer délicatement dans l'aile arrière gauche d'un gros SUV VW, garé un peu trop près. En avant pour le constat, car ça s'est presque fait sous les yeux des propriétaires. Retour à la location à 19h00 : gonflage, séchage, bricolage, douches... On attaque l'apéro à 21h45, en appelant Nath... Pour ma part, je suis cramoisi !
 
 
 ## Quelques graphiques
